@@ -1,0 +1,6 @@
+[submodule "RL-implementations"]
+	path = RL-implementations
+	url = https://github.com/schott97l/RL-implementations
+[submodule "RL-evaluation-environment"]
+	path = RL-evaluation-environment
+	url = https://github.com/hroussille/RL-evaluation-environment
