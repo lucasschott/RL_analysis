@@ -4,7 +4,7 @@
 
 ```sh
 git clone https://github.com/schott97l/RL_analysis.git
-git submodule update --init
+cd RL_analysis && git submodule update --init
 cd RL-evaluation-environment/gym-multi-dimensional && pip install -e .
 ```
 
