@@ -1,10 +1,10 @@
-import learn_policy
 import argparse
 import gym
 
-from implementations.algorithms import TD3
-from implementations.algorithms import DDPG
-from implementations.utils import replay_buffer
+from RL_implementations.implementations.algorithms import TD3
+from RL_implementations.implementations.algorithms import DDPG
+from RL_implementations.implementations.utils import replay_buffer
+from RL_implementations import learn_policy
 
 import gym_multi_dimensional
 from gym_multi_dimensional.visualization import vis_2d
