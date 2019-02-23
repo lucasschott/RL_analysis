@@ -94,7 +94,7 @@ if __name__ == "__main__":
     save_arguments(vars(args), args.output)
 
     environment = gym_multi_dimensional.dynamic_register(n_dimensions=args.dimensions,
-            env_description={},continuous=args.continuous,acceleration=args.acceleration)
+                continuous=args.continuous,acceleration=args.acceleration)
 
     replay_buffer, q_values = learn_policy.learn_policy(policy_name=args.policy_name,
             policy_directory=models_path,
@@ -127,6 +127,9 @@ if __name__ == "__main__":
     max_action = float(env.action_space.high[0])
 
     env.close()
+
+    if args.dimensions != 2:
+        exit()
 
     if args.policy_name == "TD3":
         policy = TD3.TD3(state_dim,action_dim,max_action)
