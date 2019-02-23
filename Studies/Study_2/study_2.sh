@@ -1,20 +1,22 @@
 #!/bin/sh
 
-## Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
+## Performance en fonction de la taille du buffer
 
 POLICY_NAME="DDPG"
 
-EXPLORATION_TIMESTEPS=1000
+EXPLORATION_TIMESTEPS=4000
 
 LEARN_TIMESTEPS=1000
 
-BUFFER_SIZE=1000
+MIN_BUFFER=200
+
+BUFFER_INCREASE_STEP=200
+
+MAX_BUFFER=2000
 
 EVAL_FREQ=500
 
-MIN_DIMENSION=1
-
-MAX_DIMENSION=10
+DIMENSION=2
 
 ROOT_DIR="$(pwd)/"
 
@@ -22,15 +24,12 @@ RESULT_DIR="results/"
 
 MODE="velocity"
 
-TITLE="Performance d apprentissage en fonction du nombre de dimensions (moitié high et low reward)"
+TITLE="Performance d apprentissage en fonction de la taille du replay buffer"
 
-X_LABEL="Nombre de dimensions"
+X_LABEL="Taille du replay buffer"
 
 Y_LABEL="Reward moyen par step"
 
-HIGH_REWARD_COUNT="half"
-
-LOW_REWARD_COUNT="half"
 
 run_training()
 {
@@ -40,25 +39,24 @@ run_training()
     --policy_name=$POLICY_NAME\
     --exploration_timesteps=$EXPLORATION_TIMESTEPS\
     --learn_timesteps=$LEARN_TIMESTEPS\
-    --buffer_size=$BUFFER_SIZE\
+    --buffer_size=$1\
     --eval_freq=$EVAL_FREQ\
-    --dimensions=$1\
+    --dimensions=$DIMENSION\
     --${MODE}\
     --save\
     --no-render\
-    --high_reward_count=$HIGH_REWARD_COUNT\
-    --low_reward_count=$LOW_REWARD_COUNT\
+    --no-new-exp\
     --output=${OUTPUT_DIR}"
 
   eval ${COMMAND}
 }
 
 
-for i in $(seq $MIN_DIMENSION $MAX_DIMENSION)
-  do
+for i in $(seq $MIN_BUFFER $BUFFER_INCREASE_STEP $MAX_BUFFER)
+do
     echo "Training $i"
     run_training $i
-  done
+done
 
 
 COMMAND2="python ../plot_evaluations.py\

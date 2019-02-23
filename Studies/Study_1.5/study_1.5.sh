@@ -1,6 +1,6 @@
 #!/bin/sh
 
-## Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
+## performance en fonction du nombre de dimensions avec une unique high et low reward
 
 POLICY_NAME="DDPG"
 
@@ -22,15 +22,15 @@ RESULT_DIR="results/"
 
 MODE="velocity"
 
-TITLE="Performance d apprentissage en fonction du nombre de dimensions (moitié high et low reward)"
+TITLE="Performance d apprentissage en fonction du nombre de dimensions (une unique high et low reward)"
 
 X_LABEL="Nombre de dimensions"
 
 Y_LABEL="Reward moyen par step"
 
-HIGH_REWARD_COUNT="half"
+HIGH_REWARD_COUNT="one"
 
-LOW_REWARD_COUNT="half"
+LOW_REWARD_COUNT="one"
 
 run_training()
 {
