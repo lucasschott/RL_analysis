@@ -18,19 +18,34 @@ if __name__ == "__main__":
     parser.add_argument("--max_episodes", default=50, type=int)
     parser.add_argument("--buffer_size", default=5000, type=int)
     parser.add_argument('--quiet', dest='verbose', action='store_false')
-    parser.set_defaults(verbose=True)
     parser.add_argument('--velocity', dest='acceleration', action='store_false')
     parser.add_argument('--acceleration', dest='acceleration', action='store_true')
-    parser.set_defaults(acceleration=False)
     parser.add_argument('--discrete', dest='continuous', action='store_false')
     parser.add_argument('--continuous', dest='continuous', action='store_true')
-    parser.set_defaults(continuous=True)
     parser.add_argument('--no-render', dest='render', action='store_false')
+    parser.add_argument("--high_reward_value", default=1, type=float)
+    parser.add_argument("--low_reward_value", default=0.1, type=float)
+    parser.add_argument("--high_reward_count", default='half')
+    parser.add_argument("--low_reward_count", default='half')
+    parser.add_argument("--mode", default='deterministic')
+
+    parser.set_defaults(verbose=True)
+    parser.set_defaults(acceleration=False)
+    parser.set_defaults(continuous=True)
     parser.set_defaults(render=True)
 
     args = parser.parse_args()
+    
+    description = {
+            'high_reward_value': args.high_reward_value,
+            'low_reward_value': args.low_reward_value,
+            'high_reward_count': args.high_reward_count,
+            'low_reward_count': args.low_reward_count,
+            'mode': args.mode
+            }
 
-    environment = gym_multi_dimensional.dynamic_register(n_dimensions=args.dimensions,
+    environment = gym_multi_dimensional.dynamic_register(
+            n_dimensions=args.dimensions,env_description=description,
             continuous=args.continuous,acceleration=args.acceleration)
 
     replay_buffer = run_policy.run_policy(policy_name=args.policy_name,
