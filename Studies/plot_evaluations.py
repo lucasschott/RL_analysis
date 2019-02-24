@@ -45,4 +45,5 @@ if __name__ == "__main__":
     plt.title(args.title)
     plt.xlabel(args.x_label)
     plt.ylabel(args.y_label)
+    plt.savefig("{}total_scores.png".format(args.directory))
     plt.show()
