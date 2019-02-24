@@ -1,10 +1,10 @@
-import run_policy
+from  RL_implementations import run_policy
 import argparse
 import gym
 
-from implementations.algorithms import TD3
-from implementations.algorithms import DDPG
-from implementations.utils import replay_buffer
+from RL_implementations.implementations.algorithms import TD3
+from RL_implementations.implementations.algorithms import DDPG
+from RL_implementations.implementations.utils import replay_buffer
 
 import gym_multi_dimensional
 from gym_multi_dimensional.visualization import vis_2d
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     environment = gym_multi_dimensional.dynamic_register(n_dimensions=args.dimensions,
-            env_description={},continuous=args.continuous,acceleration=args.acceleration)
+            continuous=args.continuous,acceleration=args.acceleration)
 
     replay_buffer = run_policy.run_policy(policy_name=args.policy_name,
             policy_directory=args.policy_directory,
@@ -40,5 +40,3 @@ if __name__ == "__main__":
             buffer_size=args.buffer_size,
             render=args.render,
             verbose=args.verbose)
-
-    #vis_2d.visualize_RB(replay_buffer)
