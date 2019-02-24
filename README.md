@@ -22,11 +22,11 @@ python run_multidimensional.py
 
 To learn a DDPG policy on the 2D environment with half high and low reward, and save the model and the results:
 ```sh
-python learn_multidimensional.py --policy_name DDPG --output results2 --save --high_reward_count half --low_reward_count half
+python learn_multidimensional.py --policy_name DDPG --output results1 --save --high_reward_count half --low_reward_count half
 ```
 To run the policy that has been learned :
 ```sh
-python run_multidimensional.py --policy_name DDPG --policy_directory results2/models --high_reward_count half --low_reward_count half
+python run_multidimensional.py --policy_name DDPG --policy_directory results1/models --high_reward_count half --low_reward_count half
 ```
 
 To learn and run a DDPG policy on the 2D environment with one high and one low reward, and save the model and the results:
