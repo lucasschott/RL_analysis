@@ -43,7 +43,6 @@ def save_arguments(args, path):
 
 
 def learn(policy_name="DDPG",
-            policy_directory='policies',
             seed=0,
             dimensions=2,
             eval_freq=5e3,
@@ -151,7 +150,6 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--policy_name",default="DDPG")
-    parser.add_argument("--policy_directory", default="policies")
     parser.add_argument("--seed", default=np.random.randint(10000), type=int)              #seed
     parser.add_argument("--dimensions", default=2, type=int)
     parser.add_argument("--eval_freq", default=5e3, type=float)     #how often (time steps) we evaluate
@@ -195,7 +193,6 @@ if __name__ == "__main__":
     save_arguments(vars(args), args.output)
 
     learn(policy_name=args.policy_name,
-            policy_directory=args.policy_directory,
             seed=args.seed,
             dimensions=args.dimensions,
             eval_freq=args.eval_freq,
