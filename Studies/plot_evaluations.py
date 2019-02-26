@@ -10,6 +10,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--directory",default="results/")
     parser.add_argument("--policy_name",default="DDPG")
+    parser.add_argument("--average_nb",default=1,type=int)
     parser.add_argument("--title",default="")
     parser.add_argument("--x_label",default="")
     parser.add_argument("--y_label",default="")
@@ -18,17 +19,41 @@ if __name__ == "__main__":
 
     xs = []
     ys = []
+    evaluations = np.zeros((1,args.average_nb))
     
     for result in os.listdir(args.directory):
 
         evaluation = np.load("{}{}/evaluations/{}_MultiDimensional-v0.npy".format(
             args.directory,result,args.policy_name))
 
-        x = re.search(r'^.*n([0-9]*)$',result)
-        
-        xs.append(x.group(1))
-        ys.append(evaluation[-1])
+        regex = re.search(r'^.*n([0-9]*)_([0-9]*)$',result)
 
+        if not int(regex.group(1)) in xs:
+            xs.append(int(regex.group(1)))
+            eval_vect = np.zeros((1,args.average_nb))
+            eval_vect[0,int(regex.group(2))] = evaluation[-1]
+            evaluations = np.r_[evaluations,eval_vect]
+        else:
+            idx = xs.index(int(regex.group(1)))
+            evaluations[idx,int(regex.group(2))]=evaluation[-1]
+
+    evaluations = evaluations[1:,:]
+    
+    print("averages")
+    for i in range(evaluations.shape[0]):
+        average=0
+        for j in range(evaluations.shape[1]):
+            average += evaluations[i,j]
+        average /= args.average_nb
+        print(average)
+        ys.append(average)
+
+    print()
+    print("xs)")
+    print(xs)
+    print()
+    print("ys")
+    print(ys)
     xs = list(map(int,xs))
     ys = list(map(float,ys))
     data = np.array([xs,ys]).transpose()

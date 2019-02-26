@@ -2,6 +2,10 @@
 
 ## performance en fonction du nombre de dimensions avec une unique high et low reward
 
+PARALLEL_MAX=1
+
+AVERAGE_NB=1
+
 POLICY_NAME="DDPG"
 
 EXPLORATION_TIMESTEPS=1000
@@ -55,15 +59,27 @@ run_training()
 
 
 for i in $(seq $MIN_DIMENSION $MAX_DIMENSION)
-  do
-    echo "Training $i"
-    run_training $i
-  done
+do
+    for j in $(seq 0 $(($AVERAGE_NB-1)))
+    do
+        PARALLEL=$(($PARALLEL+1))
+        if [ $PARALLEL -ge $PARALLEL_MAX ]
+        then
+            echo "Training $i $j"
+            run_training $i $j
+            PARALLEL=0
+        else
+            echo "Training $i $j"
+            run_training $i $j &
+        fi
+    done
+done
 
 
 COMMAND2="python ../plot_evaluations.py\
     --directory=$RESULT_DIR\
     --policy_name=$POLICY_NAME\
+    --average_nb=$AVERAGE_NB\
     --title='$TITLE'\
     --x_label='$X_LABEL'\
     --y_label='$Y_LABEL'"

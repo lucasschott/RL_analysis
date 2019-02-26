@@ -2,19 +2,23 @@
 
 ## Performance en fonction de la taille du buffer
 
+PARALLEL_MAX=1
+
+AVERAGE_NB=5
+
 POLICY_NAME="DDPG"
 
-EXPLORATION_TIMESTEPS=4000
+EXPLORATION_TIMESTEPS=500
 
-LEARN_TIMESTEPS=1000
+LEARN_TIMESTEPS=500
 
-MIN_BUFFER=200
+MIN_BUFFER=50
 
-BUFFER_INCREASE_STEP=200
+BUFFER_INCREASE_STEP=50
 
-MAX_BUFFER=2000
+MAX_BUFFER=100
 
-EVAL_FREQ=500
+EVAL_FREQ=100
 
 DIMENSION=2
 
@@ -33,7 +37,7 @@ Y_LABEL="Reward moyen par step"
 
 run_training()
 {
-  OUTPUT_DIR="${ROOT_DIR}${RESULT_DIR}${POLICY_NAME}_n$1"
+  OUTPUT_DIR="${ROOT_DIR}${RESULT_DIR}${POLICY_NAME}_n$1_$2"
 
   COMMAND="python ../../learn_multidimensional.py\
     --policy_name=$POLICY_NAME\
@@ -48,20 +52,34 @@ run_training()
     --no-new-exp\
     --output=${OUTPUT_DIR}"
 
-  eval ${COMMAND}
+  eval ${COMMAND} &
 }
 
 
+PARALLEL=0
+
 for i in $(seq $MIN_BUFFER $BUFFER_INCREASE_STEP $MAX_BUFFER)
 do
-    echo "Training $i"
-    run_training $i
+    for j in $(seq 0 $(($AVERAGE_NB-1)))
+    do
+        PARALLEL=$(($PARALLEL+1))
+        if [ $PARALLEL -ge $PARALLEL_MAX ]
+        then
+            echo "Training $i $j"
+            run_training $i $j
+            PARALLEL=0
+        else
+            echo "Training $i $j"
+            run_training $i $j &
+        fi
+    done
 done
 
 
 COMMAND2="python ../plot_evaluations.py\
     --directory=$RESULT_DIR\
     --policy_name=$POLICY_NAME\
+    --average_nb=$AVERAGE_NB\
     --title='$TITLE'\
     --x_label='$X_LABEL'\
     --y_label='$Y_LABEL'"
