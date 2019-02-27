@@ -27,33 +27,35 @@ if __name__ == "__main__":
             args.directory,result,args.policy_name))
 
         regex = re.search(r'^.*n([0-9]*)_([0-9]*)$',result)
+        print(result)
 
         if not int(regex.group(1)) in xs:
             xs.append(int(regex.group(1)))
+            print(len(xs)-1)
+            print(regex.group(2))
             eval_vect = np.zeros((1,args.average_nb))
             eval_vect[0,int(regex.group(2))] = evaluation[-1]
             evaluations = np.r_[evaluations,eval_vect]
+            print(evaluations)
         else:
             idx = xs.index(int(regex.group(1)))
-            evaluations[idx,int(regex.group(2))]=evaluation[-1]
+            print(idx)
+            print(regex.group(2))
+            evaluations[idx+1,int(regex.group(2))] = evaluation[-1]
+
+        print(evaluation[-1])
 
     evaluations = evaluations[1:,:]
     
-    print("averages")
     for i in range(evaluations.shape[0]):
         average=0
         for j in range(evaluations.shape[1]):
             average += evaluations[i,j]
         average /= args.average_nb
-        print(average)
         ys.append(average)
 
-    print()
-    print("xs)")
-    print(xs)
-    print()
-    print("ys")
-    print(ys)
+    print(evaluations)
+
     xs = list(map(int,xs))
     ys = list(map(float,ys))
     data = np.array([xs,ys]).transpose()
