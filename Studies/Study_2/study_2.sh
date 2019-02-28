@@ -4,7 +4,7 @@
 
 PARALLEL_MAX=1
 
-AVERAGE_NB=10
+MEAN_BATCH_SIZE=10
 
 POLICY_NAME="DDPG"
 
@@ -42,7 +42,7 @@ run_training()
   COMMAND="python ../../learn_multidimensional.py\
     --policy_name=$POLICY_NAME\
     --exploration_timesteps=$EXPLORATION_TIMESTEPS\
-    --learn_timesteps=$LEARN_TIMESTEPS\
+    --learning_timesteps=$LEARN_TIMESTEPS\
     --buffer_size=$1\
     --eval_freq=$EVAL_FREQ\
     --dimensions=$DIMENSION\
@@ -60,7 +60,7 @@ PARALLEL=0
 
 for i in $(seq $MIN_BUFFER $BUFFER_INCREASE_STEP $MAX_BUFFER)
 do
-    for j in $(seq 0 $(($AVERAGE_NB-1)))
+    for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
         PARALLEL=$(($PARALLEL+1))
         if [ $PARALLEL -ge $PARALLEL_MAX ]
@@ -79,7 +79,7 @@ done
 COMMAND2="python ../plot_evaluations.py\
     --directory=$RESULT_DIR\
     --policy_name=$POLICY_NAME\
-    --average_nb=$AVERAGE_NB\
+    --batch_size=$MEAN_BATCH_SIZE\
     --title='$TITLE'\
     --x_label='$X_LABEL'\
     --y_label='$Y_LABEL'"

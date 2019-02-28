@@ -10,7 +10,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--directory",default="results/")
     parser.add_argument("--policy_name",default="DDPG")
-    parser.add_argument("--average_nb",default=1,type=int)
+    parser.add_argument("--batch_size",default=1,type=int)
     parser.add_argument("--title",default="")
     parser.add_argument("--x_label",default="")
     parser.add_argument("--y_label",default="")
@@ -19,7 +19,7 @@ if __name__ == "__main__":
 
     xs = []
     ys = []
-    evaluations = np.zeros((1,args.average_nb))
+    evaluations = np.zeros((1,args.batch_size))
     
     for result in os.listdir(args.directory):
 
@@ -33,7 +33,7 @@ if __name__ == "__main__":
             xs.append(int(regex.group(1)))
             print(len(xs)-1)
             print(regex.group(2))
-            eval_vect = np.zeros((1,args.average_nb))
+            eval_vect = np.zeros((1,args.batch_size))
             eval_vect[0,int(regex.group(2))] = evaluation[-1]
             evaluations = np.r_[evaluations,eval_vect]
             print(evaluations)
@@ -51,7 +51,7 @@ if __name__ == "__main__":
         average=0
         for j in range(evaluations.shape[1]):
             average += evaluations[i,j]
-        average /= args.average_nb
+        average /= args.batch_size
         ys.append(average)
 
     print(evaluations)
