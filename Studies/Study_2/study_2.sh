@@ -2,7 +2,7 @@
 
 ## Performance en fonction de la taille du buffer
 
-PARALLEL_MAX=1
+PARALLEL_MAX=10
 
 MEAN_BATCH_SIZE=10
 
@@ -10,11 +10,11 @@ POLICY_NAME="DDPG"
 
 EXPLORATION_TIMESTEPS=1000
 
-LEARN_TIMESTEPS=20000
+LEARNING_TIMESTEPS=20000
 
-MIN_BUFFER=200
+MIN_BUFFER=1000
 
-BUFFER_INCREASE_STEP=200
+BUFFER_INCREASE_STEP=0
 
 MAX_BUFFER=1000
 
@@ -42,7 +42,7 @@ run_training()
   COMMAND="python ../../learn_multidimensional.py\
     --policy_name=$POLICY_NAME\
     --exploration_timesteps=$EXPLORATION_TIMESTEPS\
-    --learning_timesteps=$LEARN_TIMESTEPS\
+    --learning_timesteps=$LEARNING_TIMESTEPS\
     --buffer_size=$1\
     --eval_freq=$EVAL_FREQ\
     --dimensions=$DIMENSION\
