@@ -34,7 +34,8 @@ python run_multidimensional.py --policy_name DDPG --policy_directory results2/mo
 
 ## Studies
 
-### Study 1 : 
+### Study 1
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1MzEyMTY5NV19
+eyJoaXN0b3J5IjpbLTE1OTE4OTk5NzNdfQ==
 -->
