@@ -2,23 +2,25 @@
 
 ## Performance en fonction de la taille du buffer
 
-PARALLEL_MAX=10
+PARALLEL_MAX=8
 
-MEAN_BATCH_SIZE=10
+MEAN_BATCH_SIZE=4
 
 POLICY_NAME="DDPG"
 
-EXPLORATION_TIMESTEPS=1000
+EXPLORATION_TIMESTEPS=2000
 
-LEARNING_TIMESTEPS=20000
+LEARNING_TIMESTEPS=40000
 
-MIN_BUFFER=1000
+MIN_BUFFER=400
 
-BUFFER_INCREASE_STEP=0
+BUFFER_INCREASE_STEP=400
 
-MAX_BUFFER=1000
+MAX_BUFFER=2000
 
 EVAL_FREQ=1000
+
+TAU=0.0005
 
 DIMENSION=2
 
@@ -45,6 +47,7 @@ run_training()
     --learning_timesteps=$LEARNING_TIMESTEPS\
     --buffer_size=$1\
     --eval_freq=$EVAL_FREQ\
+    --tau=$TAU\
     --dimensions=$DIMENSION\
     --${MODE}\
     --save\
@@ -52,7 +55,7 @@ run_training()
     --no-new-exp\
     --output=${OUTPUT_DIR}"
 
-  eval ${COMMAND} &
+  eval ${COMMAND}
 }
 
 
