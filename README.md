@@ -31,6 +31,10 @@ To learn and run a DDPG policy on the 2D environment with one high and one low r
 python learn_multidimensional.py --policy_name DDPG --output results2 --save --high_reward_count one --low_reward_count one
 python run_multidimensional.py --policy_name DDPG --policy_directory results2/models --high_reward_count one --low_reward_count one
 ```
+
+## Studies
+
+### Study 1 : 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDEyMjU0MDA5XX0=
+eyJoaXN0b3J5IjpbLTI1MzEyMTY5NV19
 -->
