@@ -7,6 +7,7 @@ import json
 from RL_implementations.implementations.algorithms import TD3
 from RL_implementations.implementations.algorithms import DDPG
 from RL_implementations.implementations.utils import replay_buffer
+from RL_implementations.implementations.utils import circle_filter
 
 import gym_multi_dimensional
 import numpy as np
@@ -90,6 +91,11 @@ def learn(policy_name="DDPG",
             'mode': mode
             }
 
+    """ Example filter """
+    #filter = circle_filter.CircleFilter([0, 0], 0.2)
+    """ Default filter """
+    filter = None
+
     environment = gym_multi_dimensional.dynamic_register(
             n_dimensions=dimensions,env_description=description,
             continuous=continuous,acceleration=acceleration)
@@ -112,7 +118,10 @@ def learn(policy_name="DDPG",
             tau=tau,
             policy_noise=policy_noise,
             noise_clip=noise_clip,
-            policy_freq=policy_freq)
+            policy_freq=policy_freq,
+            filter=filter)
+
+    vis_2d.visualize_RB(replay_buffer, args.acceleration)
 
     env = gym.make(environment)
 
@@ -186,7 +195,7 @@ if __name__ == "__main__":
     parser.set_defaults(save=False)
 
     args = parser.parse_args()
-    
+
     if setup_output_dir(args.output) is False:
         exit()
 
