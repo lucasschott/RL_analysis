@@ -38,8 +38,10 @@ python run_multidimensional.py --policy_name DDPG --policy_directory results2/mo
 Analyze the average reward per step for agents how learnt with the DDPG algorithm on the environments when the number of dimensions increases.
 
 #### Study 1.1
-On environments with half 
+On environments with half small rewards and half big rewards.
+
 #### Study 1.2
+On environments with half small rewards and only on big reward.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMTE5OTg1MTFdfQ==
+eyJoaXN0b3J5IjpbMjAxMTk3MjA0NF19
 -->
