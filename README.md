@@ -35,7 +35,8 @@ python run_multidimensional.py --policy_name DDPG --policy_directory results2/mo
 ## Studies
 
 ### Study 1
-
+Analyze DDPG 
+Analyze score per step 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1OTE4OTk5NzNdfQ==
+eyJoaXN0b3J5IjpbLTIzMjAzNDEyNV19
 -->
