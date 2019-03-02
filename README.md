@@ -39,9 +39,9 @@ Analyze the average reward per step for agents how learnt with the DDPG algorith
 
 #### Study 1.1
 On environments with half small rewards and half big rewards.
-
+![graphiqu](https://picasaweb.google.com/102127234699251028437/6663935022983859745#6663935024333315250)
 #### Study 1.2
 On environments with half small rewards and only on big reward.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAxMTk3MjA0NF19
+eyJoaXN0b3J5IjpbNjU0MzYxNTkxLDIwMTE5NzIwNDRdfQ==
 -->
