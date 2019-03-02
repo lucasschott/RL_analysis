@@ -31,3 +31,17 @@ To learn and run a DDPG policy on the 2D environment with one high and one low r
 python learn_multidimensional.py --policy_name DDPG --output results2 --save --high_reward_count one --low_reward_count one
 python run_multidimensional.py --policy_name DDPG --policy_directory results2/models --high_reward_count one --low_reward_count one
 ```
+
+## Studies
+
+### Study 1
+Analyze the average reward per step for agents how learnt with the DDPG algorithm on the environments when the number of dimensions increases.
+
+#### Study 1.1
+On environments with half small rewards and half big rewards.
+
+#### Study 1.2
+On environments with half small rewards and only on big reward.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMjAxMTk3MjA0NF19
+-->
