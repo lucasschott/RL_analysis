@@ -2,15 +2,15 @@
 
 ## performance en fonction du nombre de dimensions avec une unique high et low reward
 
-PARALLEL_MAX=1
+PARALLEL_MAX=8
 
-AVERAGE_NB=1
+MEAN_BATCH_SIZE=4
 
 POLICY_NAME="DDPG"
 
 EXPLORATION_TIMESTEPS=1000
 
-LEARN_TIMESTEPS=1000
+LEARNING_TIMESTEPS=1000
 
 BUFFER_SIZE=1000
 
@@ -19,6 +19,8 @@ EVAL_FREQ=500
 MIN_DIMENSION=1
 
 MAX_DIMENSION=10
+
+TAU=0.0005
 
 ROOT_DIR="$(pwd)/"
 
@@ -38,14 +40,15 @@ LOW_REWARD_COUNT="one"
 
 run_training()
 {
-  OUTPUT_DIR="${ROOT_DIR}${RESULT_DIR}${POLICY_NAME}_n$1"
+  OUTPUT_DIR="${ROOT_DIR}${RESULT_DIR}${POLICY_NAME}_n$1_$2"
 
   COMMAND="python ../../learn_multidimensional.py\
     --policy_name=$POLICY_NAME\
     --exploration_timesteps=$EXPLORATION_TIMESTEPS\
-    --learn_timesteps=$LEARN_TIMESTEPS\
+    --learning_timesteps=$LEARNING_TIMESTEPS\
     --buffer_size=$BUFFER_SIZE\
     --eval_freq=$EVAL_FREQ\
+    --tau=$TAU\
     --dimensions=$1\
     --${MODE}\
     --save\
@@ -58,9 +61,11 @@ run_training()
 }
 
 
+PARALLEL=0
+
 for i in $(seq $MIN_DIMENSION $MAX_DIMENSION)
 do
-    for j in $(seq 0 $(($AVERAGE_NB-1)))
+    for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
         PARALLEL=$(($PARALLEL+1))
         if [ $PARALLEL -ge $PARALLEL_MAX ]
@@ -79,7 +84,7 @@ done
 COMMAND2="python ../plot_evaluations.py\
     --directory=$RESULT_DIR\
     --policy_name=$POLICY_NAME\
-    --average_nb=$AVERAGE_NB\
+    --batch_size=$MEAN_BATCH_SIZE\
     --title='$TITLE'\
     --x_label='$X_LABEL'\
     --y_label='$Y_LABEL'"
