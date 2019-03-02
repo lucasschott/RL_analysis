@@ -35,7 +35,7 @@ python run_multidimensional.py --policy_name DDPG --policy_directory results2/mo
 ## Studies
 
 ### Study 1
-Analyze reward gained per step for agents how learnd 
+Analyze the average reward per step for agents how learnt with DDPG algorithm on the environments with different number 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMjUwOTUxNDRdfQ==
+eyJoaXN0b3J5IjpbMzcyNDk5NDM0XX0=
 -->
