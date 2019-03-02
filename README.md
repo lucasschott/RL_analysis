@@ -35,8 +35,7 @@ python run_multidimensional.py --policy_name DDPG --policy_directory results2/mo
 ## Studies
 
 ### Study 1
-Analyze DDPG 
-Analyze score per step 
+Analyze reward gained per step for agents how learnd 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzMjAzNDEyNV19
+eyJoaXN0b3J5IjpbLTExMjUwOTUxNDRdfQ==
 -->
