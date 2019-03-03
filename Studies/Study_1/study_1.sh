@@ -30,11 +30,11 @@ RESULT_DIR="results/"
 
 MODE="velocity"
 
-TITLE="Performance d apprentissage en fonction du nombre de dimensions (moitié high et low reward)"
+TITLE=""
 
-X_LABEL="Nombre de dimensions"
+X_LABEL="dimensions"
 
-Y_LABEL="Reward moyen par step"
+Y_LABEL="reward/step"
 
 HIGH_REWARD_COUNT="half"
 

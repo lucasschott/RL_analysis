@@ -2,7 +2,7 @@
 
 ## Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
 
-PARALLEL_MAX=8
+PARALLEL_MAX=2
 
 MEAN_BATCH_SIZE=4
 
@@ -10,7 +10,7 @@ POLICY_NAME="DDPG"
 
 EXPLORATION_TIMESTEPS=5000
 
-LEARNING_TIMESTEPS=20000
+LEARNING_TIMESTEPS=30000
 
 BUFFER_SIZE=5000
 
@@ -30,11 +30,11 @@ RESULT_DIR="results/"
 
 MODE="velocity"
 
-TITLE="Performance d apprentissage en fonction du nombre de dimensions (moitié high et low reward)"
+TITLE=""
 
-X_LABEL="Nombre de dimensions"
+X_LABEL="dimensions"
 
-Y_LABEL="Reward moyen par step"
+Y_LABEL="reward/step"
 
 HIGH_REWARD_COUNT="one"
 

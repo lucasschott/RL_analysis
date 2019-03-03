@@ -30,11 +30,11 @@ RESULT_DIR="results/"
 
 MODE="velocity"
 
-TITLE="Performance d apprentissage en fonction de la taille du replay buffer"
+TITLE=""
 
-X_LABEL="Taille du replay buffer"
+X_LABEL="replay buffer size"
 
-Y_LABEL="Reward moyen par step"
+Y_LABEL="reward/step"
 
 
 run_training()
