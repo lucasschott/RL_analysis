@@ -42,11 +42,13 @@ On environments with half small rewards and half big reward.![reward/step accord
 
 #### Study 1.2
 On environments with half small rewards and only one big reward.
+The details of the experiment are described in study_2.sh
 
 ## Study 2
 Analyze average reward per step gained by agents who learned with DDPG algorithm on the environments according to the replay buffer size.
+The details of the experiment are described in study_2.sh
 ![reward/step according to replay buffer size](https://lh3.googleusercontent.com/sm4Ng-SHe_RiyQZvN8TlS5EkxiwvlY2OqxLTQykvQ79OFHdaE3zyLw6sKTgSRJhIuvIoCm5klCQgPw )
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM5Njc2MjcxNywtMTM3MDc5NDM3MiwyMD
+eyJoaXN0b3J5IjpbMTA1NTk5MTQwMSwtMTM3MDc5NDM3MiwyMD
 ExOTcyMDQ0XX0=
 -->
