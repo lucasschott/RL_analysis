@@ -1,6 +1,6 @@
 #!/bin/sh
 
-## performance en fonction du nombre de dimensions avec une unique high et low reward
+## Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
 
 PARALLEL_MAX=8
 
@@ -8,19 +8,23 @@ MEAN_BATCH_SIZE=4
 
 POLICY_NAME="DDPG"
 
-EXPLORATION_TIMESTEPS=1000
+EXPLORATION_TIMESTEPS=5000
 
-LEARNING_TIMESTEPS=1000
+LEARNING_TIMESTEPS=20000
 
-BUFFER_SIZE=1000
+BUFFER_SIZE=5000
 
-EVAL_FREQ=500
+EVAL_FREQ=1000
 
-MIN_DIMENSION=1
+DIMENSION=2
 
-MAX_DIMENSION=10
+LEARNING_RATE=0.0001
 
-TAU=0.0005
+MIN_TAU=0
+
+TAU_INCREASE_STEP=0.2
+
+MAX_TAU=1
 
 ROOT_DIR="$(pwd)/"
 
@@ -28,11 +32,11 @@ RESULT_DIR="results/"
 
 MODE="velocity"
 
-TITLE="Performance d apprentissage en fonction du nombre de dimensions (une unique high et low reward)"
+TITLE=""
 
-X_LABEL="Nombre de dimensions"
+X_LABEL="tau"
 
-Y_LABEL="Reward moyen par step"
+Y_LABEL="reward/step"
 
 HIGH_REWARD_COUNT="one"
 
@@ -48,8 +52,9 @@ run_training()
     --learning_timesteps=$LEARNING_TIMESTEPS\
     --buffer_size=$BUFFER_SIZE\
     --eval_freq=$EVAL_FREQ\
-    --tau=$TAU\
-    --dimensions=$1\
+    --tau=$1\
+    --learning_rate=$LEARNING_RATE\
+    --dimensions=$DIMENSION\
     --${MODE}\
     --save\
     --no-render\
@@ -63,7 +68,7 @@ run_training()
 
 PARALLEL=0
 
-for i in $(seq $MIN_DIMENSION $MAX_DIMENSION)
+for i in $(seq $MIN_TAU $TAU_INCREASE_STEP $MAX_TAU)
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do

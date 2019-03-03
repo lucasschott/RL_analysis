@@ -26,11 +26,11 @@ if __name__ == "__main__":
         evaluation = np.load("{}{}/evaluations/{}_MultiDimensional-v0.npy".format(
             args.directory,result,args.policy_name))
 
-        regex = re.search(r'^.*n([0-9]*)_([0-9]*)$',result)
+        regex = re.search(r'^.*n([0-9.]*)_([0-9]*)$',result)
         print(result)
 
-        if not int(regex.group(1)) in xs:
-            xs.append(int(regex.group(1)))
+        if not float(regex.group(1)) in xs:
+            xs.append(float(regex.group(1)))
             print(len(xs)-1)
             print(regex.group(2))
             eval_vect = np.zeros((1,args.batch_size))
@@ -38,7 +38,7 @@ if __name__ == "__main__":
             evaluations = np.r_[evaluations,eval_vect]
             print(evaluations)
         else:
-            idx = xs.index(int(regex.group(1)))
+            idx = xs.index(float(regex.group(1)))
             print(idx)
             print(regex.group(2))
             evaluations[idx+1,int(regex.group(2))] = evaluation[-1]
@@ -56,7 +56,7 @@ if __name__ == "__main__":
 
     print(evaluations)
 
-    xs = list(map(int,xs))
+    xs = list(map(float,xs))
     ys = list(map(float,ys))
     data = np.array([xs,ys]).transpose()
     data2 = []
@@ -72,5 +72,6 @@ if __name__ == "__main__":
     plt.title(args.title)
     plt.xlabel(args.x_label)
     plt.ylabel(args.y_label)
+    plt.ylim(bottom=0)
     plt.savefig("{}total_scores.png".format(args.directory))
     plt.show()

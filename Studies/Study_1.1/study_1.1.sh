@@ -1,6 +1,6 @@
 #!/bin/sh
 
-## Performance en fonction de la taille du buffer
+## Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
 
 PARALLEL_MAX=8
 
@@ -8,21 +8,23 @@ MEAN_BATCH_SIZE=4
 
 POLICY_NAME="DDPG"
 
-EXPLORATION_TIMESTEPS=8200
+EXPLORATION_TIMESTEPS=5000
 
-LEARNING_TIMESTEPS=40000
+LEARNING_TIMESTEPS=20000
 
-MIN_BUFFER=200
-
-BUFFER_INCREASE_STEP=1000
-
-MAX_BUFFER=8200
+BUFFER_SIZE=5000
 
 EVAL_FREQ=1000
 
-TAU=0.5
+MIN_DIMENSION=1
 
-DIMENSION=2
+DIMENSION_INCREASE_STEP=9
+
+MAX_DIMENSION=100
+
+LEARNING_RATE=0.0001
+
+TAU=0.5
 
 ROOT_DIR="$(pwd)/"
 
@@ -32,10 +34,13 @@ MODE="velocity"
 
 TITLE=""
 
-X_LABEL="replay buffer size"
+X_LABEL="dimensions"
 
 Y_LABEL="reward/step"
 
+HIGH_REWARD_COUNT="half"
+
+LOW_REWARD_COUNT="half"
 
 run_training()
 {
@@ -45,14 +50,16 @@ run_training()
     --policy_name=$POLICY_NAME\
     --exploration_timesteps=$EXPLORATION_TIMESTEPS\
     --learning_timesteps=$LEARNING_TIMESTEPS\
-    --buffer_size=$1\
+    --buffer_size=$BUFFER_SIZE\
     --eval_freq=$EVAL_FREQ\
     --tau=$TAU\
-    --dimensions=$DIMENSION\
+    --learning_rate=$LEARNING_RATE\
+    --dimensions=$1\
     --${MODE}\
     --save\
     --no-render\
-    --no-new-exp\
+    --high_reward_count=$HIGH_REWARD_COUNT\
+    --low_reward_count=$LOW_REWARD_COUNT\
     --output=${OUTPUT_DIR}"
 
   eval ${COMMAND}
@@ -61,7 +68,7 @@ run_training()
 
 PARALLEL=0
 
-for i in $(seq $MIN_BUFFER $BUFFER_INCREASE_STEP $MAX_BUFFER)
+for i in $(seq $MIN_DIMENSION $DIMENSION_INCREASE_STEP $MAX_DIMENSION)
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do

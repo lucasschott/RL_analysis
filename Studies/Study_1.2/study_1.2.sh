@@ -8,19 +8,23 @@ MEAN_BATCH_SIZE=4
 
 POLICY_NAME="DDPG"
 
-EXPLORATION_TIMESTEPS=1000
+EXPLORATION_TIMESTEPS=5000
 
-LEARNING_TIMESTEPS=1000
+LEARNING_TIMESTEPS=20000
 
-BUFFER_SIZE=1000
+BUFFER_SIZE=5000
 
-EVAL_FREQ=500
+EVAL_FREQ=1000
 
 MIN_DIMENSION=1
 
-MAX_DIMENSION=10
+DIMENSION_INCREASE_STEP=9
 
-TAU=0.0005
+MAX_DIMENSION=100
+
+LEARNING_RATE=0.0001
+
+TAU=0.5
 
 ROOT_DIR="$(pwd)/"
 
@@ -28,15 +32,15 @@ RESULT_DIR="results/"
 
 MODE="velocity"
 
-TITLE="Performance d apprentissage en fonction du nombre de dimensions (moitié high et low reward)"
+TITLE=""
 
-X_LABEL="Nombre de dimensions"
+X_LABEL="dimensions"
 
-Y_LABEL="Reward moyen par step"
+Y_LABEL="reward/step"
 
-HIGH_REWARD_COUNT="half"
+HIGH_REWARD_COUNT="one"
 
-LOW_REWARD_COUNT="half"
+LOW_REWARD_COUNT="one"
 
 run_training()
 {
@@ -49,6 +53,7 @@ run_training()
     --buffer_size=$BUFFER_SIZE\
     --eval_freq=$EVAL_FREQ\
     --tau=$TAU\
+    --learning_rate=$LEARNING_RATE\
     --dimensions=$1\
     --${MODE}\
     --save\
@@ -63,7 +68,7 @@ run_training()
 
 PARALLEL=0
 
-for i in $(seq $MIN_DIMENSION $MAX_DIMENSION)
+for i in $(seq $MIN_DIMENSION $DIMENSION_INCREASE_STEP $MAX_DIMENSION)
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
