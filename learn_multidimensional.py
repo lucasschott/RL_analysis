@@ -93,9 +93,9 @@ def learn(policy_name="DDPG",
             }
 
     """ Example filter """
-    #filter = circle_filter.CircleFilter([0, 0], 0.25)
+    filter = circle_filter.CircleFilter([0, 0], 0.25)
     """ Default filter """
-    filter = None
+    #filter = None
 
     environment = gym_multi_dimensional.dynamic_register(
             n_dimensions=dimensions,env_description=description,
@@ -123,7 +123,7 @@ def learn(policy_name="DDPG",
             policy_freq=policy_freq,
             filter=filter)
 
-    #vis_2d.visualize_RB(replay_buffer, args.acceleration, save=save, path=visualizations_path)
+    vis_2d.visualize_RB(replay_buffer, args.acceleration, save=save, path=visualizations_path)
 
     env = gym.make(environment)
 
@@ -147,7 +147,7 @@ def learn(policy_name="DDPG",
 
     policy.load(policy_name + "_" + environment, models_path)
 
-    Q_values = policy.get_Q_values(env,10)
+    Q_values = policy.get_Q_values(env,100)
 
     if acceleration:
         vis_2d.visualize_Q_arrow(Q_values, save=save, path=visualizations_path)

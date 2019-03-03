@@ -59,12 +59,12 @@ Visualization of the policy and reward per step gained by an agents who leared w
 The replay buffer was filtered to impose an unexplored region in the center.
 
 ### Replay buffer
-![replay_buffer](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/result/study/visualizations/rb.png)
+![replay_buffer](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/result/visualizations/rb.png)
 
 ### Average reward
-![reward/step according to step number](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/result/study/visualizations/scores.png)
+![reward/step according to step number](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/result/visualizations/scores.png)
 ### Policy
-![Qvalues on the environment space](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/result/study/visualizations/Q_contour_time.gif)
+![Qvalues on the environment space](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/result/visualizations/Q_contour_time.gif)
 
 ## Study 4
 Average reward per step gained by agents who learned with DDPG algorithm on the environments according to the target network update rate.
