@@ -45,8 +45,8 @@ On environments with half small rewards and only one big reward.
 
 ## Study 2
 Analyze average reward per step gained by agents who learned with DDPG algorithm on the environments according to the replay buffer size.
-
+![reward/step according to replay buffer size](https://lh3.googleusercontent.com/sm4Ng-SHe_RiyQZvN8TlS5EkxiwvlY2OqxLTQykvQ79OFHdaE3zyLw6sKTgSRJhIuvIoCm5klCQgPw )
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3Mzg1MDk0MCwtMTM3MDc5NDM3MiwyMD
+eyJoaXN0b3J5IjpbLTM5Njc2MjcxNywtMTM3MDc5NDM3MiwyMD
 ExOTcyMDQ0XX0=
 -->
