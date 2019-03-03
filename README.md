@@ -55,6 +55,7 @@ The details of the experiment are available in [study_2.sh](https://github.com/s
 
 ## Study 4
 Average reward per step gained by agents who learned with DDPG algorithm on the environments according to the target network update rate.
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzNzc0ODQxOCwtMTQzNzIwMDM0MF19
+eyJoaXN0b3J5IjpbMTkzMTU0OTI4LC0xNDM3MjAwMzQwXX0=
 -->
