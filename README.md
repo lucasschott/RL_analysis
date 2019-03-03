@@ -54,7 +54,7 @@ The details of the experiment are available in [study_2.sh](https://github.com/s
 ![reward/step according to replay buffer size](https://lh3.googleusercontent.com/sm4Ng-SHe_RiyQZvN8TlS5EkxiwvlY2OqxLTQykvQ79OFHdaE3zyLw6sKTgSRJhIuvIoCm5klCQgPw )
 
 ## Study 4
-Average reward per step gained by agents who learned with DDPG algorithm on the environments according to the target update .
+Average reward per step gained by agents who learned with DDPG algorithm on the environments according to the target network update rate.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzMjI5ODA2OCwtMTQzNzIwMDM0MF19
+eyJoaXN0b3J5IjpbMTEzNzc0ODQxOCwtMTQzNzIwMDM0MF19
 -->
