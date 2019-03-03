@@ -92,9 +92,9 @@ def learn(policy_name="DDPG",
             }
 
     """ Example filter """
-    #filter = circle_filter.CircleFilter([0, 0], 0.2)
+    filter = circle_filter.CircleFilter([0, 0], 0.25)
     """ Default filter """
-    filter = None
+    #filter = None
 
     environment = gym_multi_dimensional.dynamic_register(
             n_dimensions=dimensions,env_description=description,
