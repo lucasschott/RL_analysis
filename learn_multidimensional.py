@@ -54,6 +54,7 @@ def learn(policy_name="DDPG",
             expl_noise=0.1,
             batch_size=64,
             discount=0.99,
+            learning_rate=1e-4,
             tau=0.005,
             policy_noise=0.2,
             noise_clip=0.5,
@@ -115,6 +116,7 @@ def learn(policy_name="DDPG",
             expl_noise=expl_noise,
             batch_size=batch_size,
             discount=discount,
+            learning_rate=learning_rate,
             tau=tau,
             policy_noise=policy_noise,
             noise_clip=noise_clip,
@@ -169,6 +171,7 @@ if __name__ == "__main__":
     parser.add_argument("--expl_noise", default=0.1, type=float)    #noise
     parser.add_argument("--batch_size", default=64, type=int)      #learning batch
     parser.add_argument("--discount", default=0.99, type=float)     #discount factor
+    parser.add_argument("--learning_rate", default=1e-4, type=float)
     parser.add_argument("--tau", default=0.005, type=float)         #target network update rate
     parser.add_argument("--policy_noise", default=0.2, type=float)  #noise added to target policy during critic update
     parser.add_argument("--noise_clip", default=0.5, type=float)    #range to clip target policy noise
@@ -212,6 +215,7 @@ if __name__ == "__main__":
             expl_noise=args.expl_noise,
             batch_size=args.batch_size,
             discount=args.discount,
+            learning_rate=args.learning_rate,
             tau=args.tau,
             policy_noise=args.policy_noise,
             noise_clip=args.noise_clip,

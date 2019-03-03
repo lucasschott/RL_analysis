@@ -2,7 +2,7 @@
 
 ## Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
 
-PARALLEL_MAX=2
+PARALLEL_MAX=8
 
 MEAN_BATCH_SIZE=4
 
@@ -10,7 +10,7 @@ POLICY_NAME="DDPG"
 
 EXPLORATION_TIMESTEPS=5000
 
-LEARNING_TIMESTEPS=30000
+LEARNING_TIMESTEPS=20000
 
 BUFFER_SIZE=5000
 
@@ -20,7 +20,9 @@ MIN_DIMENSION=1
 
 DIMENSION_INCREASE_STEP=9
 
-MAX_DIMENSION=100
+MAX_DIMENSION=64
+
+LEARNING_RATE=0.00001
 
 TAU=0.5
 
@@ -51,6 +53,7 @@ run_training()
     --buffer_size=$BUFFER_SIZE\
     --eval_freq=$EVAL_FREQ\
     --tau=$TAU\
+    --learning_rate=$LEARNING_RATE\
     --dimensions=$1\
     --${MODE}\
     --save\
