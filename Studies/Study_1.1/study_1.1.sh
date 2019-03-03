@@ -18,9 +18,11 @@ EVAL_FREQ=1000
 
 MIN_DIMENSION=1
 
-DIMENSION_INCREASE_STEP=9
+DIMENSION_INCREASE_STEP=1
 
-MAX_DIMENSION=100
+MAX_DIMENSION=4
+
+LEARNING_RATE=0.0001
 
 TAU=0.5
 
@@ -51,6 +53,7 @@ run_training()
     --buffer_size=$BUFFER_SIZE\
     --eval_freq=$EVAL_FREQ\
     --tau=$TAU\
+    --learning_rate=$LEARNING_RATE\
     --dimensions=$1\
     --${MODE}\
     --save\

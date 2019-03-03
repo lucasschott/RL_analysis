@@ -16,15 +16,15 @@ BUFFER_SIZE=5000
 
 EVAL_FREQ=1000
 
-MIN_DIMENSION=1
+DIMENSION=2
 
-DIMENSION_INCREASE_STEP=1
+LEARNING_RATE=0.0001
 
-MAX_DIMENSION=4
+MIN_TAU=0
 
-LEARNING_RATE=0.00001
+TAU_INCREASE_STEP=0.2
 
-TAU=0.5
+MAX_TAU=1
 
 ROOT_DIR="$(pwd)/"
 
@@ -34,7 +34,7 @@ MODE="velocity"
 
 TITLE=""
 
-X_LABEL="dimensions"
+X_LABEL="tau"
 
 Y_LABEL="reward/step"
 
@@ -52,9 +52,9 @@ run_training()
     --learning_timesteps=$LEARNING_TIMESTEPS\
     --buffer_size=$BUFFER_SIZE\
     --eval_freq=$EVAL_FREQ\
-    --tau=$TAU\
+    --tau=$1\
     --learning_rate=$LEARNING_RATE\
-    --dimensions=$1\
+    --dimensions=$DIMENSION\
     --${MODE}\
     --save\
     --no-render\
@@ -68,7 +68,7 @@ run_training()
 
 PARALLEL=0
 
-for i in $(seq $MIN_DIMENSION $DIMENSION_INCREASE_STEP $MAX_DIMENSION)
+for i in $(seq $MIN_TAU $TAU_INCREASE_STEP $MAX_TAU)
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do

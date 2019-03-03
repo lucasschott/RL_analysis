@@ -15,7 +15,7 @@ if __name__ == "__main__":
     parser.set_defaults(verbose=True)
     parser.add_argument('--velocity', dest='acceleration', action='store_false')
     parser.add_argument('--acceleration', dest='acceleration', action='store_true')
-    parser.set_defaults(acceleration=True)
+    parser.set_defaults(acceleration=False)
     parser.add_argument('--discrete', dest='continuous', action='store_false')
     parser.add_argument('--continuous', dest='continuous', action='store_true')
     parser.set_defaults(continuous=True)
@@ -43,7 +43,6 @@ if __name__ == "__main__":
         action_dim *= dim_length
     max_action = float(env.action_space.high[0])
 
-    env.close()
 
     if args.policy_name == "TD3":
         policy = TD3.TD3(state_dim,action_dim,max_action)
@@ -54,5 +53,8 @@ if __name__ == "__main__":
 
     print("Q values")
 
-    Q_values = policy.Q_values(rb_sample)
+    Q_values = policy.get_Q_values(env,3)
+
     print(Q_values)
+
+    env.close()
