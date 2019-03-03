@@ -47,6 +47,7 @@ The details of the experiment are available in [study_1.1.sh](https://github.com
 #### Study 1.2
 On environments with one small rewards and one big reward.
 The details of the experiment are available in [study_1.2.sh](https://github.com/schott97l/RL_analysis/blob/master/Studies/Study_1.2/study_1.2.sh)
+![reward/step according to dimensions number](https://lh3.googleusercontent.com/6RA4bFGruiqC0fdrqJW8i0jrsBkrW9RtNGl33_LsQ9Lf6B3Gova4oNEUVCUm1Gdsgydd85dvkui3jw)
 
 ## Study 2
 Average reward per step gained by agents who learned with DDPG algorithm on the environments according to the replay buffer size.
@@ -55,7 +56,7 @@ The details of the experiment are available in [study_2.sh](https://github.com/s
 
 ## Study 4
 Average reward per step gained by agents who learned with DDPG algorithm on the environments according to the target network update rate.
-
+![reward/step according to the target network update rate](https://lh3.googleusercontent.com/VJdtv-U66-MbyfVqLA1EOoyoQha5bEB9C6mQ5FUWHPFVwJj67T_Oq-4IT-_dIYPe1dPGwCL6RPdc9A)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzMTU0OTI4LC0xNDM3MjAwMzQwXX0=
+eyJoaXN0b3J5IjpbMTc1MDk3NTc1MV19
 -->
