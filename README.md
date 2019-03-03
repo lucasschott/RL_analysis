@@ -56,6 +56,8 @@ The details of the experiment are available in [study_2.sh](https://github.com/s
 ## Study 3
 Visualization of the policy and reward per step gained by an agents who leared with the DDPG algorithm on the environments.
 The replay buffer was filtered to impose an unexplored region.
+![replay_buffer](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/result/study/visualizations/rb.png)
+![reward/step according to step number](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/result/study/visualizations/scores.png)
 
 ## Study 4
 Average reward per step gained by agents who learned with DDPG algorithm on the environments according to the target network update rate.
