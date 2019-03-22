@@ -69,9 +69,10 @@ def learn(policy_name="DDPG",
             low_reward_value=0.1,
             high_reward_count='half',
             low_reward_count='half',
-            mode='deterministic'
+            mode='deterministic',
+            reset_radius=1,
             ):
-    
+
     if render == False:
         import matplotlib
         matplotlib.use('Agg')
@@ -79,7 +80,7 @@ def learn(policy_name="DDPG",
     """ Delayed import of learn_policy and visualisation module to account for headless benchmarking """
     from gym_multi_dimensional.visualization import vis_2d
     from RL_implementations import learn_policy
-    
+
     models_path = output + "/models/"
     visualizations_path = output + "/visualizations/"
     evaluations_path = output + "/evaluations/"
@@ -99,7 +100,7 @@ def learn(policy_name="DDPG",
 
     environment = gym_multi_dimensional.dynamic_register(
             n_dimensions=dimensions,env_description=description,
-            continuous=continuous,acceleration=acceleration)
+            continuous=continuous,acceleration=acceleration, reset_radius=reset_radius)
 
     replay_buffer, q_values = learn_policy.learn(policy_name=policy_name,
             policy_directory=models_path,
@@ -189,6 +190,7 @@ if __name__ == "__main__":
     parser.add_argument("--high_reward_count", default='half')
     parser.add_argument("--low_reward_count", default='half')
     parser.add_argument("--mode", default='deterministic')
+    parser.add_argument("--reset_radius", default=None, type=float)
 
     parser.set_defaults(new_exp=True)
     parser.set_defaults(verbose=True)
@@ -230,5 +232,6 @@ if __name__ == "__main__":
             low_reward_value=args.low_reward_value,
             high_reward_count=args.high_reward_count,
             low_reward_count=args.low_reward_count,
-            mode=args.mode
+            mode=args.mode,
+            reset_radius = args.reset_radius
             )
