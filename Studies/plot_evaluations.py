@@ -14,6 +14,9 @@ if __name__ == "__main__":
     parser.add_argument("--title",default="")
     parser.add_argument("--x_label",default="")
     parser.add_argument("--y_label",default="")
+    parser.add_argument("--log_scale",dest="log_scale",action="store_true")
+    
+    parser.set_defaults(log_scale=False)
 
     args = parser.parse_args()
 
@@ -47,15 +50,15 @@ if __name__ == "__main__":
 
     evaluations = evaluations[1:,:]
     
+    print(evaluations)
+
     ys = np.mean(evaluations,axis=1)
     errors = np.std(evaluations,axis=1)
-    print(ys)
-
-    print(evaluations)
 
     xs = list(map(float,xs))
     ys = list(map(float,ys))
-    data = np.array([xs,ys]).transpose()
+    errors = list(map(float,errors))
+    data = np.array([xs,ys,errors]).transpose()
     data2 = []
     for row in data:
         data2.append(tuple(row))
@@ -64,11 +67,14 @@ if __name__ == "__main__":
     data = np.array(data2)
     xs = data[:,0]
     ys = data[:,1]
+    errors = data[:,2]
 
     plt.errorbar(xs, ys, errors, fmt="--o")
     plt.title(args.title)
     plt.xlabel(args.x_label)
     plt.ylabel(args.y_label)
     plt.ylim(bottom=0)
+    if args.log_scale:
+        plt.xscale("log")
     plt.savefig("{}total_scores.png".format(args.directory))
     plt.show()

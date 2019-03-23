@@ -2,9 +2,9 @@
 
 ## Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
 
-PARALLEL_MAX=6
+PARALLEL_MAX=8
 
-MEAN_BATCH_SIZE=6
+MEAN_BATCH_SIZE=8
 
 POLICY_NAME="DDPG"
 
@@ -65,7 +65,7 @@ run_training()
 
 PARALLEL=0
 
-for i in 1 3 6 10 30 60 100
+for i in 1 2 4 8 16 32 64 128
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
@@ -89,6 +89,7 @@ COMMAND2="python ../plot_evaluations.py\
     --batch_size=$MEAN_BATCH_SIZE\
     --title='$TITLE'\
     --x_label='$X_LABEL'\
-    --y_label='$Y_LABEL'"
+    --y_label='$Y_LABEL'\
+    --log_scale"
 
 eval ${COMMAND2}
