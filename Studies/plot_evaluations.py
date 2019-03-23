@@ -47,12 +47,9 @@ if __name__ == "__main__":
 
     evaluations = evaluations[1:,:]
     
-    for i in range(evaluations.shape[0]):
-        average=0
-        for j in range(evaluations.shape[1]):
-            average += evaluations[i,j]
-        average /= args.batch_size
-        ys.append(average)
+    ys = np.mean(evaluations,axis=1)
+    errors = np.std(evaluations,axis=1)
+    print(ys)
 
     print(evaluations)
 
@@ -68,7 +65,7 @@ if __name__ == "__main__":
     xs = data[:,0]
     ys = data[:,1]
 
-    plt.plot(xs,ys)
+    plt.errorbar(xs, ys, errors, fmt="--o")
     plt.title(args.title)
     plt.xlabel(args.x_label)
     plt.ylabel(args.y_label)
