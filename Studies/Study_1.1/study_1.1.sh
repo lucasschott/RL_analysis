@@ -22,6 +22,8 @@ DIMENSION_INCREASE_STEP=9
 
 MAX_DIMENSION=100
 
+RESET_RADIUS=0.1
+
 LEARNING_RATE=0.0001
 
 TAU=0.5
@@ -60,7 +62,8 @@ run_training()
     --no-render\
     --high_reward_count=$HIGH_REWARD_COUNT\
     --low_reward_count=$LOW_REWARD_COUNT\
-    --output=${OUTPUT_DIR}"
+    --output=${OUTPUT_DIR}
+    --reset_radius=$RESET_RADIUS"
 
   eval ${COMMAND}
 }
