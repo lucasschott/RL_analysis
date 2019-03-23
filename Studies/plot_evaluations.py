@@ -34,16 +34,16 @@ if __name__ == "__main__":
             print(len(xs)-1)
             print(regex.group(2))
             eval_vect = np.zeros((1,args.batch_size))
-            eval_vect[0,int(regex.group(2))] = evaluation[-1]
+            eval_vect[0,int(regex.group(2))] = evaluation[0,-1]
             evaluations = np.r_[evaluations,eval_vect]
             print(evaluations)
         else:
             idx = xs.index(float(regex.group(1)))
             print(idx)
             print(regex.group(2))
-            evaluations[idx+1,int(regex.group(2))] = evaluation[-1]
+            evaluations[idx+1,int(regex.group(2))] = evaluation[0,-1]
 
-        print(evaluation[-1])
+        print(evaluation[0,-1])
 
     evaluations = evaluations[1:,:]
     

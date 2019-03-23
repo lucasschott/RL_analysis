@@ -28,6 +28,7 @@ if __name__ == "__main__":
     parser.add_argument("--high_reward_count", default='half')
     parser.add_argument("--low_reward_count", default='half')
     parser.add_argument("--mode", default='deterministic')
+    parser.add_argument("--reset_radius", default=1, type=float)
 
     parser.set_defaults(verbose=True)
     parser.set_defaults(acceleration=False)
@@ -46,7 +47,7 @@ if __name__ == "__main__":
 
     environment = gym_multi_dimensional.dynamic_register(
             n_dimensions=args.dimensions,env_description=description,
-            continuous=args.continuous,acceleration=args.acceleration)
+            continuous=args.continuous,acceleration=args.acceleration,reset_radius=args.reset_radius)
 
     replay_buffer = run_policy.run_policy(policy_name=args.policy_name,
             policy_directory=args.policy_directory,
