@@ -2,9 +2,9 @@
 
 ## Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
 
-PARALLEL_MAX=8
+PARALLEL_MAX=6
 
-MEAN_BATCH_SIZE=4
+MEAN_BATCH_SIZE=6
 
 POLICY_NAME="DDPG"
 
@@ -15,12 +15,6 @@ LEARNING_TIMESTEPS=2000
 BUFFER_SIZE=5000
 
 EVAL_FREQ=100
-
-MIN_DIMENSION=1
-
-DIMENSION_INCREASE_STEP=9
-
-MAX_DIMENSION=50
 
 RESET_RADIUS=0.1
 
@@ -71,7 +65,7 @@ run_training()
 
 PARALLEL=0
 
-for i in $(seq $MIN_DIMENSION $DIMENSION_INCREASE_STEP $MAX_DIMENSION)
+for i in 1 3 6 10 30 60 100
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
