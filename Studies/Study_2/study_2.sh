@@ -4,7 +4,7 @@
 
 PARALLEL_MAX=6
 
-MEAN_BATCH_SIZE=4
+MEAN_BATCH_SIZE=6
 
 POLICY_NAME="DDPG"
 
@@ -12,7 +12,7 @@ EXPLORATION_TIMESTEPS=65536
 
 LEARNING_TIMESTEPS=40000
 
-EVAL_FREQ=1000
+EVAL_FREQ=2000
 
 RESET_RADIUS=0.1
 
@@ -75,7 +75,6 @@ do
     done
 done
 
-
 COMMAND2="python ../plot_evaluations.py\
     --directory=$RESULT_DIR\
     --batch_size=$MEAN_BATCH_SIZE\
@@ -99,3 +98,10 @@ COMMAND4="python ../plot_average_pi.py\
     --eval_freq=$EVAL_FREQ"
 
 eval ${COMMAND4}
+
+COMMAND5="python ../plot_average_learning_curve.py\
+    --directory=$RESULT_DIR\
+    --batch_size=$MEAN_BATCH_SIZE\
+    --eval_freq=$EVAL_FREQ"
+
+eval ${COMMAND5}
