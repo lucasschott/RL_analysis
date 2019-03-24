@@ -101,7 +101,7 @@ def learn(policy_name="DDPG",
             n_dimensions=dimensions,env_description=description,
             continuous=continuous,acceleration=acceleration, reset_radius=reset_radius)
 
-    replay_buffer, q_values , q_pi_values = learn_policy.learn(policy_name=policy_name,
+    replay_buffer, q_values , pi_values = learn_policy.learn(policy_name=policy_name,
             policy_directory=models_path,
             evaluations_directory=evaluations_path,
             visualizations_directory=visualizations_path,
@@ -148,15 +148,15 @@ def learn(policy_name="DDPG",
     policy.load(policy_name + "_" + environment, models_path)
 
     Q_values = policy.get_Q_values(env,20)
-    Q_Pi_values = policy.get_Q_values(env,10,pi=True)
+    Pi_values = policy.get_Pi_values(env,10)
 
     if acceleration:
         vis_2d.visualize_Q_arrow(Q_values, save=save, path=visualizations_path)
     else:
-        vis_2d.visualize_Q_contour(Q_values, save=save, path=visualizations_path)
-        vis_2d.visualize_Q_arrow(Q_Pi_values, save=save, path=visualizations_path)
-        vis_2d.visualize_Q_contour_time(q_values, save=save, path=visualizations_path)
-        vis_2d.visualize_Q_arrow_time(q_pi_values, save=save, path=visualizations_path)
+        vis_2d.visualize_Q(Q_values, save=save, path=visualizations_path)
+        vis_2d.visualize_Pi(Pi_values, save=save, path=visualizations_path)
+        vis_2d.visualize_Q_time(q_values, save=save, path=visualizations_path)
+        vis_2d.visualize_Pi_time(pi_values, save=save, path=visualizations_path)
 
 
 if __name__ == "__main__":
