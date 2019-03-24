@@ -10,9 +10,11 @@ POLICY_NAME="DDPG"
 
 EXPLORATION_TIMESTEPS=65536
 
-LEARNING_TIMESTEPS=20000
+LEARNING_TIMESTEPS=40000
 
-EVAL_FREQ=100
+EVAL_FREQ=2000
+
+RESET_RADIUS=0.1
 
 TAU=0.5
 
@@ -47,7 +49,8 @@ run_training()
     --save\
     --no-render\
     --no-new-exp\
-    --output=${OUTPUT_DIR}"
+    --output=${OUTPUT_DIR}\
+    --reset_radius=$RESET_RADIUS"
 
   eval ${COMMAND}
 }
@@ -55,7 +58,7 @@ run_training()
 
 PARALLEL=0
 
-for i in 64 128 256 512 1024 2048 4096 8192 16384 32768 65536
+for i in 16 64 256 1024 4096 16384 65536
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do

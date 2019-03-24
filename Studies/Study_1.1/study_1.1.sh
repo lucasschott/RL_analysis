@@ -56,7 +56,7 @@ run_training()
     --no-render\
     --high_reward_count=$HIGH_REWARD_COUNT\
     --low_reward_count=$LOW_REWARD_COUNT\
-    --output=${OUTPUT_DIR}
+    --output=${OUTPUT_DIR}\
     --reset_radius=$RESET_RADIUS"
 
   eval ${COMMAND}

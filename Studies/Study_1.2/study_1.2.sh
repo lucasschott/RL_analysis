@@ -16,11 +16,7 @@ BUFFER_SIZE=5000
 
 EVAL_FREQ=1000
 
-MIN_DIMENSION=1
-
-DIMENSION_INCREASE_STEP=9
-
-MAX_DIMENSION=100
+RESET_RADIUS=0.1
 
 LEARNING_RATE=0.0001
 
@@ -60,7 +56,8 @@ run_training()
     --no-render\
     --high_reward_count=$HIGH_REWARD_COUNT\
     --low_reward_count=$LOW_REWARD_COUNT\
-    --output=${OUTPUT_DIR}"
+    --output=${OUTPUT_DIR}\
+    --reset_radius=$RESET_RADIUS"
 
   eval ${COMMAND}
 }
@@ -68,7 +65,7 @@ run_training()
 
 PARALLEL=0
 
-for i in $(seq $MIN_DIMENSION $DIMENSION_INCREASE_STEP $MAX_DIMENSION)
+for i in 1 2 4 8 16 32 64 128
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
@@ -92,6 +89,7 @@ COMMAND2="python ../plot_evaluations.py\
     --batch_size=$MEAN_BATCH_SIZE\
     --title='$TITLE'\
     --x_label='$X_LABEL'\
-    --y_label='$Y_LABEL'"
+    --y_label='$Y_LABEL'\
+    --log_scale"
 
 eval ${COMMAND2}
