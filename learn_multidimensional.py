@@ -18,7 +18,7 @@ def populate_output_dir(path, exist):
 
     os.makedirs(path + "/models")
     os.makedirs(path + "/visualizations")
-    os.makedirs(path + "/evaluations")
+    os.makedirs(path + "/logs")
 
 
 def setup_output_dir(path):
@@ -84,7 +84,7 @@ def learn(policy_name="DDPG",
 
     models_path = output + "/models/"
     visualizations_path = output + "/visualizations/"
-    evaluations_path = output + "/evaluations/"
+    logs_path = output + "/logs/"
 
     description = {
             'high_reward_value': high_reward_value,
@@ -103,7 +103,7 @@ def learn(policy_name="DDPG",
 
     replay_buffer, q_values , pi_values = learn_policy.learn(policy_name=policy_name,
             policy_directory=models_path,
-            evaluations_directory=evaluations_path,
+            logs_directory=logs_path,
             visualizations_directory=visualizations_path,
             save=save,
             seed=seed,
@@ -153,8 +153,8 @@ def learn(policy_name="DDPG",
     if acceleration:
         vis_2d.visualize_Q_arrow(Q_values, save=save, path=visualizations_path)
     else:
-        vis_2d.visualize_Q(Q_values, save=save, path=visualizations_path)
-        vis_2d.visualize_Pi(Pi_values, save=save, path=visualizations_path)
+        vis_2d.visualize_Q(q_values[-1], save=save, path=visualizations_path)
+        vis_2d.visualize_Pi(pi_values[-1], save=save, path=visualizations_path)
         vis_2d.visualize_Q_time(q_values, save=save, path=visualizations_path, eval_freq=eval_freq)
         vis_2d.visualize_Pi_time(pi_values, save=save, path=visualizations_path, eval_freq=eval_freq)
 
