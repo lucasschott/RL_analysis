@@ -8,17 +8,11 @@ MEAN_BATCH_SIZE=4
 
 POLICY_NAME="DDPG"
 
-EXPLORATION_TIMESTEPS=8200
+EXPLORATION_TIMESTEPS=65536
 
-LEARNING_TIMESTEPS=40000
+LEARNING_TIMESTEPS=10000
 
-MIN_BUFFER=200
-
-BUFFER_INCREASE_STEP=1000
-
-MAX_BUFFER=8200
-
-EVAL_FREQ=1000
+EVAL_FREQ=500
 
 TAU=0.5
 
@@ -61,7 +55,7 @@ run_training()
 
 PARALLEL=0
 
-for i in $(seq $MIN_BUFFER $BUFFER_INCREASE_STEP $MAX_BUFFER)
+for i in 64 128 256 512 1024 2048 4096 8192 16384 32768 65536
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
@@ -85,6 +79,7 @@ COMMAND2="python ../plot_evaluations.py\
     --batch_size=$MEAN_BATCH_SIZE\
     --title='$TITLE'\
     --x_label='$X_LABEL'\
-    --y_label='$Y_LABEL'"
+    --y_label='$Y_LABEL'\
+    --log_scale"
 
 eval ${COMMAND2}
