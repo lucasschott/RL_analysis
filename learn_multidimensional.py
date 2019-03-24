@@ -155,8 +155,8 @@ def learn(policy_name="DDPG",
     else:
         vis_2d.visualize_Q(Q_values, save=save, path=visualizations_path)
         vis_2d.visualize_Pi(Pi_values, save=save, path=visualizations_path)
-        vis_2d.visualize_Q_time(q_values, save=save, path=visualizations_path)
-        vis_2d.visualize_Pi_time(pi_values, save=save, path=visualizations_path)
+        vis_2d.visualize_Q_time(q_values, save=save, path=visualizations_path, eval_freq=eval_freq)
+        vis_2d.visualize_Pi_time(pi_values, save=save, path=visualizations_path, eval_freq=eval_freq)
 
 
 if __name__ == "__main__":
