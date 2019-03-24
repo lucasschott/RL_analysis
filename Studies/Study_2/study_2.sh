@@ -2,7 +2,7 @@
 
 ## Performance en fonction de la taille du buffer
 
-PARALLEL_MAX=8
+PARALLEL_MAX=6
 
 MEAN_BATCH_SIZE=4
 
@@ -12,7 +12,7 @@ EXPLORATION_TIMESTEPS=65536
 
 LEARNING_TIMESTEPS=40000
 
-EVAL_FREQ=2000
+EVAL_FREQ=1000
 
 RESET_RADIUS=0.1
 
@@ -78,7 +78,6 @@ done
 
 COMMAND2="python ../plot_evaluations.py\
     --directory=$RESULT_DIR\
-    --policy_name=$POLICY_NAME\
     --batch_size=$MEAN_BATCH_SIZE\
     --title='$TITLE'\
     --x_label='$X_LABEL'\
@@ -86,3 +85,17 @@ COMMAND2="python ../plot_evaluations.py\
     --log_scale"
 
 eval ${COMMAND2}
+
+COMMAND3="python ../plot_average_q.py\
+    --directory=$RESULT_DIR\
+    --batch_size=$MEAN_BATCH_SIZE\
+    --eval_freq=$EVAL_FREQ"
+
+eval ${COMMAND3}
+
+COMMAND4="python ../plot_average_pi.py\
+    --directory=$RESULT_DIR\
+    --batch_size=$MEAN_BATCH_SIZE\
+    --eval_freq=$EVAL_FREQ"
+
+eval ${COMMAND4}

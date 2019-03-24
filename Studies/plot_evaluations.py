@@ -9,7 +9,6 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--directory",default="results/")
-    parser.add_argument("--policy_name",default="DDPG")
     parser.add_argument("--batch_size",default=1,type=int)
     parser.add_argument("--title",default="")
     parser.add_argument("--x_label",default="")
@@ -20,17 +19,23 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
+    if not os.path.exists(args.directory + "/visualizations"):
+        os.makedirs(args.directory + "/visualizations")
+
     xs = []
     ys = []
     evaluations = np.zeros((1,args.batch_size))
     
     for result in os.listdir(args.directory):
+        
+        print(result)
+        if re.search(r'^.*visualizations.*$', result):
+            continue
 
-        evaluation = np.load("{}{}/evaluations/{}_MultiDimensional-v0.npy".format(
-            args.directory,result,args.policy_name))
+        evaluation = np.load("{}{}/logs/evaluations.npy".format(args.directory,result))
 
         regex = re.search(r'^.*n([0-9.]*)_([0-9]*)$',result)
-        print(result)
+
 
         if not float(regex.group(1)) in xs:
             xs.append(float(regex.group(1)))
@@ -76,5 +81,5 @@ if __name__ == "__main__":
     plt.ylim(bottom=0)
     if args.log_scale:
         plt.xscale("log")
-    plt.savefig("{}total_scores.png".format(args.directory))
+    plt.savefig("{}/visualizations/total_scores.png".format(args.directory))
     plt.show()

@@ -93,3 +93,17 @@ COMMAND2="python ../plot_evaluations.py\
     --log_scale"
 
 eval ${COMMAND2}
+
+COMMAND3="python ../plot_average_q.py\
+    --directory=$RESULT_DIR\
+    --batch_size=$MEAN_BATCH_SIZE\
+    --eval_freq=$EVAL_FREQ"
+
+eval ${COMMAND3}
+
+COMMAND4="python ../plot_average_pi.py\
+    --directory=$RESULT_DIR\
+    --batch_size=$MEAN_BATCH_SIZE\
+    --eval_freq=$EVAL_FREQ"
+
+eval ${COMMAND4}
