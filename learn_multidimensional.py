@@ -71,6 +71,7 @@ def learn(policy_name="DDPG",
             low_reward_count='half',
             mode='deterministic',
             reset_radius=1,
+            filter=None
             ):
 
     if render == False:
@@ -93,10 +94,8 @@ def learn(policy_name="DDPG",
             'mode': mode
             }
 
-    """ Example filter """
-    #filter = circle_filter.CircleFilter([0, 0], 0.25)
-    """ Default filter """
-    filter = None
+    if filter == "circle":
+        filter = circle_filter.CircleFilter([0.5, -0.5], 0.5)
 
     environment = gym_multi_dimensional.dynamic_register(
             n_dimensions=dimensions,env_description=description,
@@ -124,7 +123,7 @@ def learn(policy_name="DDPG",
             policy_freq=policy_freq,
             filter=filter)
 
-    #vis_2d.visualize_RB(replay_buffer, args.acceleration, save=save, path=visualizations_path)
+    vis_2d.visualize_RB(replay_buffer, args.acceleration, save=save, path=visualizations_path)
 
     env = gym.make(environment)
 
@@ -193,6 +192,7 @@ if __name__ == "__main__":
     parser.add_argument("--low_reward_count", default='half')
     parser.add_argument("--mode", default='deterministic')
     parser.add_argument("--reset_radius", default=None, type=float)
+    parser.add_argument("--filter", default=None)
 
     parser.set_defaults(new_exp=True)
     parser.set_defaults(verbose=True)
@@ -235,5 +235,6 @@ if __name__ == "__main__":
             high_reward_count=args.high_reward_count,
             low_reward_count=args.low_reward_count,
             mode=args.mode,
-            reset_radius = args.reset_radius
+            reset_radius = args.reset_radius,
+            filter=args.filter
             )
