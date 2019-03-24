@@ -71,7 +71,8 @@ def learn(policy_name="DDPG",
             low_reward_count='half',
             mode='deterministic',
             reset_radius=1,
-            filter=None
+            filter=False,
+            filter_radius=0.2
             ):
 
     if render == False:
@@ -94,8 +95,10 @@ def learn(policy_name="DDPG",
             'mode': mode
             }
 
-    if filter == "circle":
-        filter = circle_filter.CircleFilter([0.5, -0.5], 0.5)
+    if filter is True:
+        filter = circle_filter.CircleFilter([0, 0], filter_radius)
+    else:
+        filter = None
 
     environment = gym_multi_dimensional.dynamic_register(
             n_dimensions=dimensions,env_description=description,
@@ -192,7 +195,8 @@ if __name__ == "__main__":
     parser.add_argument("--low_reward_count", default='half')
     parser.add_argument("--mode", default='deterministic')
     parser.add_argument("--reset_radius", default=None, type=float)
-    parser.add_argument("--filter", default=None)
+    parser.add_argument("--filter", dest='filter', action='store_true')
+    parser.add_argument("--filter_radius", default=0.2, type=float)
 
     parser.set_defaults(new_exp=True)
     parser.set_defaults(verbose=True)
@@ -200,6 +204,7 @@ if __name__ == "__main__":
     parser.set_defaults(continuous=True)
     parser.set_defaults(render=True)
     parser.set_defaults(save=False)
+    parser.set_defaults(filter=False)
 
     args = parser.parse_args()
 
@@ -236,5 +241,6 @@ if __name__ == "__main__":
             low_reward_count=args.low_reward_count,
             mode=args.mode,
             reset_radius = args.reset_radius,
-            filter=args.filter
+            filter=args.filter,
+            filter_radius=args.filter_radius
             )
