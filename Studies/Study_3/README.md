@@ -2,6 +2,8 @@
 
 This study focuses on the behaviour of DDPG with a filtered replay buffer.
 
+The flag --no-new-exp is set for the whole study , this forbids DDPG to add any experiences to the replay buffer.
+
 The environment being 2 dimensional , we can visualize the content of a replay buffer to see the explored regions.
 
 Non filtered replay buffer           |  Filtered replay buffer
