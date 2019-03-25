@@ -50,7 +50,7 @@ run_training()
     --no-render\
     --no-new-exp\
     --output=${OUTPUT_DIR}\
-    --reset_radius=$RESET_RADIUS"
+    --reset_radius=${RESET_RADIUS}"
 
   eval ${COMMAND}
 }
