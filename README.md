@@ -65,8 +65,3 @@ The replay buffer was filtered to impose an unexplored region in the center.
 ![reward/step according to step number](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/result/visualizations/scores.png)
 ### Policy
 ![Qvalues on the environment space](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/result/visualizations/Q_contour_time.gif)
-
-## Study 4
-Average reward per step gained by agents who learned with DDPG algorithm on the environments according to the target network update rate.
-The details of the experiment are available in [study_4.sh](https://github.com/schott97l/RL_analysis/blob/master/Studies/Study_4/study_4.sh)
-![reward/step according to the target network update rate](https://lh3.googleusercontent.com/VJdtv-U66-MbyfVqLA1EOoyoQha5bEB9C6mQ5FUWHPFVwJj67T_Oq-4IT-_dIYPe1dPGwCL6RPdc9A)
