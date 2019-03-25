@@ -13,7 +13,7 @@ Non filtered replay buffer           |  Filtered replay buffer
 
 An optimal policy can be visualized either as a contour graph or gradient field.
 
-We will compare the results to those obtained by an unfiltered DDPG algorithm allowed to insert new samples in the replay buffer. The high reward being places on the top and right edge of the 2 dimensional environment.
+We will compare the results to those obtained by an unfiltered DDPG algorithm allowed to insert new samples in the replay buffer. The high reward are the edges on the top and top-right of the 2 dimensional environment.
 
 Optimal contour           |  Optimal gradient
 :-------------------------:|:-------------------------:
@@ -59,7 +59,7 @@ For this test , the filter is in the upper right corner and has a 0.6 radius.
 |  Replay buffer |
 |:-:|
 | ![edge-filtered](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/images/edge-filtered.png)  |
-Here , no interpolation is really possible,  we explore how the policy evolved in and around of the blind zone.
+Here , no interpolation is really possible,  we explore how the policy evolves in and around of the blind zone.
 
 ## Impact of replay buffer size on the learned policy 
 
