@@ -12,7 +12,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--directory",default="results/")
     parser.add_argument("--batch_size",default=1,type=int)
+    parser.add_argument("--learning_timesteps",default=None,type=int)
     parser.add_argument("--eval_freq",default=1,type=int)
+    parser.add_argument("--title",default="")
     
     parser.set_defaults(log_scale=False)
 
@@ -51,6 +53,34 @@ if __name__ == "__main__":
     pi_values = np.array(pi_values)
     pi_values = np.mean(pi_values,axis=1)
     
+    xs = list(map(float,xs))
+    ys = list(pi_values)
+    data = np.array([xs,ys],dtype=object).transpose()
+    data2 = []
+    for row in data:
+        data2.append(tuple(row))
+
+    data2 = sorted(data2,key=lambda tup: tup[0])
+    data = np.array(data2,dtype=object)
+    xs = data[:,0]
+    pi_values = data[:,1]
+    
     for i,x in enumerate(xs):
-        vis_2d.visualize_Pi_time(pi_values[i], save=True, name="Pi_arrow_time_{}.gif".format(int(x)), title=r'$\pi(s)$ : {}'.format(int(x)),path=args.directory + "/visualizations", eval_freq=args.eval_freq)
-        vis_2d.visualize_Pi(pi_values[i][-1], save=True, name="Pi_arrow_{}.png".format(int(x)), title=r'$\pi(s)$ : {}'.format(int(x)), path=args.directory + "/visualizations")
+        vis_2d.visualize_Pi_time(pi_values[i], save=True,
+                name="Pi_arrow_time_{}.gif".format(int(x)),
+                title=r'$\pi(s)$ ; ' + args.title + ' {}'.format(int(x)),
+                path=args.directory + "/visualizations",
+                steps_name=" ; timestep",
+                steps=np.arange(0, args.learning_timesteps, args.eval_freq),
+                fps=4)
+        vis_2d.visualize_Pi(pi_values[i][-1], save=True,
+                name="Pi_arrow_{}.png".format(int(x)),
+                title=r'$\pi(s)$ ; ' + args.title + ' {}'.format(int(x)),
+                path=args.directory + "/visualizations")
+
+    vis_2d.visualize_Pi_time(pi_values[:][-1], save=True,
+            name="Pi_arrow_time_{}.gif".format(args.title),
+            title=r'$\pi(s)$',
+            path=args.directory + "/visualizations",
+            steps_name=args.title,
+            steps=xs, fps=2)

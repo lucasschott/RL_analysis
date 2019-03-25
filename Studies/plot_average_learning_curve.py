@@ -5,6 +5,7 @@ import argparse
 import numpy as np
 import gym_multi_dimensional
 from gym_multi_dimensional.visualization import vis_2d
+import matplotlib.animation as animation
 
 
 if __name__ == "__main__":
@@ -13,6 +14,7 @@ if __name__ == "__main__":
     parser.add_argument("--directory",default="results/")
     parser.add_argument("--batch_size",default=1,type=int)
     parser.add_argument("--eval_freq",default=1,type=int)
+    parser.add_argument("--title",default="")
     
     parser.set_defaults(log_scale=False)
 
@@ -52,11 +54,35 @@ if __name__ == "__main__":
     mean = np.mean(evaluations,axis=1)
     std = np.std(evaluations,axis=1)
     
+    xs = list(map(float,xs))
+    ys = list(mean)
+    zs = list(std)
+    data = np.array([xs,ys,zs],dtype=object).transpose()
+    data2 = []
+    for row in data:
+        data2.append(tuple(row))
+
+    data2 = sorted(data2,key=lambda tup: tup[0])
+    data = np.array(data2,dtype=object)
+    xs = data[:,0]
+    mean = data[:,1]
+    std = data[:,2]
+
+    
     for i,x in enumerate(xs):
         print(mean[i])
         print(std[i])
         X = np.arange(0, args.eval_freq * len(mean[i]), args.eval_freq)
         plt.figure()
         plt.errorbar(X, mean[i], std[i], fmt="--o")
-        plt.title("Average reward per step, learning {}".format(int(x)))
+        plt.title('Average reward per step ; '+ args.title +' {}'.format(int(x)))
         plt.savefig(args.directory + "/visualizations/scores_{}.png".format(int(x)))
+        
+    fig, ax = plt.subplots(1)
+    def animate(i):
+        fig.clear()
+        ax = fig.add_subplot(111)
+        ax.errorbar(X, mean[i], std[i], fmt="--o")
+        ax.set_title('Average reward per step ; '+ args.title +' {}'.format(int(xs[i])))
+    anim = animation.FuncAnimation(fig, animate, interval=200, frames=len(mean))
+    anim.save(args.directory + "/visualizations/scores_{}.gif".format(args.title), writer='imagemagick', fps=2)

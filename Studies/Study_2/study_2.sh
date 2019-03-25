@@ -2,9 +2,9 @@
 
 ## Performance en fonction de la taille du buffer
 
-PARALLEL_MAX=6
+PARALLEL_MAX=8
 
-MEAN_BATCH_SIZE=6
+MEAN_BATCH_SIZE=8
 
 POLICY_NAME="DDPG"
 
@@ -26,7 +26,7 @@ RESULT_DIR="results/"
 
 MODE="velocity"
 
-TITLE=""
+TITLE="replay buffer size"
 
 X_LABEL="replay buffer size"
 
@@ -88,20 +88,25 @@ eval ${COMMAND2}
 COMMAND3="python ../plot_average_q.py\
     --directory=$RESULT_DIR\
     --batch_size=$MEAN_BATCH_SIZE\
-    --eval_freq=$EVAL_FREQ"
+    --learning_timesteps=$LEARNING_TIMESTEPS\
+    --eval_freq=$EVAL_FREQ\
+    --title='$TITLE'"
 
 eval ${COMMAND3}
 
 COMMAND4="python ../plot_average_pi.py\
     --directory=$RESULT_DIR\
     --batch_size=$MEAN_BATCH_SIZE\
-    --eval_freq=$EVAL_FREQ"
+    --learning_timesteps=$LEARNING_TIMESTEPS\
+    --eval_freq=$EVAL_FREQ\
+    --title='$TITLE'"
 
 eval ${COMMAND4}
 
 COMMAND5="python ../plot_average_learning_curve.py\
     --directory=$RESULT_DIR\
     --batch_size=$MEAN_BATCH_SIZE\
-    --eval_freq=$EVAL_FREQ"
+    --eval_freq=$EVAL_FREQ\
+    --title='$TITLE'"
 
 eval ${COMMAND5}

@@ -128,38 +128,13 @@ def learn(policy_name="DDPG",
 
     vis_2d.visualize_RB(replay_buffer, args.acceleration, save=save, path=visualizations_path)
 
-    env = gym.make(environment)
-
-    state_dim = 1
-    for dim_length in env.observation_space.shape:
-        state_dim *= dim_length
-    action_dim = 1
-    for dim_length in env.action_space.shape:
-        action_dim *= dim_length
-    max_action = float(env.action_space.high[0])
-
-    env.close()
-
-    if dimensions != 2:
-        exit()
-
-    if policy_name == "TD3":
-        policy = TD3.TD3(state_dim,action_dim,max_action)
-    elif policy_name == "DDPG":
-        policy = DDPG.DDPG(state_dim,action_dim,max_action)
-
-    policy.load(policy_name + "_" + environment, models_path)
-
-    Q_values = policy.get_Q_values(env,20)
-    Pi_values = policy.get_Pi_values(env,10)
-
     if acceleration:
-        vis_2d.visualize_Q_arrow(Q_values, save=save, path=visualizations_path)
+        pass
     else:
         vis_2d.visualize_Q(q_values[-1], save=save, path=visualizations_path)
         vis_2d.visualize_Pi(pi_values[-1], save=save, path=visualizations_path)
-        vis_2d.visualize_Q_time(q_values, save=save, path=visualizations_path, eval_freq=eval_freq)
-        vis_2d.visualize_Pi_time(pi_values, save=save, path=visualizations_path, eval_freq=eval_freq)
+        vis_2d.visualize_Q_time(q_values, save=save, path=visualizations_path, steps_name="timestep", steps=np.arange(0,learning_timesteps,eval_freq), fps=4)
+        vis_2d.visualize_Pi_time(pi_values, save=save, path=visualizations_path, steps_name="timestep", steps=np.arange(0,learning_timesteps,eval_freq), fps=4)
 
 
 if __name__ == "__main__":
