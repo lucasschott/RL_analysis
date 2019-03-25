@@ -31,26 +31,26 @@ With a replay buffer sufficiently large we expect an interpolation of the blind 
 The number of learning steps is set to 10 000
 
 | Replay buffer size  |  Contour | Gradient  |
-|:-:|:-:|:-:|---|---|
-|  250 |   |   |   |   |
-|  500 |   |   |   |   |
-|  1000 |   |   |   |   |
-|  2500 |   |   |   |   |
-|  5000 |   |   |   |   |
-|  10000 |   |   |   |   |
+|:-:|:-:|:-:|
+|  250 |   |   |
+|  500 |   |   |
+|  1000 |   |   |
+|  2500 |   |   |
+|  5000 |   |   |
+|  10000 |   |   |
 
 ## Impact of the number of learning step on the learned policy
 
 The replay buffer size is set to 10 000, and the exploration phase runs untils it is filled.
 
 | Learning steps  |  Contour | Gradient  |
-|:-:|:-:|:-:|---|---|
-|  250 |   |   |   |   |
-|  500 |   |   |   |   |
-|  1000 |   |   |   |   |
-|  2500 |   |   |   |   |
-|  5000 |   |   |   |   |
-|  10000 |   |   |   |   |
+|:-:|:-:|:-:|
+|  250 |   |   |
+|  500 |   |   |
+|  1000 |   |   |
+|  2500 |   |   |
+|  5000 |   |   |
+|  10000 |   |   | 
 
 # Edge filter
 
@@ -64,21 +64,21 @@ Here , no interpolation is really possible,  we explore how the policy evolved i
 ## Impact of replay buffer size on the learned policy 
 
 | Replay buffer size  |  Contour | Gradient  |
-|:-:|:-:|:-:|---|---|
-|  250 |   |   |   |   |
-|  500 |   |   |   |   |
-|  1000 |   |   |   |   |
-|  2500 |   |   |   |   |
-|  5000 |   |   |   |   |
-|  10000 |   |   |   |   |
+|:-:|:-:|:-:|
+|  250 |   |   |
+|  500 |   |   |
+|  1000 |   |   |
+|  2500 |   |   |
+|  5000 |   |   |
+|  10000 |   |   |
 
 ## Impact of the number of learning step on the learned policy
 
 | Learning steps  |  Contour | Gradient  |
-|:-:|:-:|:-:|---|---|
-|  250 |   |   |   |   |
-|  500 |   |   |   |   |
-|  1000 |   |   |   |   |
-|  2500 |   |   |   |   |
-|  5000 |   |   |   |   |
-|  10000 |   |   |   |   |
+|:-:|:-:|:-:|
+|  250 |   |   |
+|  500 |   |   |
+|  1000 |   |   |
+|  2500 |   |   |
+|  5000 |   |   |
+|  10000 |   |   |
