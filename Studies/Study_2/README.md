@@ -6,7 +6,7 @@ In this study we analyze the influence of the replay buffer size on the average 
 
 We expect to  see very poor performance on the lower replay buffer sizes , as the number of experiences that can be contained in the replay buffer is too low , leading to an almost certain auto correlation of the experiences when sampling from the replay buffer.
 
-As the replay buffer size increases , the performance should rise and settle to a level dependant of the environment. In our 2D environment , the starting position greatly influences the outcome and therefore the average reward obtained. We forced the starting point to be uniformly generated around the center point of the environment in a radius of 0.1 in order to reduced the variance that would otherwise be induced.
+As the replay buffer size increases , the performance should rise and settle to a level dependant of the environment. In our 2D environment , the starting position greatly influences the outcome and therefore the average reward obtained. We forced the starting point to be uniformly generated around the center point of the environment in a radius of 0.1 in order to reduced the variance that would otherwise be induced.\
 
 
 |  Performances |
