@@ -67,7 +67,15 @@ if __name__ == "__main__":
     xs = data[:,0]
     mean = data[:,1]
     std = data[:,2]
-
+    
+    new = []
+    for m in mean:
+        new.append(m)
+    mean = np.array(new)
+    new = []
+    for s in std:
+        new.append(s)
+    std = np.array(new)
     
     for i,x in enumerate(xs):
         print(mean[i])
@@ -77,6 +85,17 @@ if __name__ == "__main__":
         plt.errorbar(X, mean[i], std[i], fmt="--o")
         plt.title('Average reward per step ; '+ args.title +' {}'.format(int(x)))
         plt.savefig(args.directory + "/visualizations/scores_{}.png".format(int(x)))
+        
+    plt.figure()
+    for i,x in enumerate(xs):
+        print(mean[i])
+        print(std[i])
+        X = np.arange(0, args.eval_freq * len(mean[i]), args.eval_freq)
+        plt.errorbar(X, mean[i], std[i], fmt="--o", label="{}".format(int(x)))
+    plt.title('Average reward per step ; '+ args.title)
+    plt.legend()
+    plt.savefig(args.directory + "/visualizations/scores_{}.png".format(args.title))
+
         
     fig, ax = plt.subplots(1)
     def animate(i):

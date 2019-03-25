@@ -65,6 +65,11 @@ if __name__ == "__main__":
     xs = data[:,0]
     pi_values = data[:,1]
     
+    new = []
+    for pi in pi_values:
+        new.append(pi)
+    pi_values = np.array(new)
+    
     for i,x in enumerate(xs):
         vis_2d.visualize_Pi_time(pi_values[i], save=True,
                 name="Pi_arrow_time_{}.gif".format(int(x)),
@@ -73,12 +78,12 @@ if __name__ == "__main__":
                 steps_name=" ; timestep",
                 steps=np.arange(0, args.learning_timesteps, args.eval_freq),
                 fps=4)
-        vis_2d.visualize_Pi(pi_values[i][-1], save=True,
+        vis_2d.visualize_Pi(pi_values[i,-1], save=True,
                 name="Pi_arrow_{}.png".format(int(x)),
                 title=r'$\pi(s)$ ; ' + args.title + ' {}'.format(int(x)),
                 path=args.directory + "/visualizations")
 
-    vis_2d.visualize_Pi_time(pi_values[:][-1], save=True,
+    vis_2d.visualize_Pi_time(pi_values[:,-1], save=True,
             name="Pi_arrow_time_{}.gif".format(args.title),
             title=r'$\pi(s)$',
             path=args.directory + "/visualizations",

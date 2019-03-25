@@ -64,6 +64,12 @@ if __name__ == "__main__":
     data = np.array(data2,dtype=object)
     xs = data[:,0]
     q_values = data[:,1]
+
+    new = []
+    for q in q_values:
+        new.append(q)
+    q_values = np.array(new)
+    print(q_values.shape)
     
     for i,x in enumerate(xs):
         vis_2d.visualize_Q_time(q_values[i], save=True,
@@ -71,14 +77,14 @@ if __name__ == "__main__":
                 title=r'$Q(s,\pi(s))$ ; ' + args.title + ' {}'.format(int(x)),
                 path=args.directory + "/visualizations",
                 steps_name=" ; timestep",
-                steps=np.arange(0, args.learning_timestep, args.eval_freq),
+                steps=np.arange(0, args.learning_timesteps, args.eval_freq),
                 fps=4)
-        vis_2d.visualize_Q(q_values[i][-1], save=True,
+        vis_2d.visualize_Q(q_values[i,-1], save=True,
                 name="Q_contour_{}.png".format(int(x)),
                 title=r'$Q(s,\pi(s))$ ; ' + args.title + ' {}'.format(int(x)),
                 path=args.directory + "/visualizations")
     
-    vis_2d.visualize_Q_time(q_values[:][-1], save=True,
+    vis_2d.visualize_Q_time(q_values[:,-1], save=True,
             name="Q_contour_time_{}.gif".format(args.title),
             title=r'$Q(s,\pi(s))$',
             path=args.directory + "/visualizations",
