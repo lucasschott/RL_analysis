@@ -126,15 +126,17 @@ def learn(policy_name="DDPG",
             policy_freq=policy_freq,
             filter=filter)
 
-    vis_2d.visualize_RB(replay_buffer, args.acceleration, save=save, path=visualizations_path)
+    if dimensions==2:
 
-    if acceleration:
-        pass
-    else:
-        vis_2d.visualize_Q(q_values[-1], save=save, path=visualizations_path)
-        vis_2d.visualize_Pi(pi_values[-1], save=save, path=visualizations_path)
-        vis_2d.visualize_Q_time(q_values, save=save, path=visualizations_path, steps_name="timestep", steps=np.arange(0,learning_timesteps,eval_freq), fps=4)
-        vis_2d.visualize_Pi_time(pi_values, save=save, path=visualizations_path, steps_name="timestep", steps=np.arange(0,learning_timesteps,eval_freq), fps=4)
+        vis_2d.visualize_RB(replay_buffer, args.acceleration, save=save, path=visualizations_path)
+
+        if acceleration:
+            pass
+        else:
+            vis_2d.visualize_Q(q_values[-1], save=save, path=visualizations_path)
+            vis_2d.visualize_Pi(pi_values[-1], save=save, path=visualizations_path)
+            vis_2d.visualize_Q_time(q_values, save=save, path=visualizations_path, steps_name="timestep", steps=np.arange(0,len(q_values))*eval_freq, fps=4)
+            vis_2d.visualize_Pi_time(pi_values, save=save, path=visualizations_path, steps_name="timestep", steps=np.arange(0,len(q_values))*eval_freq, fps=4)
 
 
 if __name__ == "__main__":

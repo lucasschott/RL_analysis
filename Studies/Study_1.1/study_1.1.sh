@@ -4,15 +4,15 @@
 
 PARALLEL_MAX=8
 
-MEAN_BATCH_SIZE=8
+MEAN_BATCH_SIZE=1
 
 POLICY_NAME="DDPG"
 
-EXPLORATION_TIMESTEPS=5000
+EXPLORATION_TIMESTEPS=10000
 
-LEARNING_TIMESTEPS=2000
+LEARNING_TIMESTEPS=1000
 
-BUFFER_SIZE=5000
+BUFFER_SIZE=10000
 
 EVAL_FREQ=100
 
@@ -28,7 +28,7 @@ RESULT_DIR="results/"
 
 MODE="velocity"
 
-TITLE=""
+TITLE="dimensions"
 
 X_LABEL="dimensions"
 
@@ -65,7 +65,7 @@ run_training()
 
 PARALLEL=0
 
-for i in 1 2 4 8 16 32 64 128
+for i in 2 4 8 16 32 64 128 256
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
@@ -85,7 +85,6 @@ done
 
 COMMAND2="python ../plot_evaluations.py\
     --directory=$RESULT_DIR\
-    --policy_name=$POLICY_NAME\
     --batch_size=$MEAN_BATCH_SIZE\
     --title='$TITLE'\
     --x_label='$X_LABEL'\
@@ -94,16 +93,10 @@ COMMAND2="python ../plot_evaluations.py\
 
 eval ${COMMAND2}
 
-COMMAND3="python ../plot_average_q.py\
+COMMAND3="python ../plot_average_learning_curve.py\
     --directory=$RESULT_DIR\
     --batch_size=$MEAN_BATCH_SIZE\
-    --eval_freq=$EVAL_FREQ"
+    --eval_freq=$EVAL_FREQ\
+    --title='$TITLE'"
 
 eval ${COMMAND3}
-
-COMMAND4="python ../plot_average_pi.py\
-    --directory=$RESULT_DIR\
-    --batch_size=$MEAN_BATCH_SIZE\
-    --eval_freq=$EVAL_FREQ"
-
-eval ${COMMAND4}

@@ -52,7 +52,10 @@ if __name__ == "__main__":
 
     evaluations = np.array(evaluations)
     mean = np.mean(evaluations,axis=1)
-    std = np.std(evaluations,axis=1)
+    if args.batch_size==1:
+        std = mean
+    else:
+        std = np.std(evaluations,axis=1)
     
     xs = list(map(float,xs))
     ys = list(mean)
@@ -96,7 +99,6 @@ if __name__ == "__main__":
     plt.legend()
     plt.savefig(args.directory + "/visualizations/scores_{}.png".format(args.title))
 
-        
     fig, ax = plt.subplots(1)
     def animate(i):
         fig.clear()
