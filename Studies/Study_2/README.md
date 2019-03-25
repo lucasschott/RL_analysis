@@ -8,11 +8,13 @@ We expect to  see very poor performance on the lower replay buffer sizes , as th
 
 As the replay buffer size increases , the performance should rise and settle to a level dependant of our environment. In our 2D environment , the starting position greatly influences the outcome and therefore the average reward obtained. We forced the starting point to be uniformly generated around the center point of the environment in a radius of 0.1 in order to reduced the variance that would otherwise be induced.
 
+
 |  Performances |
 |:-:|
 | ![reward-step](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/result/total_scores.png)
 
 As we can see , the reward / step seems to vee converging quite early. With a replay buffer of size 256, 40000 learning steps are enough to converge close to the optimal policy. The sizes above barely show any improvement.
+
 
 |  Performances per replay buffer size |
 |:-:|
@@ -23,6 +25,7 @@ As seen in the graph above , the 16 and 64 experiences replay buffer achieved ve
 On the other hand the bigger replay buffer allowed DDPG to converge close to the optimal policy as expected. An interesting note is that we can see no significative difference between the 256 long replay buffer and the sizes above, this result might be explained by the simplicity of the environment.
 
 Below is the resulting policy of the 64k replay buffer learning in both contour and gradient field format.
+
 The environment reward are placed on the top and right edges.
 
 
