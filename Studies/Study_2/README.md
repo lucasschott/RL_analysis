@@ -13,7 +13,7 @@ As the replay buffer size increases , the performance should rise and settle to 
 
 |  Performances |
 |:-:|
-| ![reward-step](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/result/total_scores.png)
+| ![reward-step](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualisations/total_scores.png)
 
 As we can see , the reward / step seems to vee converging quite early. With a replay buffer of size 256, 40000 learning steps are enough to converge close to the optimal policy. The sizes above barely show any improvement.  
 
@@ -21,7 +21,7 @@ As we can see , the reward / step seems to vee converging quite early. With a re
 
 |  Performances per replay buffer size |
 |:-:|
-|![lol](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/result/scores_replay&#32;buffer&#32;size.png) |
+|![lol](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/scores_replay&#32;buffer&#32;size.png) |
 
 As seen in the graph above , the 16 and 64 experiences replay buffer achieved very poor performances. Their respective variance is far superior to any other run , which suggest that barely no information could be learned from the environment.
 
@@ -35,4 +35,4 @@ The environment reward are placed on the top and right edges.
 
 Contour according to replay buffer size           |  Gradient according to replay buffer size
 :-------------------------:|:-------------------------:
-![contour](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/result/q_contour_time_loop.gif)   |  ![gradient](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/result/Pi_arrow_time_replay_buffer_loop.gif)
+![contour](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/q_contour_time_loop.gif)   |  ![gradient](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_time_replay_buffer_loop.gif)

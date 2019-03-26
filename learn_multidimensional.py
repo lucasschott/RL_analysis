@@ -96,7 +96,7 @@ def learn(policy_name="DDPG",
             }
 
     if filter is True:
-        filter = circle_filter.CircleFilter([0, 0], filter_radius)
+        filter = circle_filter.CircleFilter([1, 1], filter_radius)
     else:
         filter = None
 
