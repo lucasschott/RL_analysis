@@ -28,34 +28,15 @@ And a summary of the performances per dimensions :
 
 To be able to estimate more accurately the convergence rate and variance of each training batch you will find below the isolated training results.
 
-## 2 Dimensions
-
-![2-dimensions](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.1/visualizations/scores_2.png)
-
-## 4 Dimensions
-
-![4-dimensions](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.1/visualizations/scores_4.png)
-
-## 8 Dimensions
-![8-dimensions](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.1/visualizations/scores_8.png)
-
-## 16 Dimensions
-![16-dimensions](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.1/visualizations/scores_16.png)
-
-## 32 Dimensions
-
-![32-dimensions](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.1/visualizations/scores_32.png)
-
-## 64 Dimensions
-
-![64-dimensions](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.1/visualizations/scores_64.png)
-
-## 128 Dimensions
-
-![128-dimensions](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.1/visualizations/scores_128.png)
-
-## 256 Dimensions
-![256-dimensions](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.1/visualizations/scores_256.png)
+2 Dimensions | 4 Dimensions
+:---------------:|:-------------:
+![2-dimensions](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.1/visualizations/scores_2.png) | ![4-dimensions](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.1/visualizations/scores_4.png)
+8 Dimensions | 16 Dimensions
+![8-dimensions](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.1/visualizations/scores_8.png) | ![16-dimensions](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.1/visualizations/scores_16.png)
+32 Dimensions | 64 Dimensions
+![32-dimensions](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.1/visualizations/scores_32.png) | ![64-dimensions](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.1/visualizations/scores_64.png)
+128 Dimensions | 256 Dimensions
+![128-dimensions](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.1/visualizations/scores_128.png) | ![256-dimensions](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.1/visualizations/scores_256.png)
 
 ## Analysis
 
