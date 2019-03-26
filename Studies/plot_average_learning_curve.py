@@ -44,11 +44,13 @@ if __name__ == "__main__":
             eval_vect = np.zeros(args.batch_size).tolist()
             eval_vect[int(regex.group(2))] = evaluation[:,0]
             evaluations.append(eval_vect)
+            print(evaluation[:,0].shape)
         else:
             idx = xs.index(float(regex.group(1)))
             print(idx)
             print(regex.group(2))
             evaluations[idx][int(regex.group(2))] = evaluation[:,0]
+            print(evaluation[:,0].shape)
 
     evaluations = np.array(evaluations)
     mean = np.mean(evaluations,axis=1)
@@ -93,7 +95,7 @@ if __name__ == "__main__":
     for i,x in enumerate(xs):
         print(mean[i])
         print(std[i])
-        X = np.arange(0, args.eval_freq * len(mean[i]), args.eval_freq)
+        X = np.arange(0, len(mean[i]))*args.eval_freq
         plt.errorbar(X, mean[i], std[i], fmt="--o", label="{}".format(int(x)))
     plt.title('Average reward per step ; '+ args.title)
     plt.legend()
