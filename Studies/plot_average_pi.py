@@ -44,11 +44,13 @@ if __name__ == "__main__":
             eval_vect = np.zeros(args.batch_size).tolist()
             eval_vect[int(regex.group(2))] = pi_value
             pi_values.append(eval_vect)
+            print(pi_value.shape)
         else:
             idx = xs.index(float(regex.group(1)))
             print(idx)
             print(regex.group(2))
             pi_values[idx][int(regex.group(2))] = pi_value
+            print(pi_value.shape)
 
     pi_values = np.array(pi_values)
     pi_values = np.mean(pi_values,axis=1)
@@ -71,13 +73,14 @@ if __name__ == "__main__":
     pi_values = np.array(new)
     
     for i,x in enumerate(xs):
-        vis_2d.visualize_Pi_time(pi_values[i], save=True,
-                name="Pi_arrow_time_{}.gif".format(int(x)),
-                title=r'$\pi(s)$ ; ' + args.title + ' {}'.format(int(x)),
-                path=args.directory + "/visualizations",
-                steps_name=" ; timestep",
-                steps=np.arange(0, pi_values[i])*args.eval_freq,
-                fps=4)
+        if len(pi_values[i]) > 1:
+            vis_2d.visualize_Pi_time(pi_values[i], save=True,
+                    name="Pi_arrow_time_{}.gif".format(int(x)),
+                    title=r'$\pi(s)$ ; ' + args.title + ' {}'.format(int(x)),
+                    path=args.directory + "/visualizations",
+                    steps_name=" ; timestep",
+                    steps=np.arange(1, len(pi_values[i])+1)*args.eval_freq,
+                    fps=4)
         vis_2d.visualize_Pi(pi_values[i,-1], save=True,
                 name="Pi_arrow_{}.png".format(int(x)),
                 title=r'$\pi(s)$ ; ' + args.title + ' {}'.format(int(x)),

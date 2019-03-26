@@ -44,11 +44,13 @@ if __name__ == "__main__":
             eval_vect = np.zeros(args.batch_size).tolist()
             eval_vect[int(regex.group(2))] = q_value
             q_values.append(eval_vect)
+            print(q_value.shape)
         else:
             idx = xs.index(float(regex.group(1)))
             print(idx)
             print(regex.group(2))
             q_values[idx][int(regex.group(2))] = q_value
+            print(q_value.shape)
 
     q_values = np.array(q_values)
     q_values = np.mean(q_values,axis=1)
@@ -72,13 +74,14 @@ if __name__ == "__main__":
     print(q_values.shape)
     
     for i,x in enumerate(xs):
-        vis_2d.visualize_Q_time(q_values[i], save=True,
-                name="Q_contour_time_{}.gif".format(int(x)),
-                title=r'$Q(s,\pi(s))$ ; ' + args.title + ' {}'.format(int(x)),
-                path=args.directory + "/visualizations",
-                steps_name=" ; timestep",
-                steps=np.arange(0, q_values[i])*args.eval_freq,
-                fps=4)
+        if len(q_values[i])>1:
+            vis_2d.visualize_Q_time(q_values[i], save=True,
+                    name="Q_contour_time_{}.gif".format(int(x)),
+                    title=r'$Q(s,\pi(s))$ ; ' + args.title + ' {}'.format(int(x)),
+                    path=args.directory + "/visualizations",
+                    steps_name=" ; timestep",
+                    steps=np.arange(1, len(q_values[i])+1)*args.eval_freq,
+                    fps=4)
         vis_2d.visualize_Q(q_values[i,-1], save=True,
                 name="Q_contour_{}.png".format(int(x)),
                 title=r'$Q(s,\pi(s))$ ; ' + args.title + ' {}'.format(int(x)),

@@ -95,7 +95,7 @@ if __name__ == "__main__":
     for i,x in enumerate(xs):
         print(mean[i])
         print(std[i])
-        X = np.arange(0, args.eval_freq * len(mean[i]), args.eval_freq)
+        X = np.arange(0, len(mean[i]))*args.eval_freq
         plt.errorbar(X, mean[i], std[i], fmt="--o", label="{}".format(int(x)))
     plt.title('Average reward per step ; '+ args.title)
     plt.legend()
