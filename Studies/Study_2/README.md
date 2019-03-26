@@ -35,4 +35,4 @@ The environment reward are placed on the top and right edges.
 
 Contour according to replay buffer size           |  Gradient according to replay buffer size
 :-------------------------:|:-------------------------:
-![contour](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/images/q_contour_time_loop.gif)   |  ![gradient](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/images/Pi_arrow_time_replay_buffer_loop.gif)
+![contour](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/result/q_contour_time_loop.gif)   |  ![gradient](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/result/Pi_arrow_time_replay_buffer_loop.gif)
