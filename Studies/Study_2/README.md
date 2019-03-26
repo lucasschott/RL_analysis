@@ -3,6 +3,7 @@
 ## Influence of replay buffer size on average reward
 
 In this study we analyze the influence of the replay buffer size on the average reward. The learning step parameter is set to 40k , with a replay buffer size ranging from 16 to 64k. The environment is 2 dimensional with rewards present on the top and right edge.
+The algorithm ( DDPG ) is not allowed to push new experiences to the replay buffer. Making the exploration phase the only source of information on the environment. This is made possible by the use of the --no-new-exp parameter. For a full list of the parameters used for this study , please refer to study_2.sh
 
 We expect to  see very poor performance on the lower replay buffer sizes , as the number of experiences that can be contained in the replay buffer is too low , leading to an almost certain auto correlation of the experiences when sampling from the replay buffer.
 
@@ -12,7 +13,7 @@ As the replay buffer size increases , the performance should rise and settle to 
 
 |  Performances |
 |:-:|
-| ![reward-step](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/result/total_scores.png)
+| ![reward-step](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualisations/total_scores.png)
 
 As we can see , the reward / step seems to vee converging quite early. With a replay buffer of size 256, 40000 learning steps are enough to converge close to the optimal policy. The sizes above barely show any improvement.  
 
@@ -20,7 +21,7 @@ As we can see , the reward / step seems to vee converging quite early. With a re
 
 |  Performances per replay buffer size |
 |:-:|
-|![lol](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/result/scores_replay&#32;buffer&#32;size.png) |
+|![lol](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/scores_replay&#32;buffer&#32;size.png) |
 
 As seen in the graph above , the 16 and 64 experiences replay buffer achieved very poor performances. Their respective variance is far superior to any other run , which suggest that barely no information could be learned from the environment.
 
@@ -32,6 +33,6 @@ The environment reward are placed on the top and right edges.
 
 
 
-Optimal contour           |  Optimal gradient
+Contour according to replay buffer size           |  Gradient according to replay buffer size
 :-------------------------:|:-------------------------:
-![contour](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/images/contour.png)   |  ![gradient](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/images/gradient.png)
+![contour](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/q_contour_time_loop.gif)   |  ![gradient](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_time_replay_buffer_loop.gif)
