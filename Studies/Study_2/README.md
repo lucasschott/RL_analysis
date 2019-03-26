@@ -51,7 +51,7 @@ For more in depth results , here are the separated learned policies and their re
 #### Average policy
 ![gradient-16](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_16.png)
 
-The Critic gives a uniform feedback , so no information was learned from the environment on average. The policy is far from optimal. Those result were to be expected with such low replay buffer sizes.
+
 ### Buffer size : 64
 #### Performance
 ![scores-64](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/scores_64.png)
@@ -63,7 +63,6 @@ The Critic gives a uniform feedback , so no information was learned from the env
 #### Average policy
 ![gradient-64](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_64.png)
 
-The Critic is already mapping the actions to rewards correctly, but the actor is still lagging behind with a suboptimal policy. The high variance is explained by the poor performance of the actor.
 
 ### Buffer size : 256
 #### Performance
@@ -77,7 +76,6 @@ The Critic is already mapping the actions to rewards correctly, but the actor is
 #### Average policy
 ![gradient-256](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_256.png)
 
-We can start to see a relatioship between the Critic and the Actor on the visualizations. The result are already close to optimal, the variance is highly reduced.
 
 ### Buffer size : 1024
 
@@ -92,7 +90,6 @@ We can start to see a relatioship between the Critic and the Actor on the visual
 #### Average policy
 ![gradient-1024](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_1024.png)
 
-Surprisingly this buffer size while achieving better Critic performances , shows a higher variance that does not seem to be significantly reduced during the training process.
 
 ### Buffer size : 4096
 
@@ -107,7 +104,6 @@ Surprisingly this buffer size while achieving better Critic performances , shows
 #### Average policy
 ![gradient-4096](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_4096.png)
 
-This run shows very high performance with a variance dropping to 0 on the last learning steps. Both the Critic and the Actor are close to optimal.
 
 ### Buffer size : 16384
 
