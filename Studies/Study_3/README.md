@@ -42,19 +42,24 @@ The number of learning steps is set to 10 000
 ## Impact of the number of learning step on the learned policy
 
 The replay buffer size is set to 10 000, and the exploration phase runs untils it is filled.
+Here is the averaged Q_values and Policy on a batch of 20 learning.
 
-| Learning steps  |  Contour | Gradient  |
-|:-:|:-:|:-:|
-|  250 |   |   |
-|  500 |   |   |
-|  1000 |   |   |
-|  2500 |   |   |
-|  5000 |   |   |
-|  10000 |   |   | 
+|  Contour | Gradient  |
+|:-:|:-:|
+| ![contour-lr-center](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-center/visualizations/Q_contour_time_10000.gif) | ![policy-lr-center](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-center/visualizations/Pi_arrow_time_10000.gif) |
 
+As we might be measuring a divergence in both the Q_values and the learned policy , it is important to notice that the average might not be representative.
+
+Here are a few isolated evolutions so that the reader can compare it to the averaged version 
+
+|  Contour | Gradient  |
+|:-:|:-:|
+| ![contour-lr-center](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-center-samples/samples/1/visualizations/Q_contour_time.gif) | ![policy-lr-center](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-center-samples/samples/1/visualizations/Pi_arrow_time.gif) |
+| ![contour-lr-center](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-center-samples/samples/2/visualizations/Q_contour_time.gif) | ![policy-lr-center](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-center-samples/samples/2/visualizations/Pi_arrow_time.gif) |
+| ![contour-lr-center](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-center-samples/samples/3/visualizations/Q_contour_time.gif) | ![policy-lr-center](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-center-samples/samples/3/visualizations/Pi_arrow_time.gif) |
 # Edge filter
 
-For this test , the filter is in the upper right corner and has a 0.6 radius.
+For this test , the filter is in the upper right corner and has a radius of 1.
 
 |  Replay buffer |
 |:-:|
@@ -74,11 +79,19 @@ Here , no interpolation is really possible,  we explore how the policy evolves i
 
 ## Impact of the number of learning step on the learned policy
 
-| Learning steps  |  Contour | Gradient  |
-|:-:|:-:|:-:|
-|  250 |   |   |
-|  500 |   |   |
-|  1000 |   |   |
-|  2500 |   |   |
-|  5000 |   |   |
-|  10000 |   |   |
+The replay buffer size is set to 10 000, and the exploration phase runs untils it is filled.
+Here is the averaged Q_values and Policy on a batch of 20 learning.
+
+|  Contour | Gradient  |
+|:-:|:-:|
+| ![contour-lr-corner](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-corner/visualizations/Q_contour_time_10000.gif) | ![policy-lr-corner](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-corner/visualizations/Pi_arrow_time_10000.gif) |
+
+Again , keep in mind that the average  might not be representative.
+
+Here are a few isolated evolutions so that the reader can compare it to the averaged version 
+
+|  Contour | Gradient  |
+|:-:|:-:|
+| ![contour-lr-center](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-corner-samples/samples/1/visualizations/Q_contour_time.gif) | ![policy-lr-center](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-corner-samples/samples/1/visualizations/Pi_arrow_time.gif) |
+| ![contour-lr-center](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-corner-samples/samples/2/visualizations/Q_contour_time.gif) | ![policy-lr-center](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-corner-samples/samples/2/visualizations/Pi_arrow_time.gif) |
+| ![contour-lr-center](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-corner-samples/samples/3/visualizations/Q_contour_time.gif) | ![policy-lr-center](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-corner-samples/samples/3/visualizations/Pi_arrow_time.gif)
