@@ -57,7 +57,7 @@ The details of the experiment are available in [study_1.1](https://github.com/sc
 On environments with one small rewards and one big reward.
 The details of the experiment are available in [study_1.2](https://github.com/schott97l/RL_analysis/tree/master/Studies/Study_1.2)
 
-![reward/step according to dimensions number](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.2/visualizations/scores_.png)
+![reward/step according to dimensions number](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.2/visualizations/scores_dimensions.png)
 
 ## Study 2 : Average reward / step according to the replay buffer size
 
