@@ -2,7 +2,7 @@
 
 ## Influence of replay buffer size on average reward
 
-In this study we analyze the influence of the replay buffer size on the average reward. The learning step parameter is set to 40k , with a replay buffer size ranging from 16 to 64k. The environment is 2 dimensional with rewards present on the top and right edge.
+In this study we analyze the influence of the replay buffer size on the average reward. The learning timestep parameter is set to 40k , with a replay buffer size ranging from 16 to 64k. The environment is 2 dimensional with rewards present on the top and right edge.
 The algorithm ( DDPG ) is not allowed to push new experiences to the replay buffer. Making the exploration phase the only source of information on the environment. This is made possible by the use of the --no-new-exp parameter. For a full list of the parameters used for this study , please refer to study_2.sh
 
 We expect to  see very poor performance on the lower replay buffer sizes , as the number of experiences that can be contained in the replay buffer is too low , leading to an almost certain auto correlation of the experiences when sampling from the replay buffer.
