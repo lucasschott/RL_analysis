@@ -44,13 +44,13 @@ if __name__ == "__main__":
             eval_vect = np.zeros(args.batch_size).tolist()
             eval_vect[int(regex.group(2))] = evaluation[:,0]
             evaluations.append(eval_vect)
-            print(evaluation[:,0].shape)
+            print(evaluation.shape)
         else:
             idx = xs.index(float(regex.group(1)))
             print(idx)
             print(regex.group(2))
             evaluations[idx][int(regex.group(2))] = evaluation[:,0]
-            print(evaluation[:,0].shape)
+            print(evaluation.shape)
 
     evaluations = np.array(evaluations)
     mean = np.mean(evaluations,axis=1)
