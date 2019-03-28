@@ -22,7 +22,7 @@ We ran the DDPG algorithm on the following dimensions :
 
 Here are  the performances achieved during the whole learning process per dimension :
 
-![all-training](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.2/visualizations/scores_.png)
+![all-training](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.2/visualizations/scores_dimensions.png)
 
 And a summary of the performances per dimensions :
 
