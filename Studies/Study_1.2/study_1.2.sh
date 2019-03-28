@@ -1,20 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 
 ## Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
 
-PARALLEL_MAX=8
+PARALLEL_MAX=4
 
 MEAN_BATCH_SIZE=8
 
 POLICY_NAME="DDPG"
 
-EXPLORATION_TIMESTEPS=50000
+EXPLORATION_TIMESTEPS=10000
 
-LEARNING_TIMESTEPS=40000
+LEARNING_TIMESTEPS=20000
 
-BUFFER_SIZE=50000
+BUFFER_SIZE=10000
 
-EVAL_FREQ=1000
+EVAL_FREQ=500
 
 RESET_RADIUS=0.1
 
@@ -65,22 +65,26 @@ run_training()
 
 PARALLEL=0
 
+PIDS=()
+
 for i in 2 4 8 16 32 64 128 256
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
+	echo "Training $i $j"
+	run_training $i $j &
+	PIDS[$j]=$!
+
         PARALLEL=$(($PARALLEL+1))
         if [ $PARALLEL -ge $PARALLEL_MAX ]
         then
-            echo "Training $i $j"
-            run_training $i $j
             PARALLEL=0
-        else
-            echo "Training $i $j"
-            run_training $i $j &
+	    wait ${PIDS[@]}
+	    PIDS=()
         fi
     done
 done
+wait ${PIDS[@]}
 
 
 COMMAND2="python ../plot_evaluations.py\
