@@ -1,32 +1,26 @@
-#!/bin/sh
+#!/bin/bash
 
 ## Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
 
-PARALLEL_MAX=8
+PARALLEL_MAX=1
 
-MEAN_BATCH_SIZE=8
+MEAN_BATCH_SIZE=2 #8
 
 POLICY_NAME="DDPG"
 
-EXPLORATION_TIMESTEPS=10000
+EXPLORATION_TIMESTEPS=50000
 
-LEARNING_TIMESTEPS=5000
+LEARNING_TIMESTEPS=2000
 
-BUFFER_SIZE=10000
+BUFFER_SIZE=50000
 
 EVAL_FREQ=100
 
 RESET_RADIUS=0.1
 
-LEARNING_RATE=0.0001
-
-TAU=0.5
-
 ROOT_DIR="$(pwd)/"
 
 RESULT_DIR="results/"
-
-MODE="velocity"
 
 TITLE="dimensions"
 
@@ -48,10 +42,7 @@ run_training()
     --learning_timesteps=$LEARNING_TIMESTEPS\
     --buffer_size=$BUFFER_SIZE\
     --eval_freq=$EVAL_FREQ\
-    --tau=$TAU\
-    --learning_rate=$LEARNING_RATE\
     --dimensions=$1\
-    --${MODE}\
     --save\
     --no-render\
     --high_reward_count=$HIGH_REWARD_COUNT\
@@ -64,23 +55,27 @@ run_training()
 
 
 PARALLEL=0
+PIDS=()
 
-for i in 2 4 8 16 32 64 128 256
+for i in 2 4 8 16
+	#32 64 128 256
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
+	echo "Training $i $j"
+	run_training $i $j &
+	PIDS[$j]=$!
+
         PARALLEL=$(($PARALLEL+1))
         if [ $PARALLEL -ge $PARALLEL_MAX ]
         then
-            echo "Training $i $j"
-            run_training $i $j
             PARALLEL=0
-        else
-            echo "Training $i $j"
-            run_training $i $j &
+	    wait ${PIDS[@]}
+	    PIDS=()
         fi
     done
 done
+wait ${PIDS[@]}
 
 
 COMMAND2="python ../plot_evaluations.py\

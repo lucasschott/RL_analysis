@@ -2,31 +2,25 @@
 
 ## Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
 
-PARALLEL_MAX=4
+PARALLEL_MAX=1
 
 MEAN_BATCH_SIZE=8
 
 POLICY_NAME="DDPG"
 
-EXPLORATION_TIMESTEPS=10000
+EXPLORATION_TIMESTEPS=50000
 
 LEARNING_TIMESTEPS=20000
 
-BUFFER_SIZE=10000
+BUFFER_SIZE=50000
 
-EVAL_FREQ=500
+EVAL_FREQ=1000
 
 RESET_RADIUS=0.1
-
-LEARNING_RATE=0.0001
-
-TAU=0.5
 
 ROOT_DIR="$(pwd)/"
 
 RESULT_DIR="results/"
-
-MODE="velocity"
 
 TITLE="dimensions"
 
@@ -48,8 +42,6 @@ run_training()
     --learning_timesteps=$LEARNING_TIMESTEPS\
     --buffer_size=$BUFFER_SIZE\
     --eval_freq=$EVAL_FREQ\
-    --tau=$TAU\
-    --learning_rate=$LEARNING_RATE\
     --dimensions=$1\
     --${MODE}\
     --save\
@@ -64,7 +56,6 @@ run_training()
 
 
 PARALLEL=0
-
 PIDS=()
 
 for i in 2 4 8 16 32 64 128 256
