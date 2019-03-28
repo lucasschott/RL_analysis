@@ -29,7 +29,9 @@ X_LABEL="learning timesteps"
 
 Y_LABEL="reward/step"
 
-LEARNING_STEPS=10000
+LEARNING_STEPS=40000
+
+EVAL_FREQ=2000
 
 
 run_training()
@@ -41,7 +43,7 @@ run_training()
     --exploration_timesteps=$1\
     --learning_timesteps=${LEARNING_STEPS}\
     --buffer_size=$1\
-    --eval_freq=$1\
+    --eval_freq=${EVAL_FREQ}\
     --tau=$TAU\
     --dimensions=$DIMENSION\
     --${MODE}\
@@ -59,7 +61,7 @@ run_training()
 
 PARALLEL=0
 
-for i in 500 1000 2000 4000 8000 16000 32000
+for i in 16 64 256 1024 4096 16384 65536
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
@@ -90,13 +92,13 @@ eval ${COMMAND2}
 COMMAND3="python ../plot_average_q.py\
     --directory=$RESULT_DIR\
     --batch_size=$MEAN_BATCH_SIZE\
-    --eval_freq=1"
+    --eval_freq=${EVAL_FREQ}"
 
 eval ${COMMAND3}
 
 COMMAND4="python ../plot_average_pi.py\
     --directory=$RESULT_DIR\
     --batch_size=$MEAN_BATCH_SIZE\
-    --eval_freq=1"
+    --eval_freq=${EVAL_FREQ}"
 
 eval ${COMMAND4}
