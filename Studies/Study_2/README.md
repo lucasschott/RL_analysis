@@ -44,51 +44,34 @@ For more in depth results , here are the separated learned policies and their re
 #### Performance
 ![scores-16](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/scores_16.png)
 
-#### Average critic according to current policy
-
-![contour-16](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Q_contour_16.png)
-
-#### Average policy
-![gradient-16](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_16.png)
-
+Contour           |  Gradient 
+:-------------------------:|:-------------------------:
+![contour](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Q_contour_16.png)   |  ![gradient](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_16.png)
 
 ### Buffer size : 64
 #### Performance
 ![scores-64](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/scores_64.png)
 
-#### Average critic according to current policy
-
-![contour-64](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Q_contour_64.png)
-
-#### Average policy
-![gradient-64](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_64.png)
-
+Contour           |  Gradient 
+:-------------------------:|:-------------------------:
+![contour](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Q_contour_64.png)   |  ![gradient](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_64.png)
 
 ### Buffer size : 256
 #### Performance
 ![scores-256](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/scores_256.png)
 
-#### Average critic according to current policy
-
-
-![contour-256](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Q_contour_256.png)
-
-#### Average policy
-![gradient-256](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_256.png)
-
+Contour           |  Gradient 
+:-------------------------:|:-------------------------:
+![contour](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Q_contour_256.png)   |  ![gradient](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_256.png)
 
 ### Buffer size : 1024
 
 #### Performance
 ![scores-1024](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/scores_1024.png)
 
-#### Average critic according to current policy
-
-
-![contour-1024](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Q_contour_1024.png)
-
-#### Average policy
-![gradient-1024](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_1024.png)
+Contour           |  Gradient 
+:-------------------------:|:-------------------------:
+![contour](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Q_contour_1024.png)   |  ![gradient](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_1024.png)
 
 
 ### Buffer size : 4096
@@ -96,37 +79,24 @@ For more in depth results , here are the separated learned policies and their re
 #### Performance
 ![scores-4096](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/scores_4096.png)
 
-#### Average critic according to current policy
-
-
-![contour-4096](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Q_contour_4096.png)
-
-#### Average policy
-![gradient-4096](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_4096.png)
-
+Contour           |  Gradient 
+:-------------------------:|:-------------------------:
+![contour](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Q_contour_4096.png)   |  ![gradient](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_4096.png)
 
 ### Buffer size : 16384
 
 #### Performance
 ![scores-16384](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/scores_16384.png)
 
-#### Average critic according to current policy
-
-
-![contour-16384](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Q_contour_16384.png)
-
-#### Average policy
-![gradient-16384](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_16384.png)
+Contour           |  Gradient 
+:-------------------------:|:-------------------------:
+![contour](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Q_contour_16384.png)   |  ![gradient](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_16384.png)
 
 
 ### Buffer size : 65536
 #### Performance
 ![scores-65536](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/scores_65536.png)
 
-#### Average critic according to current policy
-
-
-![contour-65536](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Q_contour_65536.png)
-
-#### Average policy
-![gradient-65536](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_65536.png)
+Contour           |  Gradient 
+:-------------------------:|:-------------------------:
+![contour](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Q_contour_65536.png)   |  ![gradient](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/Pi_arrow_65536.png)
