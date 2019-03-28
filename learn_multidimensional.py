@@ -96,7 +96,7 @@ def learn(policy_name="DDPG",
             }
 
     if filter is True:
-        filter = circle_filter.CircleFilter([1, 1], filter_radius)
+        filter = circle_filter.CircleFilter([0, 0], filter_radius)
     else:
         filter = None
 
@@ -128,7 +128,7 @@ def learn(policy_name="DDPG",
 
     if dimensions==2:
 
-        vis_2d.visualize_RB(replay_buffer, args.acceleration, save=save, path=visualizations_path)
+        vis_2d.visualize_RB(replay_buffer, args.acceleration, filter=filter, save=save, path=visualizations_path)
 
         if acceleration:
             pass
