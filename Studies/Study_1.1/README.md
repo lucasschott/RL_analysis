@@ -1,6 +1,6 @@
 # Study 1.1 : Influence of the number of dimensions
 
-In this study we analyze the influence of the number of dimensions on the average reward / step and on the overall performances of a DDPG agent in our environment.
+In this study we analyze the influence of the number of dimensions on the average reward/step and on the overall performances of a DDPG agent in our environment, With rewards available on every dimensions.
 
 We first ran this study and found that the more dimensions the better the agent was doing. This could be explained by the fact that if every dimension has a high and low reward on its boundaries, when the environment is reset , there is an increasing chance that the agent is already close to a high reward. To counter this problem we introduced the --reset_radius parameter to contain the starting position in a circle centerd in the environment.
 
@@ -40,10 +40,8 @@ To be able to estimate more accurately the convergence rate and variance of each
 
 ## Analysis
 
-As we can see the convergence rate seems to be proportional to the number of dimensions, and as they increase the variance is reduced. A behaviour similar to the one we explained in the introduction might be the explanation.
+As we can see the convergence rate seems to increase with the number of dimensions, and the variance reduces.
 
 As DDPG starts evolving in the environment chances are it will reach a high reward on at least one dimension. The gradient towards this dimension will increase so that it can be exploited.
 
 As the process repeats and the number of dimensions increases, The number of dimensions that can be exploited also increases improving the convergence rate, this gives the agent more axis of movement towards a high reward. As there are n / 2 high reward , with an increasing n , the agent expected time to reach a high rewards is stabilized which leads to very low variance.
-
-Above 32 dimensions , we do not notice any significative difference in the performances.
