@@ -14,54 +14,75 @@ cd RL-evaluation-environment/gym-multi-dimensional && pip install -e .
 
 [reinforcement learning implementations](https://github.com/schott97l/RL_implementations)
 
+For more informations about those components , please refer to their respective repositories.
+
 ## Usage Examples
 To run a random policy on the 2D environment :
 ```sh
 python run_multidimensional.py
 ```
 
-To learn aand run a DDPG policy on the 2D environment with half high and low reward, and save the model and the results:
+To learn and run a DDPG policy on the 2D environment with half high and low reward, and save the model and the results:
+
 ```sh
-python learn_multidimensional.py --policy_name DDPG --output results1 --save --high_reward_count half --low_reward_count half
-python run_multidimensional.py --policy_name DDPG --policy_directory results1/models --high_reward_count half --low_reward_count half
+python learn_multidimensional.py --policy_name DDPG --output results1 --save
+python run_multidimensional.py --policy_name DDPG --policy_directory results1/models
 ```
 
 To learn and run a DDPG policy on the 2D environment with one high and one low reward, and save the model and the results:
 ```sh
-python learn_multidimensional.py --policy_name DDPG --output results2 --save --high_reward_count one --low_reward_count one
-python run_multidimensional.py --policy_name DDPG --policy_directory results2/models --high_reward_count one --low_reward_count one
+python learn_multidimensional.py --policy_name DDPG --output results2 --save 
+python run_multidimensional.py --policy_name DDPG --policy_directory results2/models
 ```
 
 ## Studies
 We did some experiments to study the behavior of DDPG algorithm learning according to different parameters.
-We study the average reward per step according to the number of dimensions in an environment with half small and half big reward, and also in an environment with only one small and one big reward. We also study the effect of the replay buffer size on the ability of learning with a replay buffer filled by random exploration.
+* Average reward / step according to the number of dimensions ( halft high reward / half low reward )
+* Average reward / step according to the number of dimensions ( one high reward / one low reward )
+* Average reward / step according to the replay buffer size
+* Evolution of a policy on a filtered replay buffer
 
-### Study 1
+
+### Study 1 : Average reward / step according to the number of dimensions 
 Average reward per step gained by agents who learned with DDPG algorithm on the environments according to the number of dimensions.
 
-#### Study 1.1
+#### Study 1.1 ( halft high reward / half low reward )
 On an environments with half small rewards and half big reward.
-The details of the experiment are available in [study_1.1.sh](https://github.com/schott97l/RL_analysis/blob/master/Studies/Study_1.1/study_1.1.sh)
-![reward/step according to dimensions number](https://lh3.googleusercontent.com/IuhnrDTJpFqRgSwEEpvqcJ0OjNAOmRKf74HAU6bgqRTNsQlyExtfpBOWxsfhgewEtW4KgM5ZXGorPA)
+The details of the experiment are available in [study_1.1](https://github.com/schott97l/RL_analysis/tree/master/Studies/Study_1.1)
 
-#### Study 1.2
+![reward/step according to dimensions number](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.1/visualizations/scores_dimensions.png)
+
+#### Study 1.2 ( one high reward / one low reward )
+
 On environments with one small rewards and one big reward.
-The details of the experiment are available in [study_1.2.sh](https://github.com/schott97l/RL_analysis/blob/master/Studies/Study_1.2/study_1.2.sh)
-![reward/step according to dimensions number](https://lh3.googleusercontent.com/6RA4bFGruiqC0fdrqJW8i0jrsBkrW9RtNGl33_LsQ9Lf6B3Gova4oNEUVCUm1Gdsgydd85dvkui3jw)
+The details of the experiment are available in [study_1.2](https://github.com/schott97l/RL_analysis/tree/master/Studies/Study_1.2)
 
-## Study 2
+![reward/step according to dimensions number](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_1.2/visualizations/scores_.png)
+
+## Study 2 : Average reward / step according to the replay buffer size
+
 Average reward per step gained by agents who learned with DDPG algorithm on the environments according to the replay buffer size.
-The details of the experiment are available in [study_2.sh](https://github.com/schott97l/RL_analysis/blob/master/Studies/Study_2/study_2.sh)
-![reward/step according to replay buffer size](https://lh3.googleusercontent.com/sm4Ng-SHe_RiyQZvN8TlS5EkxiwvlY2OqxLTQykvQ79OFHdaE3zyLw6sKTgSRJhIuvIoCm5klCQgPw )
-## Study 3
+The details of the experiment are available in [study_2](https://github.com/schott97l/RL_analysis/blob/master/Studies/Study_2)
 
-Visualization of the policy and reward per step gained by an agents who leared with the DDPG algorithm on the environments.
-The replay buffer was filtered to impose an unexplored region in the center.
+![reward/step according to replay buffer size](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_2/visualizations/scores_replay%20buffer%20size.png)
+
+## Study 3 : Evolution of a policy on a filtered replay buffer
+
+Visualization of the learned policy by DDPG on a filtered replay buffer.
+
+The replay buffer was filtered to impose an unexplored region in the center and in a corner.
+
+The details of the experiment are available in [study_3](https://github.com/schott97l/RL_analysis/blob/master/Studies/Study_3)
 
 ### Replay buffer
-![replay_buffer](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/result/visualizations/rb.png)
+Non filtered replay buffer           |  Filtered replay buffer
+:-------------------------:|:-------------------------:
+![non-filtered](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/images/non-filtered.png)   |  ![filtered](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/images/filtered.png)
 
-### Average reward
-![reward/step according to step number](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/result/visualizations/scores.png)
-### Policy
-![Qvalues on the environment space](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/result/visualizations/Q_contour_time.gif)
+A second filter was used to filter the upper right portion of the environment. This corner is the meeting point of the two edges that will give a positive reward to the agent.
+
+#### Sample Policy with a center filter
+|  Contour | Gradient  |
+|:-:|:-:|
+| ![contour-lr-center](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-center-samples/samples/1/visualizations/Q_contour_time.gif) | ![policy-lr-center](https://raw.githubusercontent.com/schott97l/RL_analysis/master/Studies/Study_3/visualizations/lr-center-samples/samples/1/visualizations/Pi_arrow_time.gif) |
+
