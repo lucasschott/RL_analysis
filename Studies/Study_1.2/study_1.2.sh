@@ -4,13 +4,13 @@
 
 PARALLEL_MAX=1
 
-MEAN_BATCH_SIZE=8
+MEAN_BATCH_SIZE=2 #8
 
 POLICY_NAME="DDPG"
 
 EXPLORATION_TIMESTEPS=50000
 
-LEARNING_TIMESTEPS=20000
+LEARNING_TIMESTEPS=4000 #20000
 
 BUFFER_SIZE=50000
 
@@ -43,7 +43,6 @@ run_training()
     --buffer_size=$BUFFER_SIZE\
     --eval_freq=$EVAL_FREQ\
     --dimensions=$1\
-    --${MODE}\
     --save\
     --no-render\
     --high_reward_count=$HIGH_REWARD_COUNT\
@@ -58,7 +57,7 @@ run_training()
 PARALLEL=0
 PIDS=()
 
-for i in 2 4 8 16 32 64 128 256
+for i in 2 4 8 #16 32 64 128 256
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do

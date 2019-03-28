@@ -60,6 +60,7 @@ def learn(policy_name="DDPG",
             noise_clip=0.5,
             policy_freq=2,
             verbose=True,
+            visualize_rb=False,
             acceleration=False,
             continuous=True,
             render=True,
@@ -128,7 +129,8 @@ def learn(policy_name="DDPG",
 
     if dimensions==2:
 
-        vis_2d.visualize_RB(replay_buffer, args.acceleration, filter=filter, save=save, path=visualizations_path)
+        if visualize_rb:
+            vis_2d.visualize_RB(replay_buffer, args.acceleration, filter=filter, save=save, path=visualizations_path)
 
         if acceleration:
             pass
@@ -159,6 +161,7 @@ if __name__ == "__main__":
     parser.add_argument("--noise_clip", default=0.5, type=float)    #range to clip target policy noise
     parser.add_argument("--policy_freq", default=2, type=int)       #frequency of delayed policy updates
     parser.add_argument('--quiet', dest='verbose', action='store_false')
+    parser.add_argument('--visualize_rb', dest='visualize_rb', action='store_true') #visualize replay buffer
     parser.add_argument('--velocity', dest='acceleration', action='store_false')
     parser.add_argument('--acceleration', dest='acceleration', action='store_true')
     parser.add_argument('--discrete', dest='continuous', action='store_false')
@@ -177,6 +180,7 @@ if __name__ == "__main__":
 
     parser.set_defaults(new_exp=True)
     parser.set_defaults(verbose=True)
+    parser.set_defaults(visualize_rb=False)
     parser.set_defaults(acceleration=False)
     parser.set_defaults(continuous=True)
     parser.set_defaults(render=True)
@@ -207,6 +211,7 @@ if __name__ == "__main__":
             noise_clip=args.noise_clip,
             policy_freq=args.policy_freq,
             verbose=args.verbose,
+            visualize_rb=args.visualize_rb,
             acceleration=args.acceleration,
             continuous=args.continuous,
             render=args.render,

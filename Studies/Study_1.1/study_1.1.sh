@@ -4,7 +4,7 @@
 
 PARALLEL_MAX=1
 
-MEAN_BATCH_SIZE=2 #8
+MEAN_BATCH_SIZE=8
 
 POLICY_NAME="DDPG"
 
@@ -57,8 +57,7 @@ run_training()
 PARALLEL=0
 PIDS=()
 
-for i in 2 4 8 16
-	#32 64 128 256
+for i in 2 4 8 16 32 64 128 256
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
