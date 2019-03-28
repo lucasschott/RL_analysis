@@ -42,12 +42,12 @@ def save_arguments(args, path):
     with open(path + '/arguments.txt', 'w') as file:
         file.write(json.dumps(args))
 
-
 def learn(policy_name="DDPG",
             seed=0,
             dimensions=2,
             eval_freq=5e3,
             exploration_timesteps=1e3,
+            exploration_mode="sequential",
             learning_timesteps=1e4,
             buffer_size=5000,
             new_exp=True,
@@ -113,6 +113,7 @@ def learn(policy_name="DDPG",
             environment=environment,
             eval_freq=eval_freq,
             exploration_timesteps=exploration_timesteps,
+            exploration_mode=exploration_mode,
             learning_timesteps=learning_timesteps,
             buffer_size=buffer_size,
             new_exp=new_exp,
@@ -147,6 +148,7 @@ if __name__ == "__main__":
     parser.add_argument("--dimensions", default=2, type=int)
     parser.add_argument("--eval_freq", default=5e3, type=float)     #how often (time steps) we evaluate
     parser.add_argument("--exploration_timesteps", default=1e3, type=int) #random steps at the beginning
+    parser.add_argument("--exploration_mode", default="sequential", type=str)
     parser.add_argument("--learning_timesteps", default=1e4, type=int)
     parser.add_argument("--buffer_size", default=5000, type=int)
     parser.add_argument("--no-new-exp", dest='new_exp', action="store_false")
@@ -195,6 +197,7 @@ if __name__ == "__main__":
             dimensions=args.dimensions,
             eval_freq=args.eval_freq,
             exploration_timesteps=args.exploration_timesteps,
+            exploration_mode=args.exploration_mode,
             learning_timesteps=args.learning_timesteps,
             buffer_size=args.buffer_size,
             new_exp=args.new_exp,
