@@ -14,9 +14,11 @@ EVAL_FREQ=2000
 
 DIMENSION=2
 
+EXPLORATION_MODE="sequential"
+
 ROOT_DIR="$(pwd)/"
 
-RESULT_DIR="results/"
+RESULT_DIR="results_sequential/"
 
 TITLE="replay buffer size"
 
@@ -38,8 +40,9 @@ run_training()
     --save\
     --no-policy_visu\
     --no-render\
-    --no-new-exp\
-    --output=${OUTPUT_DIR}"
+    --exploration_mode=${EXPLORATION_MODE}\
+    --output=${OUTPUT_DIR}\
+    --no-new-exp"
 
   eval ${COMMAND}
 }
