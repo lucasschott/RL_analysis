@@ -25,9 +25,9 @@ ROOT_DIR="$(pwd)/"
 
 RESULT_DIR="results-center-uniform/"
 
-TITLE="replay buffer size"
+TITLE="filter size"
 
-X_LABEL="replay buffer size"
+X_LABEL="filter size"
 
 Y_LABEL="reward/step"
 
