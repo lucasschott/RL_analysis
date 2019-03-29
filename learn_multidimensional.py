@@ -75,6 +75,7 @@ def learn(policy_name="DDPG",
             mode='deterministic',
             reset_radius=1,
             filter=False,
+            filter_pos=0,
             filter_radius=0.2
             ):
 
@@ -99,7 +100,8 @@ def learn(policy_name="DDPG",
             }
 
     if filter is True:
-        filter = circle_filter.CircleFilter([0, 0], filter_radius)
+        assert abs(filter_pos) <= 1,  "Filter pos (%f) invalid : must be between [-1, 1]" % (filter_pos)
+        filter = circle_filter.CircleFilter([filter_pos] * dimensions, filter_radius)
     else:
         filter = None
 
@@ -187,6 +189,7 @@ if __name__ == "__main__":
     parser.add_argument("--reset_radius", default=None, type=float)
     parser.add_argument("--filter", dest='filter', action='store_true')
     parser.add_argument("--filter_radius", default=0.2, type=float)
+    parser.add_argument("--filter_pos", default=0, type=float)
 
     parser.set_defaults(new_exp=True)
     parser.set_defaults(verbose=True)
@@ -237,5 +240,6 @@ if __name__ == "__main__":
             mode=args.mode,
             reset_radius = args.reset_radius,
             filter=args.filter,
+            filter_pos=args.filter_pos,
             filter_radius=args.filter_radius
             )
