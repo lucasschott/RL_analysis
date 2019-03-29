@@ -98,6 +98,7 @@ def learn(policy_name="DDPG",
             }
 
     if filter is True:
+        assert abs(filter_pos) <= 1,  "Filter pos (%f) invalid : must be between [-1, 1]" % (filter_pos)
         filter = circle_filter.CircleFilter([filter_pos] * dimensions, filter_radius)
     else:
         filter = None
