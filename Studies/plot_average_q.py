@@ -80,7 +80,7 @@ if __name__ == "__main__":
                     title=r'$Q(s,\pi(s))$ ; ' + args.title + ' {}'.format(int(x)),
                     path=args.directory + "/visualizations",
                     steps_name=" ; timestep",
-                    steps=np.arange(1, len(q_values[i])+1)*args.eval_freq,
+                    steps=np.arange(0, len(q_values[i]))*args.eval_freq,
                     fps=4)
         vis_2d.visualize_Q(q_values[i,-1], save=True,
                 name="Q_contour_{}.png".format(int(x)),
