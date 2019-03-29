@@ -23,7 +23,7 @@ FILTER_POS=1
 
 ROOT_DIR="$(pwd)/"
 
-RESULT_DIR="results-center-uniform/"
+RESULT_DIR="results-corner-sequential/"
 
 TITLE="filter size"
 
