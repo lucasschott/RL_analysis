@@ -79,7 +79,7 @@ if __name__ == "__main__":
                     title=r'$\pi(s)$ ; ' + args.title + ' {}'.format(int(x)),
                     path=args.directory + "/visualizations",
                     steps_name=" ; timestep",
-                    steps=np.arange(1, len(pi_values[i])+1)*args.eval_freq,
+                    steps=np.arange(0, len(pi_values[i]))*args.eval_freq,
                     fps=4)
         vis_2d.visualize_Pi(pi_values[i,-1], save=True,
                 name="Pi_arrow_{}.png".format(int(x)),
