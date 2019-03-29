@@ -24,6 +24,14 @@ X_LABEL="replay buffer size"
 
 Y_LABEL="reward/step"
 
+ACTOR_HL1=4
+
+ACTOR_HL2=3
+
+CRITIC_HL1=4
+
+CRITIC_HL2=3
+
 
 run_training()
 {
@@ -36,6 +44,10 @@ run_training()
     --buffer_size=$1\
     --eval_freq=$EVAL_FREQ\
     --dimensions=$DIMENSION\
+    --actor_hl1=$ACTOR_HL1\
+    --actor_hl2=$ACTOR_HL2\
+    --critic_hl1=$CRITIC_HL1\
+    --critic_hl2=$CRITIC_HL2\
     --save\
     --no-render\
     --no-new-exp\
@@ -48,7 +60,7 @@ run_training()
 PARALLEL=0
 PIDS=()
 
-for i in 16 64 256 1024 4096 16384 65536
+for i in 16 64 256 #1024 4096 16384 65536
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do

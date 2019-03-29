@@ -54,6 +54,8 @@ def learn(policy_name="DDPG",
             expl_noise=0.1,
             batch_size=64,
             discount=0.99,
+            actor_dim=(40,30),
+            critic_dim=(40,30),
             learning_rate=1e-4,
             tau=0.005,
             policy_noise=0.2,
@@ -121,6 +123,8 @@ def learn(policy_name="DDPG",
             expl_noise=expl_noise,
             batch_size=batch_size,
             discount=discount,
+            actor_dim=actor_dim,
+            critic_dim=critic_dim,
             learning_rate=learning_rate,
             tau=tau,
             policy_noise=policy_noise,
@@ -157,6 +161,10 @@ if __name__ == "__main__":
     parser.add_argument("--expl_noise", default=0.1, type=float)    #noise
     parser.add_argument("--batch_size", default=64, type=int)      #learning batch
     parser.add_argument("--discount", default=0.99, type=float)     #discount factor
+    parser.add_argument("--actor_hl1", default=40, type=int) #actor hidden layer 1 size
+    parser.add_argument("--actor_hl2", default=30, type=int) #actor hidden layer 2 size
+    parser.add_argument("--critic_hl1", default=40, type=int) #critic hidden layer 1 size
+    parser.add_argument("--critic_hl2", default=30, type=int) #critic hidden layer 2 size
     parser.add_argument("--learning_rate", default=1e-4, type=float)
     parser.add_argument("--tau", default=0.005, type=float)         #target network update rate
     parser.add_argument("--policy_noise", default=0.2, type=float)  #noise added to target policy during critic update
@@ -208,6 +216,8 @@ if __name__ == "__main__":
             expl_noise=args.expl_noise,
             batch_size=args.batch_size,
             discount=args.discount,
+            actor_dim=(args.actor_hl1,args.actor_hl2),
+            critic_dim=(args.critic_hl1,args.critic_hl2),
             learning_rate=args.learning_rate,
             tau=args.tau,
             policy_noise=args.policy_noise,
