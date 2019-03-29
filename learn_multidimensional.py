@@ -178,7 +178,7 @@ if __name__ == "__main__":
     parser.add_argument('--acceleration', dest='acceleration', action='store_true')
     parser.add_argument('--discrete', dest='continuous', action='store_false')
     parser.add_argument('--continuous', dest='continuous', action='store_true')
-    parser.add_argument('--replay_buffer_visu', dest='visualize_rb', action='store_true') #visualize replay buffer
+    parser.add_argument('--replay_buffer_visu', dest='replay_buffer_visu', action='store_true') #visualize replay buffer
     parser.add_argument('--no-policy_visu', dest='policy_visu', action='store_false')
     parser.add_argument('--no-render', dest='render', action='store_false')
     parser.add_argument('--save', dest='save', action='store_true')
