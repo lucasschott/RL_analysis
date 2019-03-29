@@ -62,7 +62,8 @@ def learn(policy_name="DDPG",
             noise_clip=0.5,
             policy_freq=2,
             verbose=True,
-            visualize_rb=False,
+            replay_buffer_visu=False,
+            policy_visu=True,
             acceleration=False,
             continuous=True,
             render=True,
@@ -136,10 +137,10 @@ def learn(policy_name="DDPG",
 
     if dimensions==2:
 
-        if visualize_rb:
+        if replay_buffer_visu:
             vis_2d.visualize_RB(replay_buffer, args.acceleration, filter=filter, save=save, path=visualizations_path)
 
-        if acceleration:
+        if acceleration or not policy_visu:
             pass
         else:
             vis_2d.visualize_Q(q_values[-1], save=save, path=visualizations_path)
@@ -173,11 +174,12 @@ if __name__ == "__main__":
     parser.add_argument("--noise_clip", default=0.5, type=float)    #range to clip target policy noise
     parser.add_argument("--policy_freq", default=2, type=int)       #frequency of delayed policy updates
     parser.add_argument('--quiet', dest='verbose', action='store_false')
-    parser.add_argument('--visualize_rb', dest='visualize_rb', action='store_true') #visualize replay buffer
     parser.add_argument('--velocity', dest='acceleration', action='store_false')
     parser.add_argument('--acceleration', dest='acceleration', action='store_true')
     parser.add_argument('--discrete', dest='continuous', action='store_false')
     parser.add_argument('--continuous', dest='continuous', action='store_true')
+    parser.add_argument('--replay_buffer_visu', dest='visualize_rb', action='store_true') #visualize replay buffer
+    parser.add_argument('--no-policy_visu', dest='policy_visu', action='store_false')
     parser.add_argument('--no-render', dest='render', action='store_false')
     parser.add_argument('--save', dest='save', action='store_true')
     parser.add_argument('--output', default=str(datetime.datetime.now()), type=str)
@@ -193,7 +195,8 @@ if __name__ == "__main__":
 
     parser.set_defaults(new_exp=True)
     parser.set_defaults(verbose=True)
-    parser.set_defaults(visualize_rb=False)
+    parser.set_defaults(replay_buffer_visu=False)
+    parser.set_defaults(policy_visu=True)
     parser.set_defaults(acceleration=False)
     parser.set_defaults(continuous=True)
     parser.set_defaults(render=True)
@@ -227,7 +230,8 @@ if __name__ == "__main__":
             noise_clip=args.noise_clip,
             policy_freq=args.policy_freq,
             verbose=args.verbose,
-            visualize_rb=args.visualize_rb,
+            replay_buffer_visu=args.replay_buffer_visu,
+            policy_visu=args.policy_visu,
             acceleration=args.acceleration,
             continuous=args.continuous,
             render=args.render,
