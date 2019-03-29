@@ -16,6 +16,8 @@ BUFFER_SIZE=32000
 
 EVAL_FREQ=1000
 
+EXPLORATION_MODE="uniform"
+
 RESET_RADIUS=0.1
 
 ROOT_DIR="$(pwd)/"
@@ -44,7 +46,9 @@ run_training()
     --eval_freq=$EVAL_FREQ\
     --dimensions=$1\
     --save\
+    --no-policy_visu\
     --no-render\
+    --exploration_mode=${EXPLORATION_MODE}\
     --high_reward_count=$HIGH_REWARD_COUNT\
     --low_reward_count=$LOW_REWARD_COUNT\
     --output=${OUTPUT_DIR}\
