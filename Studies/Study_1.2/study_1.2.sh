@@ -20,7 +20,7 @@ RESET_RADIUS=0.1
 
 ROOT_DIR="$(pwd)/"
 
-RESULT_DIR="results_sequential/"
+RESULT_DIR="results/"
 
 TITLE="replay buffer size"
 
