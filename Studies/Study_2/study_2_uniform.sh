@@ -16,6 +16,8 @@ DIMENSION=2
 
 EXPLORATION_MODE="uniform"
 
+RESET_RADIUS=0.1
+
 ROOT_DIR="$(pwd)/"
 
 RESULT_DIR="results_uniform/"
@@ -42,6 +44,7 @@ run_training()
     --no-render\
     --exploration_mode=${EXPLORATION_MODE}\
     --output=${OUTPUT_DIR}\
+    --reset_radius=$RESET_RADIUS\
     --no-new-exp"
 
   eval ${COMMAND}
