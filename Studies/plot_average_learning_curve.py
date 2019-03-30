@@ -100,7 +100,6 @@ if __name__ == "__main__":
         print(std[i])
         X = np.arange(0, len(mean[i]))*args.eval_freq
         plt.errorbar(X, mean[i], std[i], fmt="--o", label="{}".format(int(x)))
-    plt.title('Reward per step ; '+ args.title)
     plt.xlabel("timesteps")
     plt.ylabel("reward/step")
     plt.legend()
