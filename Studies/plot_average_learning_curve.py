@@ -88,7 +88,10 @@ if __name__ == "__main__":
         X = np.arange(0, args.eval_freq * len(mean[i]), args.eval_freq)
         plt.figure()
         plt.errorbar(X, mean[i], std[i], fmt="--o")
-        plt.title('Average reward per step ; '+ args.title +' {}'.format(int(x)))
+        plt.title('Reward per step ; '+ args.title +' {}'.format(int(x)))
+        plt.xlabel("timesteps")
+        plt.ylabel("reward/step")
+
         plt.savefig(args.directory + "/visualizations/scores_{}.png".format(int(x)))
         
     plt.figure()
@@ -97,7 +100,9 @@ if __name__ == "__main__":
         print(std[i])
         X = np.arange(0, len(mean[i]))*args.eval_freq
         plt.errorbar(X, mean[i], std[i], fmt="--o", label="{}".format(int(x)))
-    plt.title('Average reward per step ; '+ args.title)
+    plt.title('Reward per step ; '+ args.title)
+    plt.xlabel("timesteps")
+    plt.ylabel("reward/step")
     plt.legend()
     plt.savefig(args.directory + "/visualizations/scores_{}.png".format(args.title))
 
@@ -106,6 +111,8 @@ if __name__ == "__main__":
         fig.clear()
         ax = fig.add_subplot(111)
         ax.errorbar(X, mean[i], std[i], fmt="--o")
-        ax.set_title('Average reward per step ; '+ args.title +' {}'.format(int(xs[i])))
+        ax.set_title('Reward per step ; '+ args.title +' {}'.format(int(xs[i])))
+        ax.set_xlabel("timesteps")
+        ax.set_ylabel("reward/step")
     anim = animation.FuncAnimation(fig, animate, interval=200, frames=len(mean))
     anim.save(args.directory + "/visualizations/scores_{}.gif".format(args.title), writer='imagemagick', fps=2)

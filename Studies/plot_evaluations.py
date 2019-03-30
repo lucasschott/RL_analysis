@@ -81,5 +81,7 @@ if __name__ == "__main__":
     if args.log_scale:
         plt.xscale("log")
     plt.title('Reward per step ; ' + args.title)
+    plt.xlabel('{}'.format(x_label))
+    plt.ylabel('{}'.format(y_label))
     plt.savefig("{}/visualizations/total_scores.png".format(args.directory))
     plt.show()
