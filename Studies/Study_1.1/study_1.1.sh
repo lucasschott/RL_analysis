@@ -1,20 +1,18 @@
 #!/bin/bash
 
-## Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
+## Performance en fonction de la taille du buffer
 
-PARALLEL_MAX=1
+PARALLEL_MAX=8
 
 MEAN_BATCH_SIZE=8
 
 POLICY_NAME="DDPG"
 
-EXPLORATION_TIMESTEPS=32000
+LEARNING_TIMESTEPS=40000
 
-LEARNING_TIMESTEPS=2000
+EVAL_FREQ=2000
 
-BUFFER_SIZE=32000
-
-EVAL_FREQ=100
+DIMENSION=2
 
 EXPLORATION_MODE="uniform"
 
@@ -22,17 +20,13 @@ RESET_RADIUS=0.1
 
 ROOT_DIR="$(pwd)/"
 
-RESULT_DIR="results/"
+RESULT_DIR="results_uniform/"
 
-TITLE="dimensions"
+TITLE="replay buffer size"
 
-X_LABEL="dimensions"
+X_LABEL="replay buffer size"
 
 Y_LABEL="reward/step"
-
-HIGH_REWARD_COUNT="half"
-
-LOW_REWARD_COUNT="half"
 
 run_training()
 {
@@ -40,19 +34,18 @@ run_training()
 
   COMMAND="python ../../learn_multidimensional.py\
     --policy_name=$POLICY_NAME\
-    --exploration_timesteps=$EXPLORATION_TIMESTEPS\
+    --exploration_timesteps=$1\
     --learning_timesteps=$LEARNING_TIMESTEPS\
-    --buffer_size=$BUFFER_SIZE\
+    --buffer_size=$1\
     --eval_freq=$EVAL_FREQ\
-    --dimensions=$1\
+    --dimensions=$DIMENSION\
     --save\
     --no-policy_visu\
     --no-render\
     --exploration_mode=${EXPLORATION_MODE}\
-    --high_reward_count=$HIGH_REWARD_COUNT\
-    --low_reward_count=$LOW_REWARD_COUNT\
     --output=${OUTPUT_DIR}\
-    --reset_radius=$RESET_RADIUS"
+    --reset_radius=$RESET_RADIUS\
+    --no-new-exp"
 
   eval ${COMMAND}
 }
@@ -61,7 +54,7 @@ run_training()
 PARALLEL=0
 PIDS=()
 
-for i in 2 4 8 16 32 64 128 256
+for i in 16 64 256 1024 4096 16384 65536
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
@@ -80,7 +73,6 @@ do
 done
 wait ${PIDS[@]}
 
-
 COMMAND2="python ../plot_evaluations.py\
     --directory=$RESULT_DIR\
     --batch_size=$MEAN_BATCH_SIZE\
@@ -91,10 +83,28 @@ COMMAND2="python ../plot_evaluations.py\
 
 eval ${COMMAND2}
 
-COMMAND3="python ../plot_average_learning_curve.py\
+COMMAND3="python ../plot_average_q.py\
+    --directory=$RESULT_DIR\
+    --batch_size=$MEAN_BATCH_SIZE\
+    --learning_timesteps=$LEARNING_TIMESTEPS\
+    --eval_freq=$EVAL_FREQ\
+    --title='$TITLE'"
+
+eval ${COMMAND3}
+
+COMMAND4="python ../plot_average_pi.py\
+    --directory=$RESULT_DIR\
+    --batch_size=$MEAN_BATCH_SIZE\
+    --learning_timesteps=$LEARNING_TIMESTEPS\
+    --eval_freq=$EVAL_FREQ\
+    --title='$TITLE'"
+
+eval ${COMMAND4}
+
+COMMAND5="python ../plot_average_learning_curve.py\
     --directory=$RESULT_DIR\
     --batch_size=$MEAN_BATCH_SIZE\
     --eval_freq=$EVAL_FREQ\
     --title='$TITLE'"
 
-eval ${COMMAND3}
+eval ${COMMAND5}
