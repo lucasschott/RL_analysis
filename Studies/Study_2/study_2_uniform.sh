@@ -2,7 +2,7 @@
 
 ## Performance en fonction de la taille du buffer
 
-PARALLEL_MAX=8
+PARALLEL_MAX=2
 
 MEAN_BATCH_SIZE=8
 

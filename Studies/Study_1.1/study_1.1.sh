@@ -2,7 +2,7 @@
 
 ## Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
 
-PARALLEL_MAX=1
+PARALLEL_MAX=2
 
 MEAN_BATCH_SIZE=8
 
