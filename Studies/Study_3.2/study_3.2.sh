@@ -2,7 +2,7 @@
 
 ## Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
 
-PARALLEL_MAX=1
+PARALLEL_MAX=2
 
 MEAN_BATCH_SIZE=8
 
@@ -10,11 +10,11 @@ POLICY_NAME="DDPG"
 
 EXPLORATION_TIMESTEPS=32000
 
-LEARNING_TIMESTEPS=10000
+LEARNING_TIMESTEPS=2000
 
 BUFFER_SIZE=32000
 
-EVAL_FREQ=500
+EVAL_FREQ=100
 
 EXPLORATION_MODE="uniform"
 
