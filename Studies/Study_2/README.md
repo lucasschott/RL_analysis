@@ -98,7 +98,7 @@ A performance drop is clearly present on Figure  \ref{fig:corner_curves_random_w
 
  As we can see on Figure \ref{fig:corner_contour_random_walk} the policy is impacted earlier, around 1.2 a shift is noticeable. The sized above increase that effect and when the 2.0 radius is used we start noticing a divergent behaviour in the Q values estimations.
  
-![](Study_2/2.4/visualizations/Pi_arrow_1_6.png) | ![](Study_2/2.4/visualizations/Pi_arrow_2_0.png) ![](Study_2/2.4/visualizations/Pi_arrow_2_2.png)
+![](Study_2/2.4/visualizations/Pi_arrow_1_6.png) | ![](Study_2/2.4/visualizations/Pi_arrow_2_0.png) | ![](Study_2/2.4/visualizations/Pi_arrow_2_2.png)
 :---------------:|:---------------:|:----------------:
  
  On Figure \ref{fig:sample_policies_corner_sequential} the 1.6 radius filter visualizations show again a gap between the Actor and the Critic representation of the observation space. On the 2.0 and 2.2 filter size have their actions directed to the bottom left corner where only the low reward is present which explains the lower score. Even though the Q values did diverge, it is coherent with the contour visualization where we clearly see a gradient towards the low reward.
