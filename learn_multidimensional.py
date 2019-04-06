@@ -133,7 +133,8 @@ def learn(policy_name="DDPG",
             policy_noise=policy_noise,
             noise_clip=noise_clip,
             policy_freq=policy_freq,
-            filter=filter)
+            filter=filter,
+            render=render)
 
     if dimensions==2:
 
