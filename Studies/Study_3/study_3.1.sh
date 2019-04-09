@@ -38,7 +38,7 @@ run_training()
 {
   OUTPUT_DIR="${ROOT_DIR}${RESULT_DIR}${POLICY_NAME}_n$1_$2"
 
-  COMMAND="python ../../learn_multidimensional.py\
+  COMMAND="python ../../learn_hypercube.py\
     --policy_name=$POLICY_NAME\
     --exploration_timesteps=$EXPLORATION_TIMESTEPS\
     --learning_timesteps=$LEARNING_TIMESTEPS\

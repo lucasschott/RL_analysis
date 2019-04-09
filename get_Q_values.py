@@ -4,7 +4,7 @@ import gym
 from RL_implementations.implementations.algorithms import TD3
 from RL_implementations.implementations.algorithms import DDPG
 
-import gym_multi_dimensional
+import gym_hypercube
 
 if __name__ == "__main__":
 
@@ -30,7 +30,7 @@ if __name__ == "__main__":
             'mode': "deterministic"
             }
 
-    environment = gym_multi_dimensional.dynamic_register(n_dimensions=args.dimensions,
+    environment = gym_hypercube.dynamic_register(n_dimensions=args.dimensions,
             env_description=description,continuous=args.continuous,acceleration=args.acceleration)
 
     env = gym.make(environment)

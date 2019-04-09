@@ -3,8 +3,8 @@ import os
 import re
 import argparse
 import numpy as np
-import gym_multi_dimensional
-from gym_multi_dimensional.visualization import vis_2d
+import gym_hypercube
+from gym_hypercube.visualization import vis_2d
 import matplotlib.animation as animation
 
 

@@ -9,7 +9,7 @@ from RL_implementations.implementations.algorithms import DDPG
 from RL_implementations.implementations.utils import replay_buffer
 from RL_implementations.implementations.utils import circle_filter
 
-import gym_multi_dimensional
+import gym_hypercube
 import numpy as np
 
 def populate_output_dir(path, exist):
@@ -85,7 +85,7 @@ def learn(policy_name="DDPG",
         matplotlib.use('Agg')
 
     """ Delayed import of learn_policy and visualisation module to account for headless benchmarking """
-    from gym_multi_dimensional.visualization import vis_2d
+    from gym_hypercube.visualization import vis_2d
     from RL_implementations import learn_policy
 
     models_path = output + "/models/"
@@ -106,7 +106,7 @@ def learn(policy_name="DDPG",
     else:
         filter = None
 
-    environment = gym_multi_dimensional.dynamic_register(
+    environment = gym_hypercube.dynamic_register(
             n_dimensions=dimensions,env_description=description,
             continuous=continuous,acceleration=acceleration, reset_radius=reset_radius)
 
