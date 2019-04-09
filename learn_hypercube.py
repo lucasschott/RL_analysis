@@ -140,7 +140,7 @@ def learn(algorithm="DDPG",
     if dimensions==2:
 
         if replay_buffer_visu:
-            vis_2d.visualize_RB(replay_buffer, args.acceleration, filter=filter, save=save, path=output+"/visualizations")
+            vis_2d.visualize_RB(replay_buffer, acceleration, filter=filter, save=save, path=output+"/visualizations")
 
         if acceleration or not policy_visu:
             pass
@@ -157,8 +157,8 @@ if __name__ == "__main__":
     parser.add_argument("--algorithm",default="DDPG")
     parser.add_argument("--seed", default=np.random.randint(10000), type=int)              #seed
     parser.add_argument("--dimensions", default=2, type=int)
-    parser.add_argument("--eval_freq", default=5e3, type=int)     #how often (time steps) we evaluate
-    parser.add_argument("--exploration_timesteps", default=1e3, type=int) #random steps at the beginning
+    parser.add_argument("--eval_freq", default=2e3, type=int)     #how often (time steps) we evaluate
+    parser.add_argument("--exploration_timesteps", default=1e4, type=int) #random steps at the beginning
     parser.add_argument("--exploration_mode", default="sequential", type=str)
     parser.add_argument("--learning_timesteps", default=1e4, type=int)
     parser.add_argument("--buffer_size", default=5000, type=int)
@@ -189,7 +189,7 @@ if __name__ == "__main__":
     parser.add_argument("--low_reward_value", default=0.1, type=float)
     parser.add_argument("--high_reward_count", default='half')
     parser.add_argument("--low_reward_count", default='half')
-    parser.add_argument("--mode", default='deterministic')
+    parser.add_argument("--mode", default='deterministic', type=str)
     parser.add_argument("--reset_radius", default=None, type=float)
     parser.add_argument("--filter", dest='filter', action='store_true')
     parser.add_argument("--filter_radius", default=0.2, type=float)
