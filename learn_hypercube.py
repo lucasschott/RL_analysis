@@ -22,27 +22,33 @@ def populate_output_dir(path, exist):
 
 
 def setup_output_dir(path):
-    exist = os.path.exists(path)
 
-    if exist:
+    new_path = path
+    exist = os.path.exists(new_path)
+    i=1
 
-        if os.path.isdir(path) is False:
+    while exist:
+        """
+        if os.path.isdir(new_path) is False:
             print("Output path : {} already exist and is not a directory".format(path))
             return False
 
-        if len(os.listdir(path)) != 0:
+        if len(os.listdir(new_path)) != 0:
             print("Output directory : {} already exists and is not empty".format(path))
             return False
+        """
+        new_path = path + "_{}".format(i)
+        exist = os.path.exists(new_path)
+        i+=1
 
-    populate_output_dir(path, exist)
-    return True
-
+    populate_output_dir(new_path, exist)
+    return new_path
 
 def save_arguments(args, path):
     with open(path + '/arguments.txt', 'w') as file:
         file.write(json.dumps(args))
 
-def learn(policy_name="DDPG",
+def learn(algorithm="DDPG",
             seed=0,
             dimensions=2,
             eval_freq=5e3,
@@ -68,7 +74,7 @@ def learn(policy_name="DDPG",
             continuous=True,
             render=True,
             save=False,
-            output=str(datetime.datetime.now()),
+            output="results",
             high_reward_value=1,
             low_reward_value=0.1,
             high_reward_count='half',
@@ -88,10 +94,6 @@ def learn(policy_name="DDPG",
     from gym_hypercube.visualization import vis_2d
     from RL_implementations import learn_policy
 
-    models_path = output + "/models/"
-    visualizations_path = output + "/visualizations/"
-    logs_path = output + "/logs/"
-
     description = {
             'high_reward_value': high_reward_value,
             'low_reward_value': low_reward_value,
@@ -110,10 +112,8 @@ def learn(policy_name="DDPG",
             n_dimensions=dimensions,env_description=description,
             continuous=continuous,acceleration=acceleration, reset_radius=reset_radius)
 
-    replay_buffer, q_values , pi_values = learn_policy.learn(policy_name=policy_name,
-            policy_directory=models_path,
-            logs_directory=logs_path,
-            visualizations_directory=visualizations_path,
+    replay_buffer, q_values , pi_values = learn_policy.learn(algorithm=algorithm,
+            output=output,
             save=save,
             seed=seed,
             environment=environment,
@@ -134,34 +134,35 @@ def learn(policy_name="DDPG",
             noise_clip=noise_clip,
             policy_freq=policy_freq,
             filter=filter,
+            verbose=verbose,
             render=render)
 
     if dimensions==2:
 
         if replay_buffer_visu:
-            vis_2d.visualize_RB(replay_buffer, args.acceleration, filter=filter, save=save, path=visualizations_path)
+            vis_2d.visualize_RB(replay_buffer, args.acceleration, filter=filter, save=save, path=output+"/visualizations")
 
         if acceleration or not policy_visu:
             pass
         else:
-            vis_2d.visualize_Q(q_values[-1], save=save, path=visualizations_path)
-            vis_2d.visualize_Pi(pi_values[-1], save=save, path=visualizations_path)
-            vis_2d.visualize_Q_time(q_values, save=save, path=visualizations_path, steps_name="timestep", steps=np.arange(0,len(q_values))*eval_freq, fps=4)
-            vis_2d.visualize_Pi_time(pi_values, save=save, path=visualizations_path, steps_name="timestep", steps=np.arange(0,len(q_values))*eval_freq, fps=4)
+            vis_2d.visualize_Q(q_values[-1], save=save, path=output+"/visualizations")
+            vis_2d.visualize_Pi(pi_values[-1], save=save, path=output+"/visualizations")
+            vis_2d.visualize_Q_time(q_values, save=save, path=output+"/visualizations", steps_name="timestep", steps=np.arange(0,len(q_values))*eval_freq, fps=4)
+            vis_2d.visualize_Pi_time(pi_values, save=save, path=output+"/visualizations", steps_name="timestep", steps=np.arange(0,len(q_values))*eval_freq, fps=4)
 
 
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--policy_name",default="DDPG")
+    parser.add_argument("--algorithm",default="DDPG")
     parser.add_argument("--seed", default=np.random.randint(10000), type=int)              #seed
     parser.add_argument("--dimensions", default=2, type=int)
-    parser.add_argument("--eval_freq", default=5e3, type=float)     #how often (time steps) we evaluate
+    parser.add_argument("--eval_freq", default=5e3, type=int)     #how often (time steps) we evaluate
     parser.add_argument("--exploration_timesteps", default=1e3, type=int) #random steps at the beginning
     parser.add_argument("--exploration_mode", default="sequential", type=str)
     parser.add_argument("--learning_timesteps", default=1e4, type=int)
     parser.add_argument("--buffer_size", default=5000, type=int)
-    parser.add_argument("--no-new-exp", dest='new_exp', action="store_false")
+    parser.add_argument("--no_new_exp", dest='new_exp', action="store_false")
     parser.add_argument("--expl_noise", default=0.1, type=float)    #noise
     parser.add_argument("--batch_size", default=64, type=int)      #learning batch
     parser.add_argument("--discount", default=0.99, type=float)     #discount factor
@@ -180,10 +181,10 @@ if __name__ == "__main__":
     parser.add_argument('--discrete', dest='continuous', action='store_false')
     parser.add_argument('--continuous', dest='continuous', action='store_true')
     parser.add_argument('--replay_buffer_visu', dest='replay_buffer_visu', action='store_true') #visualize replay buffer
-    parser.add_argument('--no-policy_visu', dest='policy_visu', action='store_false')
-    parser.add_argument('--no-render', dest='render', action='store_false')
+    parser.add_argument('--no_policy_visu', dest='policy_visu', action='store_false')
+    parser.add_argument('--no_render', dest='render', action='store_false')
     parser.add_argument('--save', dest='save', action='store_true')
-    parser.add_argument('--output', default=str(datetime.datetime.now()), type=str)
+    parser.add_argument('--output', default="results", type=str)
     parser.add_argument("--high_reward_value", default=1, type=float)
     parser.add_argument("--low_reward_value", default=0.1, type=float)
     parser.add_argument("--high_reward_count", default='half')
@@ -206,12 +207,11 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    if setup_output_dir(args.output) is False:
-        exit()
+    if args.save:
+        new_path = setup_output_dir(args.output)
 
-    save_arguments(vars(args), args.output)
 
-    learn(policy_name=args.policy_name,
+    learn(algorithm=args.algorithm,
             seed=args.seed,
             dimensions=args.dimensions,
             eval_freq=args.eval_freq,
@@ -237,7 +237,7 @@ if __name__ == "__main__":
             continuous=args.continuous,
             render=args.render,
             save=args.save,
-            output=args.output,
+            output=new_path,
             high_reward_value=args.high_reward_value,
             low_reward_value=args.low_reward_value,
             high_reward_count=args.high_reward_count,
@@ -248,3 +248,7 @@ if __name__ == "__main__":
             filter_pos=args.filter_pos,
             filter_radius=args.filter_radius
             )
+
+    if args.save:
+        save_arguments(vars(args), new_path)
+

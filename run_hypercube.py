@@ -6,13 +6,13 @@ from RL_implementations.implementations.algorithms import TD3
 from RL_implementations.implementations.algorithms import DDPG
 from RL_implementations.implementations.utils import replay_buffer
 
-import gym_multi_dimensional
-from gym_multi_dimensional.visualization import vis_2d
+import gym_hypercube
+from gym_hypercube.visualization import vis_2d
 
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--policy_name",default="Random")
+    parser.add_argument("--algorithm",default="Random")
     parser.add_argument("--policy_directory", default="policies")
     parser.add_argument("--dimensions", default=2, type=int)
     parser.add_argument("--max_episodes", default=50, type=int)
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     parser.add_argument('--acceleration', dest='acceleration', action='store_true')
     parser.add_argument('--discrete', dest='continuous', action='store_false')
     parser.add_argument('--continuous', dest='continuous', action='store_true')
-    parser.add_argument('--no-render', dest='render', action='store_false')
+    parser.add_argument('--no_render', dest='render', action='store_false')
     parser.add_argument("--high_reward_value", default=1, type=float)
     parser.add_argument("--low_reward_value", default=0.1, type=float)
     parser.add_argument("--high_reward_count", default='half')
@@ -45,11 +45,11 @@ if __name__ == "__main__":
             'mode': args.mode
             }
 
-    environment = gym_multi_dimensional.dynamic_register(
+    environment = gym_hypercube.dynamic_register(
             n_dimensions=args.dimensions,env_description=description,
             continuous=args.continuous,acceleration=args.acceleration,reset_radius=args.reset_radius)
 
-    replay_buffer = run_policy.run_policy(policy_name=args.policy_name,
+    replay_buffer = run_policy.run_policy(algorithm=args.algorithm,
             policy_directory=args.policy_directory,
             environment=environment,
             max_episodes=args.max_episodes,

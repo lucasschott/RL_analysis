@@ -9,7 +9,7 @@ import gym_hypercube
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--policy_name",default="DDPG")
+    parser.add_argument("--algorithm",default="DDPG")
     parser.add_argument("--policy_directory", default="models")
     parser.add_argument("--dimensions", default=2, type=int)
     parser.set_defaults(verbose=True)
@@ -44,12 +44,12 @@ if __name__ == "__main__":
     max_action = float(env.action_space.high[0])
 
 
-    if args.policy_name == "TD3":
+    if args.algorithm == "TD3":
         policy = TD3.TD3(state_dim,action_dim,max_action)
-    elif args.policy_name == "DDPG":
+    elif args.algorithm == "DDPG":
         policy = DDPG.DDPG(state_dim,action_dim,max_action)
 
-    policy.load(args.policy_name + "_" + environment,args.policy_directory)
+    policy.load(args.algorithm + "_" + environment,args.policy_directory)
 
     print("Q values")
 

@@ -6,7 +6,7 @@ PARALLEL_MAX=2
 
 MEAN_BATCH_SIZE=8
 
-POLICY_NAME="DDPG"
+ALGORITHM="DDPG"
 
 LEARNING_TIMESTEPS=40000
 
@@ -30,22 +30,22 @@ Y_LABEL="reward/step"
 
 run_training()
 {
-  OUTPUT_DIR="${ROOT_DIR}${RESULT_DIR}${POLICY_NAME}_n$1_$2"
+  OUTPUT_DIR="${ROOT_DIR}${RESULT_DIR}${ALGORITHM}_n$1_$2"
 
   COMMAND="python ../../learn_hypercube.py\
-    --policy_name=$POLICY_NAME\
+    --algorithm=$ALGORITHM\
     --exploration_timesteps=$1\
     --learning_timesteps=$LEARNING_TIMESTEPS\
     --buffer_size=$1\
     --eval_freq=$EVAL_FREQ\
     --dimensions=$DIMENSION\
     --save\
-    --no-policy_visu\
-    --no-render\
+    --no_policy_visu\
+    --no_render\
     --exploration_mode=${EXPLORATION_MODE}\
     --output=${OUTPUT_DIR}\
     --reset_radius=$RESET_RADIUS\
-    --no-new-exp"
+    --no_new_exp"
 
   eval ${COMMAND}
 }
