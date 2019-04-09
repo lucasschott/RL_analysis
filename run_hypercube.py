@@ -62,5 +62,4 @@ if __name__ == "__main__":
             verbose=args.verbose)
 
     if args.replay_buffer_visu:
-        vis_2d.visualize_RB(replay_buffer, acceleration, filter=filter, save=False, path="")
-
+        vis_2d.visualize_RB(replay_buffer, args.acceleration, filter=None, save=False, path="")
