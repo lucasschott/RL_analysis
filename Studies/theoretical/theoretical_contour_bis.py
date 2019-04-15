@@ -38,15 +38,14 @@ if __name__ == "__main__":
     fig, ax = plt.subplots(1)
     plt.set_cmap('RdYlGn')
 
-    colorset = ax.tricontourf(states[:,0], states[:,1], qs,levels=199)
+    colorset = ax.imshow(qs.reshape((20,20)),origin="lower",norm = matplotlib.colors.LogNorm())
     colorbar = fig.colorbar(colorset)
     colorbar.ax.set_ylabel('Q values')
     colorbar.set_clim(0.1,1)
-
+    plt.xticks([0,10,19], [-1,0,1])
+    plt.yticks([0,10,19], [-1,0,1])
     ax.set_xlabel('1st dimension')
     ax.set_ylabel('2nd dimension')
-    ax.set_xticks(np.arange(-1, 1.2, step=0.2))
-    ax.set_yticks(np.arange(-1, 1.2, step=0.2))
 
     plt.show()
     fig.savefig("theoretical_contour.png")
