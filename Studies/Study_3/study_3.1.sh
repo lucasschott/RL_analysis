@@ -2,7 +2,7 @@
 
 ## Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
 
-PARALLEL_MAX=1
+PARALLEL_MAX=2
 
 MEAN_BATCH_SIZE=8
 
@@ -10,11 +10,11 @@ ALGORITHM="DDPG"
 
 EXPLORATION_TIMESTEPS=32000
 
-LEARNING_TIMESTEPS=2000
+LEARNING_TIMESTEPS=24000
 
 BUFFER_SIZE=32000
 
-EVAL_FREQ=100
+EVAL_FREQ=1200
 
 EXPLORATION_MODE="uniform"
 
@@ -98,3 +98,12 @@ COMMAND3="python ../plot_average_learning_curve.py\
     --title='$TITLE'"
 
 eval ${COMMAND3}
+
+COMMAND4="python ../plot_average_convergence.py\
+    --directory=$RESULT_DIR\
+    --batch_size=$MEAN_BATCH_SIZE\
+    --eval_freq=$EVAL_FREQ\
+    --epsilon=0.01\
+    --title='$TITLE'"
+
+eval ${COMMAND4}
