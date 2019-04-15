@@ -41,7 +41,7 @@ def learn(algorithm="DDPG",
             replay_buffer_visu=False,
             policy_visu=True,
             acceleration=False,
-            continuous=True,
+            discrete=False,
             render=True,
             save=False,
             output="results",
@@ -76,7 +76,7 @@ def learn(algorithm="DDPG",
 
     environment = gym_hypercube.dynamic_register(
             n_dimensions=dimensions,env_description=description,
-            continuous=continuous,acceleration=acceleration, reset_radius=reset_radius)
+            continuous=not(discrete),acceleration=acceleration, reset_radius=reset_radius)
 
     replay_buffer, q_values , pi_values = learn_policy.learn(algorithm=algorithm,
             output=output,
@@ -142,10 +142,8 @@ if __name__ == "__main__":
     parser.add_argument("--noise_clip", default=0.5, type=float)    #range to clip target policy noise
     parser.add_argument("--policy_freq", default=2, type=int)       #frequency of delayed policy updates
     parser.add_argument('--quiet', dest='verbose', action='store_false')
-    parser.add_argument('--velocity', dest='acceleration', action='store_false')
     parser.add_argument('--acceleration', dest='acceleration', action='store_true')
-    parser.add_argument('--discrete', dest='continuous', action='store_false')
-    parser.add_argument('--continuous', dest='continuous', action='store_true')
+    parser.add_argument('--discrete', dest='discrete', action='store_true')
     parser.add_argument('--replay_buffer_visu', dest='replay_buffer_visu', action='store_true') #visualize replay buffer
     parser.add_argument('--no_policy_visu', dest='policy_visu', action='store_false')
     parser.add_argument('--no_render', dest='render', action='store_false')
@@ -166,7 +164,7 @@ if __name__ == "__main__":
     parser.set_defaults(replay_buffer_visu=False)
     parser.set_defaults(policy_visu=True)
     parser.set_defaults(acceleration=False)
-    parser.set_defaults(continuous=True)
+    parser.set_defaults(discrete=False)
     parser.set_defaults(render=True)
     parser.set_defaults(save=False)
     parser.set_defaults(filter=False)
@@ -202,7 +200,7 @@ if __name__ == "__main__":
             replay_buffer_visu=args.replay_buffer_visu,
             policy_visu=args.policy_visu,
             acceleration=args.acceleration,
-            continuous=args.continuous,
+            discrete=args.discrete,
             render=args.render,
             save=args.save,
             output=path,
