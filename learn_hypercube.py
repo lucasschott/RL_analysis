@@ -14,46 +14,9 @@ import numpy as np
 
 import matplotlib
 
-""" Delayed import of learn_policy and visualisation module to account for headless benchmarking """
 from gym_hypercube.visualization import vis_2d
 from RL_implementations import learn_policy
 
-
-def populate_output_dir(path, exist):
-    if exist is False:
-        os.makedirs(path)
-
-    os.makedirs(path + "/models")
-    os.makedirs(path + "/visualizations")
-    os.makedirs(path + "/logs")
-
-
-def setup_output_dir(path):
-
-    new_path = path
-    exist = os.path.exists(new_path)
-    i=1
-
-    while exist:
-        """
-        if os.path.isdir(new_path) is False:
-            print("Output path : {} already exist and is not a directory".format(path))
-            return False
-
-        if len(os.listdir(new_path)) != 0:
-            print("Output directory : {} already exists and is not empty".format(path))
-            return False
-        """
-        new_path = path + "_{}".format(i)
-        exist = os.path.exists(new_path)
-        i+=1
-
-    populate_output_dir(new_path, exist)
-    return new_path
-
-def save_arguments(args, path):
-    with open(path + '/arguments.txt', 'w') as file:
-        file.write(json.dumps(args))
 
 def learn(algorithm="DDPG",
             seed=0,
@@ -211,7 +174,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.save:
-        path = setup_output_dir(args.output)
+        path = learn_policy.setup_output_dir(args.output)
     else:
         path=args.output
 
@@ -255,5 +218,5 @@ if __name__ == "__main__":
             )
 
     if args.save:
-        save_arguments(vars(args), path)
+        learn_policy.save_arguments(vars(args), path)
 
