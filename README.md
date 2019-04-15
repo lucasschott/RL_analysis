@@ -5,7 +5,7 @@
 ```sh
 git clone https://github.com/schott97l/RL_analysis.git
 cd RL_analysis && git submodule update --init
-cd RL-evaluation-environment/gym-multi-dimensional && pip install -e .
+cd RL-evaluation-environment/gym-hypercube && pip install -e .
 ```
 
 ## Submodules
@@ -19,20 +19,20 @@ For more informations about those components , please refer to their respective 
 ## Usage Examples
 To run a random policy on the 2D environment :
 ```sh
-python run_multidimensional.py
+python run_hypercube.py
 ```
 
 To learn and run a DDPG policy on the 2D environment with half high and low reward, and save the model and the results:
 
 ```sh
-python learn_multidimensional.py --policy_name DDPG --output results1 --save
-python run_multidimensional.py --policy_name DDPG --policy_directory results1/models
+python learn_hypercube.py --algorithm DDPG --save
+python run_hypercube.py --algorithm DDPG
 ```
 
 To learn and run a DDPG policy on the 2D environment with one high and one low reward, and save the model and the results:
 ```sh
-python learn_multidimensional.py --policy_name DDPG --output results2 --save 
-python run_multidimensional.py --policy_name DDPG --policy_directory results2/models
+python learn_hypercube.py --algorithm DDPG --output results_2 --save 
+python run_hypercube.py --algorithm DDPG --policy_directory results_2/models
 ```
 
 ## Studies
