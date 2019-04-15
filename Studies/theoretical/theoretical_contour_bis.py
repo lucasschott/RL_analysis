@@ -38,7 +38,7 @@ if __name__ == "__main__":
     fig, ax = plt.subplots(1)
     plt.set_cmap('RdYlGn')
 
-    colorset = ax.imshow(qs.reshape((20,20)),origin="lower",norm = matplotlib.colors.LogNorm())
+    colorset = ax.imshow(qs.reshape((20,20)),origin="lower",norm = matplotlib.colors.LogNorm(), )
     colorbar = fig.colorbar(colorset)
     colorbar.ax.set_ylabel('Q values')
     colorbar.set_clim(0.1,1)

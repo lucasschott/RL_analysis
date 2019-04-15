@@ -12,6 +12,13 @@ from RL_implementations.implementations.utils import circle_filter
 import gym_hypercube
 import numpy as np
 
+import matplotlib
+
+""" Delayed import of learn_policy and visualisation module to account for headless benchmarking """
+from gym_hypercube.visualization import vis_2d
+from RL_implementations import learn_policy
+
+
 def populate_output_dir(path, exist):
     if exist is False:
         os.makedirs(path)
@@ -87,12 +94,8 @@ def learn(algorithm="DDPG",
             ):
 
     if render == False:
-        import matplotlib
         matplotlib.use('Agg')
 
-    """ Delayed import of learn_policy and visualisation module to account for headless benchmarking """
-    from gym_hypercube.visualization import vis_2d
-    from RL_implementations import learn_policy
 
     description = {
             'high_reward_value': high_reward_value,
@@ -208,7 +211,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.save:
-        new_path = setup_output_dir(args.output)
+        path = setup_output_dir(args.output)
+    else:
+        path=args.output
 
 
     learn(algorithm=args.algorithm,
@@ -237,7 +242,7 @@ if __name__ == "__main__":
             continuous=args.continuous,
             render=args.render,
             save=args.save,
-            output=new_path,
+            output=path,
             high_reward_value=args.high_reward_value,
             low_reward_value=args.low_reward_value,
             high_reward_count=args.high_reward_count,
@@ -250,5 +255,5 @@ if __name__ == "__main__":
             )
 
     if args.save:
-        save_arguments(vars(args), new_path)
+        save_arguments(vars(args), path)
 
