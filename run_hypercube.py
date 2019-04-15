@@ -19,10 +19,8 @@ if __name__ == "__main__":
     parser.add_argument("--max_timesteps", default=1e4, type=int)
     parser.add_argument("--buffer_size", default=5000, type=int)
     parser.add_argument('--quiet', dest='verbose', action='store_false')
-    parser.add_argument('--velocity', dest='acceleration', action='store_false')
     parser.add_argument('--acceleration', dest='acceleration', action='store_true')
-    parser.add_argument('--discrete', dest='continuous', action='store_false')
-    parser.add_argument('--continuous', dest='continuous', action='store_true')
+    parser.add_argument('--discrete', dest='discrete', action='store_true')
     parser.add_argument('--no_render', dest='render', action='store_false')
     parser.add_argument("--high_reward_value", default=1, type=float)
     parser.add_argument("--low_reward_value", default=0.1, type=float)
@@ -34,7 +32,7 @@ if __name__ == "__main__":
 
     parser.set_defaults(verbose=True)
     parser.set_defaults(acceleration=False)
-    parser.set_defaults(continuous=True)
+    parser.set_defaults(discrete=False)
     parser.set_defaults(render=True)
     parser.set_defaults(replay_buffer_visu=False)
 
@@ -50,7 +48,7 @@ if __name__ == "__main__":
 
     environment = gym_hypercube.dynamic_register(
             n_dimensions=args.dimensions,env_description=description,
-            continuous=args.continuous,acceleration=args.acceleration,reset_radius=args.reset_radius)
+            continuous=not(args.discrete),acceleration=args.acceleration,reset_radius=args.reset_radius)
 
     replay_buffer = run_policy.run_policy(algorithm=args.algorithm,
             policy_directory=args.policy_directory,
