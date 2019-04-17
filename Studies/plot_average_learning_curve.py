@@ -88,9 +88,10 @@ if __name__ == "__main__":
         X = np.arange(0, args.eval_freq * len(mean[i]), args.eval_freq)
         plt.figure()
         plt.errorbar(X, mean[i], std[i], fmt="--o")
-        plt.title('Reward per step ; '+ args.title +' {}'.format(float(x)))
-        plt.xlabel("timesteps")
-        plt.ylabel("reward/step")
+        plt.title('Reward per step ; '+ args.title +' {}'.format(float(x)),fontsize=12)
+        plt.xlabel("timesteps",fontsize=12)
+        plt.ylabel("reward/step",fontsize=12)
+        plt.tick_params(labelsize=12)
 
         plt.savefig(args.directory + "/visualizations/scores_{}.png".format(float(x)))
         
@@ -100,9 +101,10 @@ if __name__ == "__main__":
         print(std[i])
         X = np.arange(0, len(mean[i]))*args.eval_freq
         plt.errorbar(X, mean[i], std[i], fmt="--o", label="{}".format(float(x)))
-    plt.xlabel("timesteps")
-    plt.ylabel("reward/step")
+    plt.xlabel("timesteps",fontsize=12)
+    plt.ylabel("reward/step",fontsize=12)
     plt.legend()
+    plt.tick_params(labelsize=12)
     plt.savefig(args.directory + "/visualizations/scores_{}.png".format(args.title))
 
     fig, ax = plt.subplots(1)
@@ -111,8 +113,10 @@ if __name__ == "__main__":
         fig.clear()
         ax = fig.add_subplot(111)
         ax.errorbar(X, mean[i], std[i], fmt="--o")
-        ax.set_title('Reward per step ; '+ args.title +' {}'.format(float(xs[i])))
-        ax.set_xlabel("timesteps")
-        ax.set_ylabel("reward/step")
+        ax.set_title('Reward per step ; '+ args.title +' {}'.format(float(xs[i])),fontsize=12)
+        ax.set_xlabel("timesteps",fontsize=12)
+        ax.set_ylabel("reward/step",fontsize=12)
+        ax.tick_params(labelsize=12)
+
     anim = animation.FuncAnimation(fig, animate, interval=200, frames=len(mean))
     anim.save(args.directory + "/visualizations/scores_{}.gif".format(args.title), writer='imagemagick', fps=2)
