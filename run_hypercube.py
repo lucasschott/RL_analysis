@@ -27,6 +27,7 @@ if __name__ == "__main__":
     parser.add_argument("--high_reward_count", default='half')
     parser.add_argument("--low_reward_count", default='half')
     parser.add_argument("--mode", default='deterministic')
+    parser.add_argument("--speed_limit_mode", default='vector_norm')
     parser.add_argument("--reset_radius", default=1, type=float)
     parser.add_argument('--replay_buffer_visu', dest='replay_buffer_visu', action='store_true') #visualize replay buffer
 
@@ -43,7 +44,8 @@ if __name__ == "__main__":
             'low_reward_value': args.low_reward_value,
             'high_reward_count': args.high_reward_count,
             'low_reward_count': args.low_reward_count,
-            'mode': args.mode
+            'mode': args.mode,
+            'speed_limit_mode': args.speed_limit_mode
             }
 
     environment = gym_hypercube.dynamic_register(

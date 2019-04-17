@@ -50,6 +50,7 @@ def learn(algorithm="DDPG",
             high_reward_count='half',
             low_reward_count='half',
             mode='deterministic',
+            speed_limit_mode='vector_norm',
             reset_radius=1,
             filter=False,
             filter_pos=0,
@@ -65,7 +66,8 @@ def learn(algorithm="DDPG",
             'low_reward_value': low_reward_value,
             'high_reward_count': high_reward_count,
             'low_reward_count': low_reward_count,
-            'mode': mode
+            'mode': mode,
+            'speed_limit_mode' : speed_limit_mode
             }
 
     if filter is True:
@@ -154,6 +156,7 @@ if __name__ == "__main__":
     parser.add_argument("--high_reward_count", default='half')
     parser.add_argument("--low_reward_count", default='half')
     parser.add_argument("--mode", default='deterministic', type=str)
+    parser.add_argument("--speed_limit_mode", default='vector_norm', type=str)
     parser.add_argument("--reset_radius", default=None, type=float)
     parser.add_argument("--filter", dest='filter', action='store_true')
     parser.add_argument("--filter_radius", default=0.2, type=float)
@@ -209,6 +212,7 @@ if __name__ == "__main__":
             high_reward_count=args.high_reward_count,
             low_reward_count=args.low_reward_count,
             mode=args.mode,
+            speed_limit_mode=args.speed_limit_mode,
             reset_radius = args.reset_radius,
             filter=args.filter,
             filter_pos=args.filter_pos,
