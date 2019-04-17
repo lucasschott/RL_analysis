@@ -8,15 +8,13 @@ MEAN_BATCH_SIZE=8
 
 ALGORITHM="DDPG"
 
-LEARNING_TIMESTEPS=40000
+LEARNING_TIMESTEPS=100000
 
-EVAL_FREQ=2000
+EVAL_FREQ=5000
 
 DIMENSION=2
 
 EXPLORATION_MODE="uniform"
-
-RESET_RADIUS=0.1
 
 ROOT_DIR="$(pwd)/"
 
@@ -44,7 +42,6 @@ run_training()
     --no_render\
     --exploration_mode=${EXPLORATION_MODE}\
     --output=${OUTPUT_DIR}\
-    --reset_radius=$RESET_RADIUS\
     --no_new_exp"
 
   eval ${COMMAND}
