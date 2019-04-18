@@ -74,6 +74,9 @@ if __name__ == "__main__":
     ys = data[:,1]
     errors = data[:,2]
 
+    fig = plt.figure()
+    fig.clear()
+
     plt.errorbar(xs, ys, errors, fmt="--o")
     plt.xlabel(args.x_label,fontsize=12)
     plt.ylabel(args.y_label,fontsize=12)

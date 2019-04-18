@@ -95,7 +95,8 @@ if __name__ == "__main__":
 
         plt.savefig(args.directory + "/visualizations/scores_{}.png".format(float(x)))
         
-    plt.figure()
+    fig = plt.figure()
+    fig.clear()
     for i,x in enumerate(xs):
         print(mean[i])
         print(std[i])

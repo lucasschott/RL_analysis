@@ -175,10 +175,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.save:
-        path = learn_policy.setup_output_dir(args.output)
-    else:
-        path=args.output
-
+        if not learn_policy.setup_output_dir(args.output):
+            exit()
 
     learn(algorithm=args.algorithm,
             seed=args.seed,
@@ -206,7 +204,7 @@ if __name__ == "__main__":
             discrete=args.discrete,
             render=args.render,
             save=args.save,
-            output=path,
+            output=args.output,
             high_reward_value=args.high_reward_value,
             low_reward_value=args.low_reward_value,
             high_reward_count=args.high_reward_count,
@@ -220,5 +218,5 @@ if __name__ == "__main__":
             )
 
     if args.save:
-        learn_policy.save_arguments(vars(args), path)
+        learn_policy.save_arguments(vars(args), args.output)
 

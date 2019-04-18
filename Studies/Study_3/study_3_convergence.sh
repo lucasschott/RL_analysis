@@ -28,15 +28,11 @@ ROOT_DIR="$(pwd)/"
 
 RESULT_DIR="results_convergence/"
 
-TITLE="dimensions"
-
-X_LABEL="dimensions"
-
-Y_LABEL="reward/step"
-
 HIGH_REWARD_COUNT="half"
 
 LOW_REWARD_COUNT="half"
+
+TITLE="dimensions"
 
 run_training_1()
 {
@@ -111,7 +107,6 @@ do
     done
 done
 wait ${PIDS[@]}
-
 
 COMMAND4="python ../plot_average_convergence.py\
     --directory=$RESULT_DIR\

@@ -103,7 +103,8 @@ if __name__ == "__main__":
     std_convergences=np.array(std_convergences)
     std_convergences*=eval_freq
 
-    plt.figure()
+    fig = plt.figure()
+    fig.clear()
     plt.errorbar(xs, mean_convergences, std_convergences, fmt="--o")
     plt.title("$\eps$ = ".format(args.epsilon),fontsize=12)
     plt.xlabel(args.title,fontsize=12)
