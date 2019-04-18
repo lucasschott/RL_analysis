@@ -59,7 +59,7 @@ run_training()
 PARALLEL=0
 PIDS=()
 
-for i in "0" "0.2" "0.4" "0.6" "0.8" "1"
+for i in "0.4" "0.8" "1.2" "1.6" "2" "2.2"
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
