@@ -2,13 +2,15 @@
 
 ## Calculer Performance en fonction de la taille du buffer
 
-PARALLEL_MAX=8
+PARALLEL_MAX=4
 
-MEAN_BATCH_SIZE=2 #8
+ALGORITHM="DDPG"
 
-LEARNING_TIMESTEPS=2000 #100000
+MEAN_BATCH_SIZE=8
 
-EVAL_FREQ=100 #5000
+LEARNING_TIMESTEPS=100000
+
+EVAL_FREQ=5000
 
 DIMENSION=2
 
@@ -29,6 +31,7 @@ run_training()
   OUTPUT_DIR="${ROOT_DIR}${RESULT_DIR}${ALGORITHM}_n$1_$2"
 
   COMMAND="python ../../learn_hypercube.py\
+    --algorithm=$ALGORITHM\
     --exploration_timesteps=$1\
     --learning_timesteps=$LEARNING_TIMESTEPS\
     --buffer_size=$1\
