@@ -65,7 +65,7 @@ do
     do
 	echo "Training $i $j"
 	run_training $i $j &
-	PIDS[$j]=$!
+	PIDS[$PARALLEL]=$!
 
         PARALLEL=$(($PARALLEL+1))
         if [ $PARALLEL -ge $PARALLEL_MAX ]

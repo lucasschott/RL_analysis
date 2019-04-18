@@ -95,7 +95,7 @@ do
 	else
 		run_training_2 $i $j &
 	fi
-	PIDS[$j]=$!
+	PIDS[$PARALLEL]=$!
 
         PARALLEL=$(($PARALLEL+1))
         if [ $PARALLEL -ge $PARALLEL_MAX ]

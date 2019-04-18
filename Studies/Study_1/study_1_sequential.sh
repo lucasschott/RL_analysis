@@ -2,13 +2,13 @@
 
 ## Calculer Performance en fonction de la taille du buffer
 
-PARALLEL_MAX=2
+PARALLEL_MAX=8
 
-MEAN_BATCH_SIZE=8
+MEAN_BATCH_SIZE=2 #8
 
-LEARNING_TIMESTEPS=100000
+LEARNING_TIMESTEPS=2000 #100000
 
-EVAL_FREQ=5000
+EVAL_FREQ=100 #5000
 
 DIMENSION=2
 
@@ -54,9 +54,9 @@ do
     do
 	echo "Training $i $j"
 	run_training $i $j &
-	PIDS[$j]=$!
-
+	PIDS[$PARALLEL]=$!
         PARALLEL=$(($PARALLEL+1))
+
         if [ $PARALLEL -ge $PARALLEL_MAX ]
         then
             PARALLEL=0
