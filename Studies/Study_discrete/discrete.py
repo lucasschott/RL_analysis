@@ -40,7 +40,9 @@ def value_iteration(mdp, state_size, action_size, value_iter=10, gamma=0.9):
                 temp += new_state[0] * (new_state[2] + gamma * V_old[new_state[1]])
             action_values[action]=temp
 
-        Policy[state][actions[np.argmax(action_values)]] = 1
+        print(Policy[state])
+        if len(Policy[state]) > 0:
+            Policy[state][actions[np.argmax(action_values)]] = 1
 
     return V_old, Policy
 
@@ -94,7 +96,8 @@ def mdp_hypercube_2(n_discrete=21):
                     done = True
                 else:
                     done = False
-                mdp[state][action]=[(1,next_state_v,reward_v,done)]
+                if not done:
+                    mdp[state][action]=[(1,next_state_v,reward_v,done)]
 
     return mdp
 
@@ -111,7 +114,7 @@ if __name__ == "__main__":
     """
 
     ##value iteration
-    values, policy = value_iteration(mdp,n_discrete**2,4,100,0.99)
+    values, policy = value_iteration(mdp,n_discrete**2,4,50,0.99)
 
     fig, ax = plt.subplots(1)
     plt.set_cmap('RdYlGn')
