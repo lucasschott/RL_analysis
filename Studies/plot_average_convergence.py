@@ -106,9 +106,9 @@ if __name__ == "__main__":
     fig = plt.figure()
     fig.clear()
     plt.errorbar(xs, mean_convergences, std_convergences, fmt="--o")
-    plt.title("$\eps$ = ".format(args.epsilon),fontsize=12)
-    plt.xlabel(args.title,fontsize=12)
-    plt.ylabel("convergence timesteps",fontsize=12)
-    plt.tick_params(labelsize=12)
+    plt.title("$\eps$ = ".format(args.epsilon),fontsize=14)
+    plt.xlabel(args.title,fontsize=14)
+    plt.ylabel("convergence timesteps",fontsize=14)
+    plt.tick_params(labelsize=14)
 
     plt.savefig(args.directory + "/visualizations/convergences.png")
