@@ -2,7 +2,7 @@
 
 ## Calculer Performance en fonction de la taille du buffer
 
-PARALLEL_MAX=4
+PARALLEL_MAX=2
 
 ALGORITHM="DDPG"
 
@@ -51,7 +51,7 @@ run_training()
 PARALLEL=0
 PIDS=()
 
-for i in 16 64 256 1024 4096 16384 65536
+for i in 8 16 64 256 1024 4096 16384 65536
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
