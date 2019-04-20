@@ -84,7 +84,7 @@ run_training_2()
 PARALLEL=0
 PIDS=()
 
-for i in 2 4 8 16 32 64 128 256
+for i in 1 2 4 8 16 32 64 128 256
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
