@@ -18,7 +18,7 @@ EVAL_FREQ=100
 
 EXPLORATION_MODE="uniform"
 
-RESET_RADIUS=0.1
+RESET_RADIUS=0
 
 ROOT_DIR="$(pwd)/"
 
@@ -48,6 +48,7 @@ run_training()
     --save\
     --no_policy_visu\
     --no_render\
+    --reset_radius=$RESET_RADIUS\
     --exploration_mode=${EXPLORATION_MODE}\
     --high_reward_count=$HIGH_REWARD_COUNT\
     --low_reward_count=$LOW_REWARD_COUNT\
@@ -60,7 +61,7 @@ run_training()
 PARALLEL=0
 PIDS=()
 
-for i in 1 2 4 8 16 32 64 128 256
+for i in 1 4 8 16 64 256 1024 4096 16384
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do

@@ -18,9 +18,11 @@ EVAL_FREQ=100
 
 EXPLORATION_MODE="uniform"
 
+RESET_RADIUS=0
+
 ROOT_DIR="$(pwd)/"
 
-RESULT_DIR="results_half/"
+RESULT_DIR="results_half_reset/"
 
 HIGH_REWARD_COUNT="half"
 
@@ -46,6 +48,7 @@ run_training()
     --save\
     --no_policy_visu\
     --no_render\
+    --reset_radius=$RESET_RADIUS\
     --exploration_mode=${EXPLORATION_MODE}\
     --high_reward_count=$HIGH_REWARD_COUNT\
     --low_reward_count=$LOW_REWARD_COUNT\
