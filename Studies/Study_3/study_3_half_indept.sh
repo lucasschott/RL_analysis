@@ -20,11 +20,13 @@ EXPLORATION_MODE="uniform"
 
 ROOT_DIR="$(pwd)/"
 
-RESULT_DIR="results_half/"
+RESULT_DIR="results_half_indept/"
 
 HIGH_REWARD_COUNT="half"
 
 LOW_REWARD_COUNT="half"
+
+SPEED_LIMIT="independent"
 
 TITLE="dimensions"
 
@@ -49,6 +51,7 @@ run_training()
     --exploration_mode=${EXPLORATION_MODE}\
     --high_reward_count=$HIGH_REWARD_COUNT\
     --low_reward_count=$LOW_REWARD_COUNT\
+    --speed_limit_mode=$SPEED_LIMIT\
     --output=${OUTPUT_DIR}"
 
   eval ${COMMAND}
@@ -57,7 +60,7 @@ run_training()
 PARALLEL=0
 PIDS=()
 
-for i in 1 4 8 16 64 256 1024 4096 16384
+for i in 1 4 16 64 256 1024 4096
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
@@ -93,12 +96,3 @@ COMMAND3="python ../plot_average_learning_curve.py\
     --title='$TITLE'"
 
 eval ${COMMAND3}
-
-COMMAND4="python ../plot_average_convergence.py\
-    --directory=$RESULT_DIR\
-    --batch_size=$MEAN_BATCH_SIZE\
-    --eval_freq=$EVAL_FREQ\
-    --epsilon=0.01\
-    --title='$TITLE'"
-
-eval ${COMMAND4}

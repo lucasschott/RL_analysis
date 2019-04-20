@@ -26,11 +26,13 @@ RESET_RADIUS=0
 
 ROOT_DIR="$(pwd)/"
 
-RESULT_DIR="results_convergence_reset/"
+RESULT_DIR="results_convergence_reset_indept/"
 
 HIGH_REWARD_COUNT="half"
 
 LOW_REWARD_COUNT="half"
+
+SPEED_LIMIT="independent"
 
 TITLE="dimensions"
 
@@ -52,6 +54,7 @@ run_training_1()
     --exploration_mode=${EXPLORATION_MODE}\
     --high_reward_count=$HIGH_REWARD_COUNT\
     --low_reward_count=$LOW_REWARD_COUNT\
+    --speed_limit_mode=$SPEED_LIMIT\
     --output=${OUTPUT_DIR}\
     --reset_radius=$RESET_RADIUS"
 
@@ -75,6 +78,7 @@ run_training_2()
     --exploration_mode=${EXPLORATION_MODE}\
     --high_reward_count=$HIGH_REWARD_COUNT\
     --low_reward_count=$LOW_REWARD_COUNT\
+    --speed_limit_mode=$SPEED_LIMIT\
     --output=${OUTPUT_DIR}\
     --reset_radius=$RESET_RADIUS"
 
@@ -85,7 +89,7 @@ run_training_2()
 PARALLEL=0
 PIDS=()
 
-for i in 1 4 8 16 64 256 1024 4096 16384
+for i in 1 4 16 64 256 1024 4096
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Calcule Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
+## Calculer Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
 
 PARALLEL_MAX=1
 
@@ -22,17 +22,19 @@ RESET_RADIUS=0
 
 ROOT_DIR="$(pwd)/"
 
-RESULT_DIR="results_one_reset/"
+RESULT_DIR="results_half_reset_indept/"
+
+HIGH_REWARD_COUNT="half"
+
+LOW_REWARD_COUNT="half"
+
+SPEED_LIMIT="independent"
 
 TITLE="dimensions"
 
 X_LABEL="dimensions"
 
 Y_LABEL="reward/step"
-
-HIGH_REWARD_COUNT="one"
-
-LOW_REWARD_COUNT="one"
 
 run_training()
 {
@@ -52,16 +54,16 @@ run_training()
     --exploration_mode=${EXPLORATION_MODE}\
     --high_reward_count=$HIGH_REWARD_COUNT\
     --low_reward_count=$LOW_REWARD_COUNT\
+    --speed_limit_mode=$SPEED_LIMIT\
     --output=${OUTPUT_DIR}"
 
   eval ${COMMAND}
 }
 
-
 PARALLEL=0
 PIDS=()
 
-for i in 1 4 8 16 64 256 1024 4096 16384
+for i in 1 4 16 64 256 1024
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
