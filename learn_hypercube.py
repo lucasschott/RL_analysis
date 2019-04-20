@@ -23,7 +23,7 @@ def learn(algorithm="DDPG",
             dimensions=2,
             eval_freq=5e3,
             exploration_timesteps=1e3,
-            exploration_mode="sequential",
+            exploration_mode="random_walk",
             learning_timesteps=1e4,
             buffer_size=5000,
             new_exp=True,
@@ -127,7 +127,7 @@ if __name__ == "__main__":
     parser.add_argument("--dimensions", default=2, type=int)
     parser.add_argument("--eval_freq", default=2e3, type=int)     #how often (time steps) we evaluate
     parser.add_argument("--exploration_timesteps", default=1e4, type=int) #random steps at the beginning
-    parser.add_argument("--exploration_mode", default="sequential", type=str)
+    parser.add_argument("--exploration_mode", default="random_walk", type=str)
     parser.add_argument("--learning_timesteps", default=1e4, type=int)
     parser.add_argument("--buffer_size", default=5000, type=int)
     parser.add_argument("--no_new_exp", dest='new_exp', action="store_false")
