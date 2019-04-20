@@ -84,57 +84,52 @@ def mdp_hypercube_2(n_discrete=21):
 
 def plot_contour(values,n_discrete):
     fig, ax = plt.subplots(1)
-    plt.title('$V(s)$',fontsize=12)
+    plt.title('$V(s)$',fontsize=14)
     plt.set_cmap('RdYlGn')
     values = values.reshape((n_discrete,n_discrete))
     values = values[1:-1,1:-1]
     colorset = ax.imshow(values,origin="lower")
     colorbar = fig.colorbar(colorset)
-    colorbar.ax.tick_params(labelsize=12)
+    colorbar.ax.tick_params(labelsize=14)
     colorbar.set_clim(0.1,1)
-    plt.xticks([0,n_discrete//4,n_discrete//2-2,3*n_discrete//4-2,n_discrete-3], [-1,-0.5,0,0.5,1],fontsize=12)
-    plt.yticks([0,n_discrete//4,n_discrete//2-2,3*n_discrete//4-2,n_discrete-3], [-1,-0.5,0,0.5,1],fontsize=12)
-    ax.set_xlabel('1st dimension',fontsize=12)
-    ax.set_ylabel('2nd dimension',fontsize=12)
+    plt.xticks([0,n_discrete//4,n_discrete//2-2,3*n_discrete//4-2,n_discrete-3], [-1,-0.5,0,0.5,1],fontsize=14)
+    plt.yticks([0,n_discrete//4,n_discrete//2-2,3*n_discrete//4-2,n_discrete-3], [-1,-0.5,0,0.5,1],fontsize=14)
+    ax.set_xlabel('1st dimension',fontsize=14)
+    ax.set_ylabel('2nd dimension',fontsize=14)
     plt.show()
     fig.savefig("discrete_contour.png")
 
 
 
 def plot_arrow(policy,n_discrete):
-    a = np.arange(0,n_discrete,2)
-    b = np.arange(0,n_discrete//2,2)
+    a = np.arange(0,n_discrete,5)
     states = np.arange((n_discrete)**2).reshape((n_discrete,n_discrete))
     states = states[a]
-    states = states[b]
     states = states[:,a]
-    states = states[:,b]
     states = states[1:-1,1:-1]
     states = states.flatten()
     pis = np.argmax(policy,axis=1).reshape((n_discrete,n_discrete))
     pis = pis[a]
-    pis = pis[b]
     pis = pis[:,a]
-    pis = pis[:,b]
     pis = pis[1:-1,1:-1]
     pis = pis.flatten()
     fig, ax = plt.subplots(1)
-    plt.title('$\Pi(s)$',fontsize=12)
+    plt.title('$\Pi(s)$',fontsize=14)
     for pi,state in zip(pis,states):
         x_pos , y_pos = state%(n_discrete) , state//(n_discrete)
         if pi == 0: #left
-            x_pi , y_pi = -1 , 0
+            x_pi , y_pi = -2 , 0
         if pi == 1: #right
-            x_pi , y_pi = 1 , 0
+            x_pi , y_pi = 2 , 0
         if pi == 2: #up
-            x_pi , y_pi = 0 , 1
+            x_pi , y_pi = 0 , 2
         if pi == 3: #down
-            x_pi , y_pi = 0 , -1
-        plt.arrow(x_pos, y_pos, x_pi, y_pi, color="black", width=0.03, head_width=0.6)
-    plt.xticks([0,n_discrete//4,n_discrete//2-2,3*n_discrete//4-2,n_discrete-3], [-1,-0.5,0,0.5,1],fontsize=12)
-    plt.yticks([0,n_discrete//4,n_discrete//2-2,3*n_discrete//4-2,n_discrete-3], [-1,-0.5,0,0.5,1],fontsize=12)
-    plt.xlabel('1st dimension',fontsize=12)
-    plt.ylabel('2nd dimension',fontsize=12)
+            x_pi , y_pi = 0 , -2
+        plt.arrow(x_pos, y_pos, x_pi, y_pi, color="black", width=0.08, head_width=1)
+    plt.xticks([0,n_discrete//4,n_discrete//2-2,3*n_discrete//4-2,n_discrete-3], [-1,-0.5,0,0.5,1],fontsize=14)
+    plt.yticks([0,n_discrete//4,n_discrete//2-2,3*n_discrete//4-2,n_discrete-3], [-1,-0.5,0,0.5,1],fontsize=14)
+    plt.xlabel('1st dimension',fontsize=14)
+    plt.ylabel('2nd dimension',fontsize=14)
     plt.show()
     fig.savefig("discrete_arrow.png")
 
