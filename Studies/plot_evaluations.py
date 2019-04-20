@@ -78,10 +78,10 @@ if __name__ == "__main__":
     fig.clear()
 
     plt.errorbar(xs, ys, errors, fmt="--o")
-    plt.xlabel(args.x_label,fontsize=12)
-    plt.ylabel(args.y_label,fontsize=12)
+    plt.xlabel(args.x_label,fontsize=14)
+    plt.ylabel(args.y_label,fontsize=14)
     plt.ylim(bottom=0)
-    plt.tick_params(labelsize=12)
+    plt.tick_params(labelsize=14)
     if args.log_scale:
         plt.xscale("log")
     plt.savefig("{}/visualizations/total_scores.png".format(args.directory))
