@@ -99,9 +99,9 @@ if __name__ == "__main__":
         mean_convergences.append(np.mean(convergences))
         std_convergences.append(np.std(convergences))
     mean_convergences=np.array(mean_convergences)
-    mean_convergences*=eval_freq
+    mean_convergences*=args.eval_freq
     std_convergences=np.array(std_convergences)
-    std_convergences*=eval_freq
+    std_convergences*=args.eval_freq
 
     fig = plt.figure()
     fig.clear()

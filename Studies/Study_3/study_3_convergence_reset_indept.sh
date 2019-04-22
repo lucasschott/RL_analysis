@@ -16,9 +16,7 @@ LEARNING_TIMESTEPS_2=5000
 
 BUFFER_SIZE=32000
 
-EVAL_FREQ_1=1250
-
-EVAL_FREQ_2=250
+EVAL_FREQ=250
 
 EXPLORATION_MODE="uniform"
 
@@ -45,7 +43,7 @@ run_training_1()
     --exploration_timesteps=$EXPLORATION_TIMESTEPS\
     --learning_timesteps=$LEARNING_TIMESTEPS_1\
     --buffer_size=$BUFFER_SIZE\
-    --eval_freq=$EVAL_FREQ_1\
+    --eval_freq=$EVAL_FREQ\
     --dimensions=$1\
     --save\
     --no-policy_visu\
@@ -70,7 +68,7 @@ run_training_2()
     --exploration_timesteps=$EXPLORATION_TIMESTEPS\
     --learning_timesteps=$LEARNING_TIMESTEPS_2\
     --buffer_size=$BUFFER_SIZE\
-    --eval_freq=$EVAL_FREQ_2\
+    --eval_freq=$EVAL_FREQ\
     --dimensions=$1\
     --save\
     --no-policy_visu\
@@ -116,8 +114,7 @@ wait ${PIDS[@]}
 COMMAND4="python ../plot_average_convergence.py\
     --directory=$RESULT_DIR\
     --batch_size=$MEAN_BATCH_SIZE\
-    --eval_freq_1=$EVAL_FREQ_1\
-    --eval_freq_2=$EVAL_FREQ_2\
+    --eval_freq=$EVAL_FREQ\
     --epsilon=0.02\
     --log_scale\
     --title='$TITLE'"
