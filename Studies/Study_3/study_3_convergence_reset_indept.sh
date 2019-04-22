@@ -2,7 +2,7 @@
 
 ## Performance en fonction du nombre de dimensions avec moitié high et moitié low reward
 
-PARALLEL_MAX=1
+PARALLEL_MAX=2
 
 MEAN_BATCH_SIZE=8
 
@@ -38,16 +38,16 @@ run_training_1()
 {
   OUTPUT_DIR="${ROOT_DIR}${RESULT_DIR}${POLICY_NAME}_n$1_$2"
 
-  COMMAND="python ../../learn_multidimensional.py\
-    --policy_name=$POLICY_NAME\
+  COMMAND="python ../../learn_hypercube.py\
+    --algorithm=$POLICY_NAME\
     --exploration_timesteps=$EXPLORATION_TIMESTEPS\
     --learning_timesteps=$LEARNING_TIMESTEPS_1\
     --buffer_size=$BUFFER_SIZE\
     --eval_freq=$EVAL_FREQ\
     --dimensions=$1\
     --save\
-    --no-policy_visu\
-    --no-render\
+    --no_policy_visu\
+    --no_render\
     --reset_radius=$RESET_RADIUS\
     --exploration_mode=${EXPLORATION_MODE}\
     --high_reward_count=$HIGH_REWARD_COUNT\
@@ -63,16 +63,16 @@ run_training_2()
 {
   OUTPUT_DIR="${ROOT_DIR}${RESULT_DIR}${POLICY_NAME}_n$1_$2"
 
-  COMMAND="python ../../learn_multidimensional.py\
-    --policy_name=$POLICY_NAME\
+  COMMAND="python ../../learn_hypercube.py\
+    --algorithm=$POLICY_NAME\
     --exploration_timesteps=$EXPLORATION_TIMESTEPS\
     --learning_timesteps=$LEARNING_TIMESTEPS_2\
     --buffer_size=$BUFFER_SIZE\
     --eval_freq=$EVAL_FREQ\
     --dimensions=$1\
     --save\
-    --no-policy_visu\
-    --no-render\
+    --no_policy_visu\
+    --no_render\
     --exploration_mode=${EXPLORATION_MODE}\
     --high_reward_count=$HIGH_REWARD_COUNT\
     --low_reward_count=$LOW_REWARD_COUNT\
@@ -87,12 +87,12 @@ run_training_2()
 PARALLEL=0
 PIDS=()
 
-for i in 1 4 16 64 256 1024 4096
+for i in 1 2 4 8 16 32 64 128
 do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
 	echo "Training $i $j"
-	if [ $i -lt 16 ]
+	if [ $i -le 8 ]
 	then
 		run_training_1 $i $j &
 	else
