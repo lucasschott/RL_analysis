@@ -12,7 +12,7 @@ EXPLORATION_TIMESTEPS=32000
 
 LEARNING_TIMESTEPS_1=25000
 
-LEARNING_TIMESTEPS_2=5000
+LEARNING_TIMESTEPS_2=3000
 
 BUFFER_SIZE=32000
 
@@ -92,7 +92,7 @@ do
     for j in $(seq 0 $(($MEAN_BATCH_SIZE-1)))
     do
 	echo "Training $i $j"
-	if [ $i -le 8 ]
+	if [ $i -le 4 ]
 	then
 		run_training_1 $i $j &
 	else
