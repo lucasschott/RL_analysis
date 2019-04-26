@@ -83,8 +83,7 @@ COMMAND2="python ../plot_evaluations.py\
     --batch_size=$MEAN_BATCH_SIZE\
     --title='$TITLE'\
     --x_label='$X_LABEL'\
-    --y_label='$Y_LABEL'\
-    --log_scale"
+    --y_label='$Y_LABEL'"
 
 eval ${COMMAND2}
 
