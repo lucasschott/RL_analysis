@@ -54,34 +54,6 @@ if __name__ == "__main__":
             print(evaluation.shape)
 
     evaluations = np.array(evaluations)
-    mean = np.mean(evaluations,axis=1)
-    if args.batch_size==1:
-        std = mean
-    else:
-        std = np.std(evaluations,axis=1)
-    
-    xs = list(map(float,xs))
-    ys = list(mean)
-    zs = list(std)
-    data = np.array([xs,ys,zs],dtype=object).transpose()
-    data2 = []
-    for row in data:
-        data2.append(tuple(row))
-
-    data2 = sorted(data2,key=lambda tup: tup[0])
-    data = np.array(data2,dtype=object)
-    xs = data[:,0]
-    mean = data[:,1]
-    std = data[:,2]
-    
-    new = []
-    for m in mean:
-        new.append(m)
-    mean = np.array(new)
-    new = []
-    for s in std:
-        new.append(s)
-    std = np.array(new)
     
     mean_convergences=[]
     std_convergences=[]
@@ -90,9 +62,9 @@ if __name__ == "__main__":
         for curve in evaluations[i]:
             convergence=-1
             for j,val in enumerate(curve):
-                if val >= 0.1-args.epsilon:
+                if val >= 0.09-args.epsilon:
                     convergence = j
-                    continue
+                    break
                 if convergence == -1:
                     convergence = len(curve)
             convergences.append(convergence)
@@ -103,12 +75,35 @@ if __name__ == "__main__":
     std_convergences=np.array(std_convergences)
     std_convergences*=args.eval_freq
 
+    xs = list(map(float,xs))
+    ys = list(mean_convergences)
+    zs = list(std_convergences)
+    data = np.array([xs,ys,zs],dtype=object).transpose()
+    data2 = []
+    for row in data:
+        data2.append(tuple(row))
+
+    data2 = sorted(data2,key=lambda tup: tup[0])
+    data = np.array(data2,dtype=object)
+    xs = data[:,0]
+    mean = data[:,1]
+    std = data[:,2]
+
+    new = []
+    for m in mean:
+        new.append(m)
+    mean_convergences = np.array(new)
+    new = []
+    for s in std:
+        new.append(s)
+    std_convergences = np.array(new)
+
     fig = plt.figure()
     fig.clear()
     plt.errorbar(xs, mean_convergences, std_convergences, fmt="--o")
-    plt.title("$\eps$ = ".format(args.epsilon),fontsize=14)
     plt.xlabel(args.title,fontsize=14)
     plt.ylabel("convergence timesteps",fontsize=14)
+    plt.xscale("log")
     plt.tick_params(labelsize=14)
 
     plt.savefig(args.directory + "/visualizations/convergences.png")

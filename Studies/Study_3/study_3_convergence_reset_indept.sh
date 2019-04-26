@@ -10,13 +10,13 @@ POLICY_NAME="DDPG"
 
 EXPLORATION_TIMESTEPS=32000
 
-LEARNING_TIMESTEPS_1=25000
+LEARNING_TIMESTEPS_1=15000
 
 LEARNING_TIMESTEPS_2=3000
 
 BUFFER_SIZE=32000
 
-EVAL_FREQ=250
+EVAL_FREQ=300
 
 EXPLORATION_MODE="uniform"
 
@@ -116,7 +116,6 @@ COMMAND4="python ../plot_average_convergence.py\
     --batch_size=$MEAN_BATCH_SIZE\
     --eval_freq=$EVAL_FREQ\
     --epsilon=0.02\
-    --log_scale\
     --title='$TITLE'"
 
 eval ${COMMAND4}
