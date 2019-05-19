@@ -1,4 +1,4 @@
-Study 2:
+Study 2: Filtered replay buffer
 --------
 
 In this study, we analyse the influence of a filtered replay buffer on
