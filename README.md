@@ -275,47 +275,46 @@ environment:
 parameters:
 
   ---------------------- ----------------------------------------------- ---------------------------------------------------------------------------------------------------------
-  `--algorithm=<str>`    name of the algorithm to use, “TD3” or “DDPG”   default=“DDPG”
-
-  `--seed=<int>`         seed for the random exploration                 default=random
-
-  `--dimensions=<int>`   number of dimensions of the environment         default=2“\
-                                                                         `--eval_freq=<int>` & how often (time steps) we evaluate & default=2e3\
-                                                                         `--exploration_timesteps=<int>` & exploration duration & default=1e4\
-                                                                         `--exploration_mode=<str>` & ”random\_walk“ or ”uniform“ & default=”random\_walk“\
-                                                                         `--learning_timesteps=<int>` & learning duration & default=1e4\
-                                                                         `--buffer_size=<int>` & size of the replay buffer & default=1e4\
-                                                                         `--no_new_exp` & learn from a fixed batch &\
-                                                                         `--expl_noise=<float>` & noise & default=0.1\
-                                                                         `--batch_size=<int>` & learning batch & default=64\
-                                                                         `--discount=<float>` & discount factor & default=0.99\
-                                                                         `--actor_hl1=<int>` & actor first hidden layer size & default=40\
-                                                                         `--actor_hl2=<int>` & actor second hidden layer size & default=30\
-                                                                         `--critic_hl1=<int>` & critic first hidden layer size & default=40\
-                                                                         `--critic_hl2=<int>` & critic second hidden layer size & default=30\
-                                                                         `--learning_rate=<float>` & learning rate of the networks & default=1e-4\
-                                                                         `--tau=<float>` & target network update rate & default=5e-3\
-                                                                         `--policy_noise=<float>` & noise added to target policy during critic update & default=0.2\
-                                                                         `--noise_clip=<float>` & range to clip target policy noise & default=0.5\
-                                                                         `--policy_freq=<int>` & frequency of delayed policy updates & default=2\
-                                                                         `--quiet` & to not print on standard output &\
-                                                                         `--acceleration` & set acceleration mode & default: velocity\
-                                                                         `--discrete` & set discrete actions & default: continuous\
-                                                                         `--speed_limit_mode` & set max velocity mode, ”vector\_norm“ or ”independent“ & default=”vector\_norm“\
-                                                                         `--replay_buffer_visu` & visualize 2D replay buffer&\
-                                                                         `--no_policy_visu` & to not plot visualizations&\
-                                                                         `--no_render` & to not render the environment&\
-                                                                         `--save` & save logs, models or visualizations&\
-                                                                         `--output=<str>` & output directory & default=”results“\
-                                                                         `--high_reward_value=<float>` & value of the high reward & default=1\
-                                                                         `--low_reward_value=<float>` & value of the low reward & default=0.1\
-                                                                         `--high_reward_count=<str>` & ”half“ or ”one“ & default=”half“\
-                                                                         `--low_reward_count=<str>` & ”half“ or ”one“ & default=”half“\
-                                                                         `--mode=<str>` & rewards positions ”deterministic“ or ”random“ & default=”deterministic"\
-                                                                         `--reset_radius=<float>` & radius from the center for the agent spawn & default=None\
-                                                                         `--filter` & to add a circle filter of the replay buffer &\
-                                                                         `--filter_radius=<float>` & radius of the filter & default=0.2\
-                                                                         `--filter_pos=<float>` & position of the filter on the diagonal of the environment & default=0\
+  `--algorithm=<str>` | name of the algorithm to use, “TD3” or “DDPG” | default=“DDPG”
+  |-------------|-------------|----------|
+  `--seed=<int>` | seed for the random exploration | default=random
+  `--dimensions=<int>` | number of dimensions of the environment | default=2“
+  `--eval_freq=<int>` | how often (time steps) we evaluate | default=2e3
+  `--exploration_timesteps=<int>` | exploration duration | default=1e4
+  `--exploration_mode=<str>` | ”random\_walk“ or ”uniform“ | default=”random\_walk“
+  `--learning_timesteps=<int>` | learning duration | default=1e4  
+  `--buffer_size=<int>` | size of the replay buffer | default=1e4  
+  `--no_new_exp` | learn from a fixed batch |  
+  `--expl_noise=<float>` | noise | default=0.1  
+  `--batch_size=<int>` | learning batch | default=64  
+  `--discount=<float>` | discount factor | default=0.99  
+  `--actor_hl1=<int>` | actor first hidden layer size | default=40  
+  `--actor_hl2=<int>` | actor second hidden layer size | default=30
+  `--critic_hl1=<int>` | critic first hidden layer size | default=40
+  `--critic_hl2=<int>` | critic second hidden layer size | default=30
+  `--learning_rate=<float>` | learning rate of the networks | default=1e-4
+  `--tau=<float>` | target network update rate | default=5e-3
+  `--policy_noise=<float>` | noise added to target policy during critic update | default=0.2
+  `--noise_clip=<float>` | range to clip target policy noise | default=0.5
+  `--policy_freq=<int>` | frequency of delayed policy updates | default=2
+  `--quiet` | to not print on standard output |
+  `--acceleration` | set acceleration mode | default: velocity
+  `--discrete` | set discrete actions | default: continuous
+  `--speed_limit_mode` | set max velocity mode, ”vector\_norm“ or ”independent“ | default=”vector\_norm“
+  `--replay_buffer_visu` | visualize 2D replay buffer |
+  `--no_policy_visu` | to not plot visualizations |
+  `--no_render` | to not render the environment |
+  `--save` | save logs, models or visualizations |
+  `--output=<str>` | output directory | default=”results“
+  `--high_reward_value=<float>` | value of the high reward | default=1
+  `--low_reward_value=<float>` | value of the low reward | default=0.1
+  `--high_reward_count=<str>` | ”half“ or ”one“ | default=”half“
+  `--low_reward_count=<str>` | ”half“ or ”one“ | default=”half“
+  `--mode=<str>` | rewards positions ”deterministic“ or ”random“ | default=”deterministic"
+  `--reset_radius=<float>` | radius from the center for the agent spawn | default=None
+  `--filter` | to add a circle filter of the replay buffer |
+  `--filter_radius=<float>` | radius of the filter | default=0.2
+  `--filter_pos=<float>` | position of the filter on the diagonal of the environment | default=0
   ---------------------- ----------------------------------------------- ---------------------------------------------------------------------------------------------------------
 
  \
@@ -327,24 +326,22 @@ the previous script.
 parameters:
 
   ---------------------------- ----------------------------------------------- -------------------------------------------------------------------------------------------
-  `--algorithm=<str>`          name of the algorithm to use, “TD3” or “DDPG”   default=“DDPG”
-
-  `--policy_directory=<str>`                                                   default=“results/models”
-
-  `--dimensions=<int>`         number of dimensions of the environment         default=2“\
-                                                                               `--max_episodes=<int>` & & default=50\
-                                                                               `--max_timesteps=<str>` & & default=1e4\
-                                                                               `--buffer_size=<str>` & size of the replay buffer & default=5e3\
-                                                                               `--quiet` & to not print on standard output &\
-                                                                               `--acceleration` & to set acceleration mode, default: velocity\
-                                                                               `--discrete` & to set discrete actions, default: continuous\
-                                                                               `--no_render` & to not render the environment\
-                                                                               `--high_reward_value=<float>` & value of the high reward & default=1\
-                                                                               `--low_reward_value=<float>` & value of the low reward & default=0.1\
-                                                                               `--high_reward_count=<str>` & ”half“ or ”one“ & default=”half“\
-                                                                               `--low_reward_count=<str>` & ”half“ or ”one“ & default=”half“\
-                                                                               `--mode=<str>` & rewards positions ”deterministic“ or ”random“ & default=”deterministic"\
-                                                                               `--reset_radius=<float>` & radius from the center for the agent spawn & default=None\
+  `--algorithm=<str>` | name of the algorithm to use, “TD3” or “DDPG” | default=“DDPG”
+  `--policy_directory=<str>` | | default=“results/models”
+  `--dimensions=<int>` | number of dimensions of the environment | default=2“
+  `--max_episodes=<int>` | | default=50
+  `--max_timesteps=<str>` | | default=1e4
+  `--buffer_size=<str>` | size of the replay buffer | default=5e3
+  `--quiet` | to not print on standard output |
+  `--acceleration` | to set acceleration mode | default: velocity
+  `--discrete` | to set discrete actions | default: continuous
+  `--no_render` | to not render the environment |
+  `--high_reward_value=<float>` | value of the high reward | default=1
+  `--low_reward_value=<float>` | value of the low reward | default=0.1
+  `--high_reward_count=<str>` | ”half“ or ”one“ | default=”half“
+  `--low_reward_count=<str>` | ”half“ or ”one“ | default=”half“
+  `--mode=<str>` | rewards positions ”deterministic“ or ”random“ | default=”deterministic"
+  `--reset_radius=<float>` | radius from the center for the agent spawn | default=None
   ---------------------------- ----------------------------------------------- -------------------------------------------------------------------------------------------
 
 Studies
