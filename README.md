@@ -1,20 +1,21 @@
 # Project : Evaluation environment for deep reinforcement learning algorithm analysis
     
 ## Authors:
-Hector Roussille 
-Sorbonne University 
-Paris, France 
+
+Hector Roussille\
+Sorbonne University\
+Paris, France\
 hector.roussille@etu.upmc.fr 
 
-Lucas Schott
-Sorbonne University
-Paris, France
+Lucas Schott\
+Sorbonne University\
+Paris, France\
 lucas.schott@etu.upmc.fr
 
-Olivier Sigaud
-Supervisor
-Sorbonne University
-Paris, France
+Olivier Sigaud\
+Supervisor\
+Sorbonne University\
+Paris, France\
 Olivier.Sigaud@upmc.fr
     
 ## Abstract:
