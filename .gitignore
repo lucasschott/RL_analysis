@@ -1,2 +1,7 @@
 20*/
 results*/
+*.log
+*.aux
+*.bbl
+*.blg
+*.out
