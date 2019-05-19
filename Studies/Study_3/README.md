@@ -1,4 +1,4 @@
-tudy 3: score according to the number of dimensions
+Study 3: score according to the number of dimensions
 ----------------------------------------------------
 
 In this study we analyze the influence of the number of dimensions in
