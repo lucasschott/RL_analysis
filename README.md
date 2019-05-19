@@ -1,33 +1,33 @@
 # Project : Evaluation environment for deep reinforcement learning algorithm analysis
     
 ## author:
-    Hector Roussille 
-    Sorbonne University 
-    Paris, France 
-    hector.roussille@etu.upmc.fr 
-    
-    Lucas Schott
-    Sorbonne University
-    Paris, France
-    lucas.schott@etu.upmc.fr
-    
-    Olivier Sigaud
-    Supervisor
-    Sorbonne University
-    Paris, France
-    Olivier.Sigaud@upmc.fr
+Hector Roussille 
+Sorbonne University 
+Paris, France 
+hector.roussille@etu.upmc.fr 
+
+Lucas Schott
+Sorbonne University
+Paris, France
+lucas.schott@etu.upmc.fr
+
+Olivier Sigaud
+Supervisor
+Sorbonne University
+Paris, France
+Olivier.Sigaud@upmc.fr
     
 ## abstract:
-    We analyze the Deep Deterministic Policy Gradient algorithm (DDPG),
-    which is a deep reinforcement learning algorithm (RL) with continuous
-    action space control, on a basic evaluation environment to see the
-    influence of several parameters on the learning abilities. Our
-    evaluation environment is an N-dimensional hypercube with rewards on its
-    hyperfaces, the simplicity of the environment allows us to study each
-    parameter separately and to provide an interpretation of the results. We
-    study in particular the extrapolation ability when DDPG learns with
-    sparse or missing data from fixed dataset, and also the influence of the
-    number of dimensions on the learning process.
+We analyze the Deep Deterministic Policy Gradient algorithm (DDPG),
+which is a deep reinforcement learning algorithm (RL) with continuous
+action space control, on a basic evaluation environment to see the
+influence of several parameters on the learning abilities. Our
+evaluation environment is an N-dimensional hypercube with rewards on its
+hyperfaces, the simplicity of the environment allows us to study each
+parameter separately and to provide an interpretation of the results. We
+study in particular the extrapolation ability when DDPG learns with
+sparse or missing data from fixed dataset, and also the influence of the
+number of dimensions on the learning process.
 
 Introduction
 ============
