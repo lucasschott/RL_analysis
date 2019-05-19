@@ -510,6 +510,7 @@ Parameters for this experiment:
 
 ![Random walk replay buffer[]{data-label="fig:buffers_random_walk"}](report/Study_1/buffer/sequential_16.png "fig:") | ![Random walk replay buffer[]{data-label="fig:buffers_random_walk"}](report/Study_1/buffer/sequential_256.png "fig:") | ![Random walk replay buffer[]{data-label="fig:buffers_random_walk"}](report/Study_1/buffer/sequential_4096.png "fig:")
 |----------|-----------|------------|
+
 Figure \[fig:buffers\_random\_walk\] shows replay buffer filled by
 random walk exploration. And on the contrary to the uniform sampling
 techniques, this one does not cover the entire space of the environment
@@ -519,8 +520,7 @@ replay buffer we expect that small replay buffers give a very bad
 results, but bigger the replay buffer will be much more the results
 should approach the results of replay buffer uniformly sampled.
 
-![Random walk exploration[]{data-label="fig:scores_random_walk"}](report/Study_1/1.2/curves1_2.png "fig:") | ![Random walk
-exploration[]{data-label="fig:scores_random_walk"}](report/Study_1/1.2/total_scores1_2.png "fig:")
+![Random walk exploration[]{data-label="fig:scores_random_walk"}](report/Study_1/1.2/curves1_2.png "fig:") | ![Random walk exploration[]{data-label="fig:scores_random_walk"}](report/Study_1/1.2/total_scores1_2.png "fig:")
 |-----------|-------------|
 
 On the contrary to the study with uniform sampling, here there is a
@@ -560,11 +560,9 @@ The environment being 2 dimensional where each dimension $d\in[-1,1]$,
 we can visualize the content of a replay buffer to see the explored
 regions with the different exploration schemes and filter positions.
 
-![Sample filtered replay buffers](report/Study_2/visualizations/uniform.png "fig:") | ![Sample filtered replay buffers](report/Study_2/2.1/visualizations/uniform-center.png "fig:") | ![Sample filtered replay buffers](report/Study_2/2.3/visualizations/uniform-corner.png "fig:"){width="\linewidth"}
+![Sample filtered replay buffers](report/Study_2/visualizations/uniform.png "fig:") | ![Sample filtered replay buffers](report/Study_2/2.1/visualizations/uniform-center.png "fig:") | ![Sample filtered replay buffers](report/Study_2/2.3/visualizations/uniform-corner.png "fig:")
 |----------|-----------|-----------|
-![Sample filtered replay buffers](report/Study_2/visualizations/sequential.png "fig:") | ![Sample filtered replay
-buffers](report/Study_2/2.2/visualizations/sequential-center.png "fig:") | ![Sample filtered replay
-buffers](report/Study_2/2.4/visualizations/sequential-corner.png "fig:")
+![Sample filtered replay buffers](report/Study_2/visualizations/sequential.png "fig:") | ![Sample filtered replay buffers](report/Study_2/2.2/visualizations/sequential-center.png "fig:") | ![Sample filtered replay buffers](report/Study_2/2.4/visualizations/sequential-corner.png "fig:")
 
 \[fig:filter\_random\_walk\]
 
@@ -945,8 +943,7 @@ a reward per step of 0.1. To compare the convergence of DDPG on the
 different size on environment we consider that a policy is optimal when
 the agent reach a an average score of $0.8$ rewards per step.
 
-![Convergence time according to the number of
-dimensions[]{data-label="fig:convergence"}](reprot/Study_3/half_convergence_reset_indept/convergences.png){width="0.5\linewidth"}
+![Convergence time according to the number of dimensions[]{data-label="fig:convergence"}](reprot/Study_3/half_convergence_reset_indept/convergences.png){width="0.5\linewidth"}
 
 Figure \[fig:convergence\] shows that the average timesteps needed to
 reach the optimal policy seems to decrease linearly while the number of
@@ -985,8 +982,7 @@ Parameters for this experiment:
 
 -   `--low_reward_count="one"`
 
-![Scores according to the number of dimensions with one low reward and one highreward[]{data-label="fig:curves_dimensions_one"}](report/Study_3/one_reset_indept/scores_dimensions.png "fig:") ![Scores according to the number of dimensions with one low
-reward and one high reward[]{data-label="fig:curves_dimensions_one"}](report/Study_3/one_reset_indept/total_scores.png "fig:")
+![Scores according to the number of dimensions with one low reward and one highreward[]{data-label="fig:curves_dimensions_one"}](report/Study_3/one_reset_indept/scores_dimensions.png "fig:") ![Scores according to the number of dimensions with one low reward and one high reward[]{data-label="fig:curves_dimensions_one"}](report/Study_3/one_reset_indept/total_scores.png "fig:")
 |----------|---------|
 
 Figure \[fig:curves\_dimensions\_one\] shows the performances achieved
