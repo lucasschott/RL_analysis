@@ -90,15 +90,14 @@ The agent must also be configurable:
     given speed in the n dimensional environment. With $S$ the
     observation vector and $A$ the velocity vector in the n dimensional
     space defined as:
-
-    $$S = \begin{bmatrix} S_1\:S_2\:\cdots\:S_n\end{bmatrix}\:and\: A = \begin{bmatrix} A_1\:A_2\:\cdots\:A_n \end{bmatrix}$$
-    $$\:Where:\: \forall i \: S_i \in [-1, 1] \:and\: \forall i \: A_i \in [-1, 1]$$
+    
+    ![alt text](https://raw.githubusercontent.com/schott97l/RL_analysis/master/imagesReadme/1.PNG)  
 
     The new observation, $S'$ is computed with : $S' = S + A * p$ where
     $p$ is the power typically set to 0.1 in velocity mode. Since each
     dimension is bounded by $k$ we finally apply the following
-
-    $$\forall i \: S'_i \: = \: \max (\min (k, S'_i), -k)$$
+    
+    ![alt text](https://raw.githubusercontent.com/schott97l/RL_analysis/master/imagesReadme/2.PNG)  
 
 -   It must have an acceleration mode in which the agent controls its
     acceleration and has information about both its current position and
@@ -106,33 +105,27 @@ The agent must also be configurable:
     this mode, the observation vector $S$ holds both the position and
     velocity in each dimension while $A$ now represents accelerations:
 
-    $$S = \begin{bmatrix} S_{11}\:S_{12}\:\cdots\:S_{1n} \\ S_{21}\:S_{22}\:\cdots\:S_{2n}\end{bmatrix}\:and\:A = \begin{bmatrix} A_1\:A_2\:\cdots\:A_n \end{bmatrix}$$
+    ![alt text](https://raw.githubusercontent.com/schott97l/RL_analysis/master/imagesReadme/3.PNG)  
 
     The acceleration is first scaled using the $p$ parameter, usually
     set to 0.01 in acceleration mode and then added to the current
     velocity :
 
-    $$S'_{2.} = S_{2.} + A * p$$
+    ![alt text](https://raw.githubusercontent.com/schott97l/RL_analysis/master/imagesReadme/4.PNG)  
 
     Friction $\mathbbm F(x)$ is then applied on the velocity vector with
     $f$ the friction parameter set to 0.001 :
-
-    $$\mathbbm F(X) =
-                \begin{cases}
-                    \max (0, x - f),\:if\: X > 0\\
-                    \min (0, x + f),\:if\: X < 0\\
-                \end{cases}$$
+    
+    ![alt text](https://raw.githubusercontent.com/schott97l/RL_analysis/master/imagesReadme/7.PNG)
 
     Clipping is applied to the velocity vector too with M the velocity
     boundary usually set to $K$:
 
-    $$\forall i \: S'_{2i} \: = \: \max (\min (M, S'_{2i}), -M)$$
+    ![alt text](https://raw.githubusercontent.com/schott97l/RL_analysis/master/imagesReadme/5.PNG)  
 
     Finally the position is updated and clipped :
 
-    $$\forall i S'_{1i} = S_{1i} + S'_{2i}$$
-
-    $$\forall i \: S'_{1i} \: = \: \max (\min (k, S'_{1i}), -k)$$
+   ![alt text](https://raw.githubusercontent.com/schott97l/RL_analysis/master/imagesReadme/6.PNG)  
 
 The environment has to be compatible with the OpenAI Gym API, so that it
 is usable with all reinforcement learning algorithms that also respect
