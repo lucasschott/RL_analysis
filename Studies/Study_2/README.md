@@ -35,7 +35,7 @@ The filter that we use is circular, with $\theta$ the center of the
 filter, $r$ its radius and $x$ a point in the n dimensional space the
 indicator function that we use to know if a point is in the filter is:
 
-![alt text](https://raw.githubusercontent.com/schott97l/RL_analysis/master/imagesReadme/8.PNG)    
+![alt text](https://raw.githubusercontent.com/schott97l/RL_analysis/master/imagesReadme/2.1.PNG)    
 
 Therefore, we do allow points that are lying on the filter boundary.
 
