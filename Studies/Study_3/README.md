@@ -1,4 +1,4 @@
-Study 3: score according to the number of dimensions
+Study 3: Number of dimensions of the environment
 ----------------------------------------------------
 
 In this study we analyze the influence of the number of dimensions in
