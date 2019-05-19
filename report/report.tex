@@ -332,7 +332,7 @@ Figure \ref{fig:theoretical_policy} show us the visualization of the optimal sta
 
 All the presented results are the results of 8 experiments obtained by running the training with exactly the same parameters. The curves and the errors bars shown are the average and the standard deviation over these 8 experiments. The parameters used for each study are specified before, the non specified ones are set to their default value as described in the user documentation.
 
-\subsection{Study 1: Score according to the replay buffer size}
+\subsection{Study 1: Size of the replay buffer}
 
 According to \cite{fujimoto_off-policy_2018} a drawback of DDPG is that it has trouble learning from a fixed batch of experiences in a replay buffer without having the possibility to add new experiences in this replay buffer. So in this study we analyze the influence of the size of a fixed batch of experiences in a replay buffer on the average score of DDPG.
 
@@ -458,7 +458,7 @@ Figure \ref{fig:buffers_random_walk} shows replay buffer filled by random walk e
 On the contrary to the study with uniform sampling, here there is a significant increase of the score according to the replay buffer size. So it confirms our expectations, small replay buffer (here under 1024 replays) seems to be insufficient for DDPG to learn. And this is probably because the agent has not enough timesteps to discover the entire environment, it only knows the region it appeared so it cannot know where rewards are. As seen in Figure \ref{fig:scores_random_walk} above, under the size of 256, experiences achieved very poor performances moreover their respective standard deviation are far superior to any other run with bigger replay buffer, which suggest that barely no information could be learned from the environment with so small replay buffer and random walk exploration. On the other hand, the bigger replay buffer allowed DDPG to converge close to the optimal policy as expected. An interesting note is that we can see no significant difference between the 1024 long replay buffer and the sizes above, this result might be explained by the simplicity of the environment.
 
 
-\subsection{Study 2:}
+\subsection{Study 2: Filtered replay buffer}
 
 In this study, we analyse the influence of a filtered replay buffer on the performances of DDPG on a 2 dimensional environment in order to test the limits of function approximators  in different environment configurations \cite{schaul_universal_2015}. The filter imposes a circular unexplored region in the environment. The flag $--no_new_exp$ is set for the whole study.
 
@@ -788,7 +788,7 @@ The same performance drop is clearly present in Figure  \ref{fig:corner_curves_r
  
  In Figure \ref{fig:sample_policies_corner_sequential} the 1.6 radius filter visualizations show again a gap between the Actor and the Critic representation of the observation space. On the 2.0 and 2.2 filter size have their actions directed to the bottom left corner where only the low reward is present which explains the lower score. Those approximations errors might be reduced by using an algorithm reducing the approximations errors such as TD3 \cite{fujimoto_addressing_2018}.
  
-\subsection{Study 3: score according to the number of dimensions}
+\subsection{Study 3: Number of dimensions of the environement}
 
 In this study we analyze the influence of the number of dimensions in the environment on the overall performances of DDPG.
 
