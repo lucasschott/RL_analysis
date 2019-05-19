@@ -612,7 +612,7 @@ Parameters for this experiment:
 
 -   `--filter_size=0, 0.2, 0.4, 0.6, 0.8, 1, 1.2`
 
-![center filter with uniform exploration[]{data-label="fig:center_curves_uniform"}](Study_2/2.1/visualizations/scores_filter_size.png "fig:") | ![center filter with uniform exploration[]{data-label="fig:center_curves_uniform"}](report/Study_2/2.1/visualizations/total_scores.png "fig:")
+![center filter with uniform exploration[]{data-label="fig:center_curves_uniform"}](report/Study_2/2.1/visualizations/scores_filter_size.png "fig:") | ![center filter with uniform exploration[]{data-label="fig:center_curves_uniform"}](report/Study_2/2.1/visualizations/total_scores.png "fig:")
 |----------|------------|
 
 In Figure \[fig:center\_curves\_uniform\] we cannot see any significant
@@ -767,7 +767,7 @@ The same performance drop is clearly present in Figure
 \[fig:corner\_curves\_random\_walk\], with the 2.0 and 2.2 radius
 filters.
 
-![Sample policies : corner filter with random walk exploration[]{data-label="fig:corner_contour_random_walk"}](reprot/Study_2/2.4/visualizations/Q_contour_0_4.png "fig:") | ![Sample policies : corner filter with random walk exploration[]{data-label="fig:corner_contour_random_walk"}](report/Study_2/2.4/visualizations/Q_contour_0_8.png "fig:") | ![Sample policies : corner filter with random walk exploration[]{data-label="fig:corner_contour_random_walk"}](report/Study_2/2.4/visualizations/Q_contour_1_2.png "fig:")
+![Sample policies : corner filter with random walk exploration[]{data-label="fig:corner_contour_random_walk"}](report/Study_2/2.4/visualizations/Q_contour_0_4.png "fig:") | ![Sample policies : corner filter with random walk exploration[]{data-label="fig:corner_contour_random_walk"}](report/Study_2/2.4/visualizations/Q_contour_0_8.png "fig:") | ![Sample policies : corner filter with random walk exploration[]{data-label="fig:corner_contour_random_walk"}](report/Study_2/2.4/visualizations/Q_contour_1_2.png "fig:")
 |------------|------------|-------------|
 ![Sample policies : corner filter with random walk exploration[]{data-label="fig:corner_contour_random_walk"}](report/Study_2/2.4/visualizations/Q_contour_1_6.png "fig:") | ![Sample policies : corner filter with random walk exploration[]{data-label="fig:corner_contour_random_walk"}](report/Study_2/2.4/visualizations/Q_contour_2_0.png "fig:") | ![Sample policies : corner filter with random walk exploration[]{data-label="fig:corner_contour_random_walk"}](report/Study_2/2.4/visualizations/Q_contour_2_2.png "fig:")
 
@@ -868,7 +868,7 @@ Parameters for this experiment:
 
 -   `--reset_radius=0`
 
-[0.45]{} ![Scores according to the number of dimensions with half low rewards and half high rewards[]{data-label="fig:curves_dimensions_half_reset_norm"}](report/Study_3/half_reset_norm/scores_dimensions.png "fig:") | ![Scores according to the number of dimensions with half low rewards and half high rewards[]{data-label="fig:curves_dimensions_half_reset_norm"}](report/Study_3/half_reset_norm/total_scores.png "fig:")
+![Scores according to the number of dimensions with half low rewards and half high rewards[]{data-label="fig:curves_dimensions_half_reset_norm"}](report/Study_3/half_reset_norm/scores_dimensions.png "fig:") | ![Scores according to the number of dimensions with half low rewards and half high rewards[]{data-label="fig:curves_dimensions_half_reset_norm"}](report/Study_3/half_reset_norm/total_scores.png "fig:")
 |-----------|------------|
 
 Now the result shown in Figure
@@ -943,7 +943,7 @@ a reward per step of 0.1. To compare the convergence of DDPG on the
 different size on environment we consider that a policy is optimal when
 the agent reach a an average score of $0.8$ rewards per step.
 
-![Convergence time according to the number of dimensions[]{data-label="fig:convergence"}](reprot/Study_3/half_convergence_reset_indept/convergences.png){width="0.5\linewidth"}
+![Convergence time according to the number of dimensions[]{data-label="fig:convergence"}](reprot/Study_3/half_convergence_reset_indept/convergences.png)
 
 Figure \[fig:convergence\] shows that the average timesteps needed to
 reach the optimal policy seems to decrease linearly while the number of
@@ -982,7 +982,7 @@ Parameters for this experiment:
 
 -   `--low_reward_count="one"`
 
-![Scores according to the number of dimensions with one low reward and one highreward[]{data-label="fig:curves_dimensions_one"}](report/Study_3/one_reset_indept/scores_dimensions.png "fig:") ![Scores according to the number of dimensions with one low reward and one high reward[]{data-label="fig:curves_dimensions_one"}](report/Study_3/one_reset_indept/total_scores.png "fig:")
+![Scores according to the number of dimensions with one low reward and one highreward[]{data-label="fig:curves_dimensions_one"}](report/Study_3/one_reset_indept/scores_dimensions.png "fig:") | ![Scores according to the number of dimensions with one low reward and one high reward[]{data-label="fig:curves_dimensions_one"}](report/Study_3/one_reset_indept/total_scores.png "fig:")
 |----------|---------|
 
 Figure \[fig:curves\_dimensions\_one\] shows the performances achieved
