@@ -422,7 +422,7 @@ the center point of the environment in a hyper sphere with a radius of
 ### Uniform sampled replay buffer
 
 ![Uniform sampled replay buffers[]{data-label="fig:buffers_uniform"}](report/Study_1/buffer/uniform_16.png "fig:") | ![Uniform sampled replay buffers[]{data-label="fig:buffers_uniform"}](report/Study_1/buffer/uniform_256.png "fig:") | ![Uniform sampled replay buffers[]{data-label="fig:buffers_uniform"}](report/Study_1/buffer/uniform_4096.png "fig:")
-|-----------|------------|--------------|
+|-------------|-------------|--------------|
 
 Figure \[fig:buffers\_uniform\] represents replay buffers examples of
 our 2D environment \[fig:2d\_2\_env\]. The visualisations shows the
@@ -508,7 +508,7 @@ Parameters for this experiment:
 
 -   `--exploration_timesteps=` $2^3, 2^4, 2^6, 2^8, 2^{10}$
 
-![Random walk replay buffer[]{data-label="fig:buffers_random_walk"}](report/Study_1/buffer/sequential_16.png "fig:") | ![Random walk replay buffer[]{data-label="fig:buffers_random_walk"}](report/Study_1/buffer/sequential_256.png "fig:") ![Random walk replay buffer[]{data-label="fig:buffers_random_walk"}](report/Study_1/buffer/sequential_4096.png "fig:")
+![Random walk replay buffer[]{data-label="fig:buffers_random_walk"}](report/Study_1/buffer/sequential_16.png "fig:") | ![Random walk replay buffer[]{data-label="fig:buffers_random_walk"}](report/Study_1/buffer/sequential_256.png "fig:") | ![Random walk replay buffer[]{data-label="fig:buffers_random_walk"}](report/Study_1/buffer/sequential_4096.png "fig:")
 |----------|-----------|------------|
 Figure \[fig:buffers\_random\_walk\] shows replay buffer filled by
 random walk exploration. And on the contrary to the uniform sampling
@@ -625,7 +625,7 @@ filter. Please note that the $\Pi(s)$ visualizations are not included as
 they were all optimal.
 
 ![Sample policies: center filter with uniform exploration[]{data-label="fig:center_contour_uniform"}](report/Study_2/2.1/visualizations/Q_contour_0_4.png "fig:") | ![Sample policies: center filter with uniform exploration[]{data-label="fig:center_contour_uniform"}](report/Study_2/2.1/visualizations/Q_contour_0_8.png "fig:") | ![Sample policies: center filter with uniform exploration[]{data-label="fig:center_contour_uniform"}](report/Study_2/2.1/visualizations/Q_contour_1_2.png "fig:")
-|-----------|------------|
+|-----------|------------|-----------|
 
 DDPG with a uniform exploration is able to converge even when a
 significant proportion of the environment is left unexplored due to a
@@ -668,8 +668,8 @@ The result are very similar to the previous case where no significant
 performance drop can be observed in Figure
 \[fig:center\_curves\_random\_walk\].
 
-![Sample policies : center filter with random walk exploration[]{data-label="fig:center_contour_random_walk"}](report/Study_2/2.2/visualizations/Q_contour_0_4.png "fig:") | ![Sample policies : center filter with random walk exploration[]{data-label="fig:center_contour_random_walk"}](report/Study_2/2.2/visualizations/Q_contour_0_8.png "fig:"){width="\linewidth"} | ![Sample policies : center filter with random walk exploration[]{data-label="fig:center_contour_random_walk"}](report/Study_2/2.2/visualizations/Q_contour_1_2.png "fig:")
-|-------------|-------------|
+![Sample policies : center filter with random walk exploration[]{data-label="fig:center_contour_random_walk"}](report/Study_2/2.2/visualizations/Q_contour_0_4.png "fig:") | ![Sample policies : center filter with random walk exploration[]{data-label="fig:center_contour_random_walk"}](report/Study_2/2.2/visualizations/Q_contour_0_8.png "fig:") | ![Sample policies : center filter with random walk exploration[]{data-label="fig:center_contour_random_walk"}](report/Study_2/2.2/visualizations/Q_contour_1_2.png "fig:")
+|-------------|-----------|----------|
 
 Figure \[fig:center\_contour\_random\_walk\] show us the resulting
 $Q(s, \Pi(s))$ for the same sample filter size value. Almost no
@@ -701,8 +701,7 @@ Parameters for this experiment:
 
 -   `--filter_size=0.4, 0.8, 1.2, 1.6, 2, 2.2`
 
-![corner filter with uniform exploration[]{data-label="fig:corner_curves_uniform"}](report/Study_2/2.3/visualizations/scores_filter_size.png "fig:") | ![corner filter with uniform
-exploration[]{data-label="fig:corner_curves_uniform"}](report/Study_2/2.3/visualizations/total_scores.png "fig:")
+![corner filter with uniform exploration[]{data-label="fig:corner_curves_uniform"}](report/Study_2/2.3/visualizations/scores_filter_size.png "fig:") | ![corner filter with uniform exploration[]{data-label="fig:corner_curves_uniform"}](report/Study_2/2.3/visualizations/total_scores.png "fig:")
 |-----------|------------|
 
 We can observe the expected performance drop in Figure
@@ -729,7 +728,7 @@ reward.
 Here are the gradient field visualizations of the actor’s decisions for
 the 2.0 and 2.2
 
-![Sample policies : 2.0 and 2.2 radius[]{data-label="samples_policies_uniform_corner"}](report/Study_2/2.3/visualizations/Pi_arrow_2_0.png "fig:"){width="\linewidth"} | ![Sample policies : 2.0 and 2.2 radius[]{data-label="samples_policies_uniform_corner"}](report/Study_2/2.3/visualizations/Pi_arrow_2_2.png "fig:")
+![Sample policies : 2.0 and 2.2 radius[]{data-label="samples_policies_uniform_corner"}](report/Study_2/2.3/visualizations/Pi_arrow_2_0.png "fig:") | ![Sample policies : 2.0 and 2.2 radius[]{data-label="samples_policies_uniform_corner"}](report/Study_2/2.3/visualizations/Pi_arrow_2_2.png "fig:")
 |-----------|-----------|
 
 It now becomes clear with Figure \[samples\_policies\_uniform\_corner\]
@@ -988,6 +987,7 @@ Parameters for this experiment:
 
 ![Scores according to the number of dimensions with one low reward and one highreward[]{data-label="fig:curves_dimensions_one"}](report/Study_3/one_reset_indept/scores_dimensions.png "fig:") ![Scores according to the number of dimensions with one low
 reward and one high reward[]{data-label="fig:curves_dimensions_one"}](report/Study_3/one_reset_indept/total_scores.png "fig:")
+|----------|---------|
 
 Figure \[fig:curves\_dimensions\_one\] shows the performances achieved
 during the whole learning process per dimension. As we can see, the
