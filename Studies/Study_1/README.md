@@ -1,5 +1,5 @@
-Study 1: Score according to the replay buffer size
---------------------------------------------------
+Study 1: Size of the replay buffer
+----------------------------------
 
 According to [@fujimoto_off-policy_2018] a drawback of DDPG is that it
 has trouble learning from a fixed batch of experiences in a replay
@@ -24,7 +24,7 @@ uniform exploration. However, any subsequent step will have the previous
 resulting state in place of its initial state.
 
 For this study we train DDPG for 100k timesteps, with a replay buffer
-size ranging from ${2}^{4}$ to ${2}^{16}$. The environment is 2
+size ranging from 2^4 to 2^16. The environment is 2
 dimensional with high rewards present on the top and right edges and low
 rewards on the opposite sides.
 
@@ -60,10 +60,10 @@ Parameters for this experiment:
 
 -   `--exploration_mode="uniform"`
 
--   `--buffer_size=` $2^3, 2^4, 2^6, 2^8, 2^{10}, 2^{12}, 2^{14}$
+-   `--buffer_size=` 2^3, 2^4, 2^6, 2^8, 2^10, 2^12, 2^14
 
 -   `--exploration_timesteps=`
-    $2^3, 2^4, 2^6, 2^8, 2^{10}, 2^{12}, 2^{14}$
+    2^3, 2^4, 2^6, 2^8, 2^10, 2^12, 2^14
 
 ![Uniform sampling[]{data-label="fig:scores_uniform"}](../../report/Study_1/1.1/curves1_1.png "fig:") | ![Uniform sampling[]{data-label="fig:scores_uniform"}](../../report/Study_1/1.1/total_scores1_1.png "fig:")
 |----------------|--------------|
@@ -124,9 +124,9 @@ Parameters for this experiment:
 
 -   `--exploration_mode="random_walk"`
 
--   `--buffer_size=` $2^3, 2^4, 2^6, 2^8, 2^{10}$
+-   `--buffer_size=` 2^3, 2^4, 2^6, 2^8, 2^10
 
--   `--exploration_timesteps=` $2^3, 2^4, 2^6, 2^8, 2^{10}$
+-   `--exploration_timesteps=` 2^3, 2^4, 2^6, 2^8, 2^10
 
 ![Random walk replay buffer[]{data-label="fig:buffers_random_walk"}](../../report/Study_1/buffer/sequential_16.png "fig:") | ![Random walk replay buffer[]{data-label="fig:buffers_random_walk"}](../../report/Study_1/buffer/sequential_256.png "fig:") | ![Random walk replay buffer[]{data-label="fig:buffers_random_walk"}](../../report/Study_1/buffer/sequential_4096.png "fig:")
 |----------|-----------|------------|
