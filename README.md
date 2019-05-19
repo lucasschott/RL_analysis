@@ -1,5 +1,23 @@
----
-abstract: |
+# Project : Evaluation environment for deep reinforcement learning algorithm analysis
+    
+## author:
+    Hector Roussille 
+    Sorbonne University 
+    Paris, France 
+    hector.roussille@etu.upmc.fr 
+    
+    Lucas Schott
+    Sorbonne University
+    Paris, France
+    lucas.schott@etu.upmc.fr
+    
+    Olivier Sigaud
+    Supervisor
+    Sorbonne University
+    Paris, France
+    Olivier.Sigaud@upmc.fr
+    
+## abstract:
     We analyze the Deep Deterministic Policy Gradient algorithm (DDPG),
     which is a deep reinforcement learning algorithm (RL) with continuous
     action space control, on a basic evaluation environment to see the
@@ -10,27 +28,6 @@ abstract: |
     study in particular the extrapolation ability when DDPG learns with
     sparse or missing data from fixed dataset, and also the influence of the
     number of dimensions on the learning process.
-author:
-- |
-    Hector Roussille\
-    Sorbonne University\
-    Paris, France\
-    `hector.roussille@etu.upmc.fr`\
-    Lucas Schott\
-    Sorbonne University\
-    Paris, France\
-    `lucas.schott@etu.upmc.fr`\
-    Olivier Sigaud\
-    Supervisor\
-    Sorbonne University\
-    Paris, France\
-    `Olivier.Sigaud@upmc.fr`\
-bibliography:
-- 'MyLibrary.bib'
-title: |
-    Project : Evaluation environment for deep reinforcement learning
-    algorithm analysis
----
 
 Introduction
 ============
@@ -208,13 +205,13 @@ rendering engine based on PyOpenGL. Both the 1D and 2D rendering are
 presented below.
 
 ![1 dimensional environment, 2
-rewards[]{data-label="fig:1d_env"}](env/visualizations/1d.png){width="0.3\linewidth"}
+rewards[]{data-label="fig:1d_env"}](report/env/visualizations/1d.png){width="0.3\linewidth"}
 
 [0.3]{} ![2 dimensional environment with different reward
-configurations[]{data-label="fig:2d_env"}](env/visualizations/2d_2reward.png "fig:"){width="\linewidth"}
+configurations[]{data-label="fig:2d_env"}](report/env/visualizations/2d_2reward.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![2 dimensional environment with different reward
-configurations[]{data-label="fig:2d_env"}](env/visualizations/2d_1reward.png "fig:"){width="\linewidth"}
+configurations[]{data-label="fig:2d_env"}](report/env/visualizations/2d_1reward.png "fig:"){width="\linewidth"}
 
 Algorithm
 =========
@@ -367,10 +364,10 @@ algorithm on it [@bellman_markovian_1957]. We discretized the 2D
 environment in a 80x80 grid.
 
 [0.45]{} ![Theoretical optimal policy obtained by policy
-iteration[]{data-label="fig:theoretical_policy"}](discrete/discrete_contour.png "fig:"){width="\linewidth"}
+iteration[]{data-label="fig:theoretical_policy"}](report/discrete/discrete_contour.png "fig:"){width="\linewidth"}
 
 [0.45]{} ![Theoretical optimal policy obtained by policy
-iteration[]{data-label="fig:theoretical_policy"}](discrete/discrete_arrow.png "fig:"){width="\linewidth"}
+iteration[]{data-label="fig:theoretical_policy"}](report/discrete/discrete_arrow.png "fig:"){width="\linewidth"}
 
 Figure \[fig:theoretical\_policy\] show us the visualization of the
 optimal state value and the associated policy. We can see that the more
@@ -432,13 +429,13 @@ the center point of the environment in a hyper sphere with a radius of
 ### Uniform sampled replay buffer
 
 [0.3]{} ![Uniform sampled replay
-buffers[]{data-label="fig:buffers_uniform"}](Study_1/buffer/uniform_16.png "fig:"){width="\linewidth"}
+buffers[]{data-label="fig:buffers_uniform"}](report/Study_1/buffer/uniform_16.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Uniform sampled replay
-buffers[]{data-label="fig:buffers_uniform"}](Study_1/buffer/uniform_256.png "fig:"){width="\linewidth"}
+buffers[]{data-label="fig:buffers_uniform"}](report/Study_1/buffer/uniform_256.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Uniform sampled replay
-buffers[]{data-label="fig:buffers_uniform"}](Study_1/buffer/uniform_4096.png "fig:"){width="\linewidth"}
+buffers[]{data-label="fig:buffers_uniform"}](report/Study_1/buffer/uniform_4096.png "fig:"){width="\linewidth"}
 
 Figure \[fig:buffers\_uniform\] represents replay buffers examples of
 our 2D environment \[fig:2d\_2\_env\]. The visualisations shows the
@@ -462,10 +459,10 @@ Parameters for this experiment:
     $2^3, 2^4, 2^6, 2^8, 2^{10}, 2^{12}, 2^{14}$
 
 [0.45]{} ![Uniform
-sampling[]{data-label="fig:scores_uniform"}](Study_1/1.1/curves1_1.png "fig:"){width="\linewidth"}
+sampling[]{data-label="fig:scores_uniform"}](report/Study_1/1.1/curves1_1.png "fig:"){width="\linewidth"}
 
 [0.45]{} ![Uniform
-sampling[]{data-label="fig:scores_uniform"}](Study_1/1.1/total_scores1_1.png "fig:"){width="\linewidth"}
+sampling[]{data-label="fig:scores_uniform"}](report/Study_1/1.1/total_scores1_1.png "fig:"){width="\linewidth"}
 
 Figure \[fig:scores\_uniform\] shows the score reached by DDPG for each
 replay buffer size, as we can see, the score seems to be converging
@@ -482,10 +479,10 @@ representative of the environment. For example in Figure
 size 16, there was no experience in the top left corner.
 
 [0.45]{} ![Optimal Actor Critic output for a 64k replay
-buffer[]{data-label="fig:64k_policy"}](Study_1/policy/Pi_arrow_65536.png "fig:"){width="\linewidth"}
+buffer[]{data-label="fig:64k_policy"}](report/Study_1/policy/Pi_arrow_65536.png "fig:"){width="\linewidth"}
 
 [0.45]{} ![Optimal Actor Critic output for a 64k replay
-buffer[]{data-label="fig:64k_policy"}](Study_1/policy/Q_contour_65536.png "fig:"){width="\linewidth"}
+buffer[]{data-label="fig:64k_policy"}](report/Study_1/policy/Q_contour_65536.png "fig:"){width="\linewidth"}
 
 Figure \[fig:64k\_policy\] show us the optimal policy and the associated
 action value learned by DDPG after 100k learning timesteps on a 64k
@@ -531,13 +528,13 @@ Parameters for this experiment:
 -   `--exploration_timesteps=` $2^3, 2^4, 2^6, 2^8, 2^{10}$
 
 [0.3]{} ![Random walk replay
-buffer[]{data-label="fig:buffers_random_walk"}](Study_1/buffer/sequential_16.png "fig:"){width="\linewidth"}
+buffer[]{data-label="fig:buffers_random_walk"}](report/Study_1/buffer/sequential_16.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Random walk replay
-buffer[]{data-label="fig:buffers_random_walk"}](Study_1/buffer/sequential_256.png "fig:"){width="\linewidth"}
+buffer[]{data-label="fig:buffers_random_walk"}](report/Study_1/buffer/sequential_256.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Random walk replay
-buffer[]{data-label="fig:buffers_random_walk"}](Study_1/buffer/sequential_4096.png "fig:"){width="\linewidth"}
+buffer[]{data-label="fig:buffers_random_walk"}](report/Study_1/buffer/sequential_4096.png "fig:"){width="\linewidth"}
 
 Figure \[fig:buffers\_random\_walk\] shows replay buffer filled by
 random walk exploration. And on the contrary to the uniform sampling
@@ -549,10 +546,10 @@ results, but bigger the replay buffer will be much more the results
 should approach the results of replay buffer uniformly sampled.
 
 [0.45]{} ![Random walk
-exploration[]{data-label="fig:scores_random_walk"}](Study_1/1.2/curves1_2.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:scores_random_walk"}](report/Study_1/1.2/curves1_2.png "fig:"){width="\linewidth"}
 
 [0.45]{} ![Random walk
-exploration[]{data-label="fig:scores_random_walk"}](Study_1/1.2/total_scores1_2.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:scores_random_walk"}](report/Study_1/1.2/total_scores1_2.png "fig:"){width="\linewidth"}
 
 On the contrary to the study with uniform sampling, here there is a
 significant increase of the score according to the replay buffer size.
@@ -592,22 +589,22 @@ we can visualize the content of a replay buffer to see the explored
 regions with the different exploration schemes and filter positions.
 
 [0.3]{} ![Sample filtered replay
-buffers](Study_2/visualizations/uniform.png "fig:"){width="\linewidth"}
+buffers](report/Study_2/visualizations/uniform.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample filtered replay
-buffers](Study_2/2.1/visualizations/uniform-center.png "fig:"){width="\linewidth"}
+buffers](report/Study_2/2.1/visualizations/uniform-center.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample filtered replay
-buffers](Study_2/2.3/visualizations/uniform-corner.png "fig:"){width="\linewidth"}
+buffers](report/Study_2/2.3/visualizations/uniform-corner.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample filtered replay
-buffers](Study_2/visualizations/sequential.png "fig:"){width="\linewidth"}
+buffers](report/Study_2/visualizations/sequential.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample filtered replay
-buffers](Study_2/2.2/visualizations/sequential-center.png "fig:"){width="\linewidth"}
+buffers](report/Study_2/2.2/visualizations/sequential-center.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample filtered replay
-buffers](Study_2/2.4/visualizations/sequential-corner.png "fig:"){width="\linewidth"}
+buffers](report/Study_2/2.4/visualizations/sequential-corner.png "fig:"){width="\linewidth"}
 
 \[fig:filter\_random\_walk\]
 
@@ -661,7 +658,7 @@ Parameters for this experiment:
 exploration[]{data-label="fig:center_curves_uniform"}](Study_2/2.1/visualizations/scores_filter_size.png "fig:"){width="\linewidth"}
 
 [0.4]{} ![center filter with uniform
-exploration[]{data-label="fig:center_curves_uniform"}](Study_2/2.1/visualizations/total_scores.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:center_curves_uniform"}](report/Study_2/2.1/visualizations/total_scores.png "fig:"){width="\linewidth"}
 
 In Figure \[fig:center\_curves\_uniform\] we cannot see any significant
 difference on the performance achieved according to the filter size. It
@@ -671,13 +668,13 @@ filter. Please note that the $\Pi(s)$ visualizations are not included as
 they were all optimal.
 
 [0.3]{} ![Sample policies: center filter with uniform
-exploration[]{data-label="fig:center_contour_uniform"}](Study_2/2.1/visualizations/Q_contour_0_4.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:center_contour_uniform"}](report/Study_2/2.1/visualizations/Q_contour_0_4.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample policies: center filter with uniform
-exploration[]{data-label="fig:center_contour_uniform"}](Study_2/2.1/visualizations/Q_contour_0_8.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:center_contour_uniform"}](report/Study_2/2.1/visualizations/Q_contour_0_8.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample policies: center filter with uniform
-exploration[]{data-label="fig:center_contour_uniform"}](Study_2/2.1/visualizations/Q_contour_1_2.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:center_contour_uniform"}](report/Study_2/2.1/visualizations/Q_contour_1_2.png "fig:"){width="\linewidth"}
 
 DDPG with a uniform exploration is able to converge even when a
 significant proportion of the environment is left unexplored due to a
@@ -714,23 +711,23 @@ Parameters for this experiment:
 -   `--filter_size=0, 0.2, 0.4, 0.6, 0.8, 1, 1.2`
 
 [0.4]{} ![Center filter with random walk
-exploration[]{data-label="fig:center_curves_random_walk"}](Study_2/2.2/visualizations/scores_filter_size.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:center_curves_random_walk"}](report/Study_2/2.2/visualizations/scores_filter_size.png "fig:"){width="\linewidth"}
 
 [0.4]{} ![Center filter with random walk
-exploration[]{data-label="fig:center_curves_random_walk"}](Study_2/2.2/visualizations/total_scores.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:center_curves_random_walk"}](report/Study_2/2.2/visualizations/total_scores.png "fig:"){width="\linewidth"}
 
 The result are very similar to the previous case where no significant
 performance drop can be observed in Figure
 \[fig:center\_curves\_random\_walk\].
 
 [0.3]{} ![Sample policies : center filter with random walk
-exploration[]{data-label="fig:center_contour_random_walk"}](Study_2/2.2/visualizations/Q_contour_0_4.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:center_contour_random_walk"}](report/Study_2/2.2/visualizations/Q_contour_0_4.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample policies : center filter with random walk
-exploration[]{data-label="fig:center_contour_random_walk"}](Study_2/2.2/visualizations/Q_contour_0_8.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:center_contour_random_walk"}](report/Study_2/2.2/visualizations/Q_contour_0_8.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample policies : center filter with random walk
-exploration[]{data-label="fig:center_contour_random_walk"}](Study_2/2.2/visualizations/Q_contour_1_2.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:center_contour_random_walk"}](report/Study_2/2.2/visualizations/Q_contour_1_2.png "fig:"){width="\linewidth"}
 
 Figure \[fig:center\_contour\_random\_walk\] show us the resulting
 $Q(s, \Pi(s))$ for the same sample filter size value. Almost no
@@ -763,10 +760,10 @@ Parameters for this experiment:
 -   `--filter_size=0.4, 0.8, 1.2, 1.6, 2, 2.2`
 
 [0.4]{} ![corner filter with uniform
-exploration[]{data-label="fig:corner_curves_uniform"}](Study_2/2.3/visualizations/scores_filter_size.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:corner_curves_uniform"}](report/Study_2/2.3/visualizations/scores_filter_size.png "fig:"){width="\linewidth"}
 
 [0.4]{} ![corner filter with uniform
-exploration[]{data-label="fig:corner_curves_uniform"}](Study_2/2.3/visualizations/total_scores.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:corner_curves_uniform"}](report/Study_2/2.3/visualizations/total_scores.png "fig:"){width="\linewidth"}
 
 We can observe the expected performance drop in Figure
 \[fig:corner\_curves\_uniform\] when the filter size exceeds 2.0 while
@@ -774,22 +771,22 @@ the sizes below do not seem to affect the performance in any significant
 way.
 
 [0.3]{} ![Sample policies : corner filter with uniform
-exploration[]{data-label="fig:corner_contour_uniform"}](Study_2/2.3/visualizations/Q_contour_0_4.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:corner_contour_uniform"}](report/Study_2/2.3/visualizations/Q_contour_0_4.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample policies : corner filter with uniform
-exploration[]{data-label="fig:corner_contour_uniform"}](Study_2/2.3/visualizations/Q_contour_0_8.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:corner_contour_uniform"}](report/Study_2/2.3/visualizations/Q_contour_0_8.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample policies : corner filter with uniform
-exploration[]{data-label="fig:corner_contour_uniform"}](Study_2/2.3/visualizations/Q_contour_1_2.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:corner_contour_uniform"}](report/Study_2/2.3/visualizations/Q_contour_1_2.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample policies : corner filter with uniform
-exploration[]{data-label="fig:corner_contour_uniform"}](Study_2/2.3/visualizations/Q_contour_1_6.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:corner_contour_uniform"}](report/Study_2/2.3/visualizations/Q_contour_1_6.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample policies : corner filter with uniform
-exploration[]{data-label="fig:corner_contour_uniform"}](Study_2/2.3/visualizations/Q_contour_2_0.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:corner_contour_uniform"}](report/Study_2/2.3/visualizations/Q_contour_2_0.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample policies : corner filter with uniform
-exploration[]{data-label="fig:corner_contour_uniform"}](Study_2/2.3/visualizations/Q_contour_2_2.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:corner_contour_uniform"}](report/Study_2/2.3/visualizations/Q_contour_2_2.png "fig:"){width="\linewidth"}
 
 In Figure \[fig:corner\_contour\_uniform\] we have the resulting
 $Q(s, \Pi(s))$ for each filter size value. As we can see, until the
@@ -807,10 +804,10 @@ Here are the gradient field visualizations of the actor’s decisions for
 the 2.0 and 2.2
 
 [0.35]{} ![Sample policies : 2.0 and 2.2
-radius[]{data-label="samples_policies_uniform_corner"}](Study_2/2.3/visualizations/Pi_arrow_2_0.png "fig:"){width="\linewidth"}
+radius[]{data-label="samples_policies_uniform_corner"}](report/Study_2/2.3/visualizations/Pi_arrow_2_0.png "fig:"){width="\linewidth"}
 
 [0.35]{} ![Sample policies : 2.0 and 2.2
-radius[]{data-label="samples_policies_uniform_corner"}](Study_2/2.3/visualizations/Pi_arrow_2_2.png "fig:"){width="\linewidth"}
+radius[]{data-label="samples_policies_uniform_corner"}](report/Study_2/2.3/visualizations/Pi_arrow_2_2.png "fig:"){width="\linewidth"}
 
 It now becomes clear with Figure \[samples\_policies\_uniform\_corner\]
 why the 2.0 and 2.2 radius filters have such different impact on the
@@ -844,32 +841,32 @@ Parameters for this experiment:
 -   `--filter_size=0.4, 0.8, 1.2, 1.6, 2, 2.2`
 
 [0.4]{} ![corner filter with random walk
-exploration[]{data-label="fig:corner_curves_random_walk"}](Study_2/2.4/visualizations/scores_filter_size.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:corner_curves_random_walk"}](report/Study_2/2.4/visualizations/scores_filter_size.png "fig:"){width="\linewidth"}
 
 [0.4]{} ![corner filter with random walk
-exploration[]{data-label="fig:corner_curves_random_walk"}](Study_2/2.4/visualizations/total_scores.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:corner_curves_random_walk"}](report/Study_2/2.4/visualizations/total_scores.png "fig:"){width="\linewidth"}
 
 The same performance drop is clearly present in Figure
 \[fig:corner\_curves\_random\_walk\], with the 2.0 and 2.2 radius
 filters.
 
 [0.3]{} ![Sample policies : corner filter with random walk
-exploration[]{data-label="fig:corner_contour_random_walk"}](Study_2/2.4/visualizations/Q_contour_0_4.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:corner_contour_random_walk"}](reprot/Study_2/2.4/visualizations/Q_contour_0_4.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample policies : corner filter with random walk
-exploration[]{data-label="fig:corner_contour_random_walk"}](Study_2/2.4/visualizations/Q_contour_0_8.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:corner_contour_random_walk"}](report/Study_2/2.4/visualizations/Q_contour_0_8.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample policies : corner filter with random walk
-exploration[]{data-label="fig:corner_contour_random_walk"}](Study_2/2.4/visualizations/Q_contour_1_2.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:corner_contour_random_walk"}](report/Study_2/2.4/visualizations/Q_contour_1_2.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample policies : corner filter with random walk
-exploration[]{data-label="fig:corner_contour_random_walk"}](Study_2/2.4/visualizations/Q_contour_1_6.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:corner_contour_random_walk"}](report/Study_2/2.4/visualizations/Q_contour_1_6.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample policies : corner filter with random walk
-exploration[]{data-label="fig:corner_contour_random_walk"}](Study_2/2.4/visualizations/Q_contour_2_0.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:corner_contour_random_walk"}](report/Study_2/2.4/visualizations/Q_contour_2_0.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample policies : corner filter with random walk
-exploration[]{data-label="fig:corner_contour_random_walk"}](Study_2/2.4/visualizations/Q_contour_2_2.png "fig:"){width="\linewidth"}
+exploration[]{data-label="fig:corner_contour_random_walk"}](report/Study_2/2.4/visualizations/Q_contour_2_2.png "fig:"){width="\linewidth"}
 
 As we can see in Figure \[fig:corner\_contour\_random\_walk\] the policy
 is impacted earlier, around 1.2 a shift is noticeable. The sized above
@@ -877,13 +874,13 @@ increase that effect and when the 2.0 radius is used we start noticing
 that the Q values estimations are vanishing as in the previous study.
 
 [0.3]{} ![Sample policies : 1.6, 2.0 and 2.2
-radius[]{data-label="fig:sample_policies_corner_sequential"}](Study_2/2.4/visualizations/Pi_arrow_1_6.png "fig:"){width="\linewidth"}
+radius[]{data-label="fig:sample_policies_corner_sequential"}](report/Study_2/2.4/visualizations/Pi_arrow_1_6.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample policies : 1.6, 2.0 and 2.2
-radius[]{data-label="fig:sample_policies_corner_sequential"}](Study_2/2.4/visualizations/Pi_arrow_2_0.png "fig:"){width="\linewidth"}
+radius[]{data-label="fig:sample_policies_corner_sequential"}](report/Study_2/2.4/visualizations/Pi_arrow_2_0.png "fig:"){width="\linewidth"}
 
 [0.3]{} ![Sample policies : 1.6, 2.0 and 2.2
-radius[]{data-label="fig:sample_policies_corner_sequential"}](Study_2/2.4/visualizations/Pi_arrow_2_2.png "fig:"){width="\linewidth"}
+radius[]{data-label="fig:sample_policies_corner_sequential"}](report/Study_2/2.4/visualizations/Pi_arrow_2_2.png "fig:"){width="\linewidth"}
 
 In Figure \[fig:sample\_policies\_corner\_sequential\] the 1.6 radius
 filter visualizations show again a gap between the Actor and the Critic
@@ -926,11 +923,11 @@ Parameters for this experiment:
 
 [0.45]{} ![Scores according to the number of dimensions with half low
 rewards and half high
-rewards[]{data-label="fig:curves_dimensions_half_norm"}](Study_3/half_norm/scores_dimensions.png "fig:"){width="\linewidth"}
+rewards[]{data-label="fig:curves_dimensions_half_norm"}](report/Study_3/half_norm/scores_dimensions.png "fig:"){width="\linewidth"}
 
 [0.45]{} ![Scores according to the number of dimensions with half low
 rewards and half high
-rewards[]{data-label="fig:curves_dimensions_half_norm"}](Study_3/half_norm/total_scores.png "fig:"){width="\linewidth"}
+rewards[]{data-label="fig:curves_dimensions_half_norm"}](report/Study_3/half_norm/total_scores.png "fig:"){width="\linewidth"}
 
 The results shown in Figure \[fig:curves\_dimensions\_half\_norm\] do
 not enable us to validate our hypothesis because the agent seems not to
@@ -981,11 +978,11 @@ Parameters for this experiment:
 
 [0.45]{} ![Scores according to the number of dimensions with half low
 rewards and half high
-rewards[]{data-label="fig:curves_dimensions_half_reset_norm"}](Study_3/half_reset_norm/scores_dimensions.png "fig:"){width="\linewidth"}
+rewards[]{data-label="fig:curves_dimensions_half_reset_norm"}](report/Study_3/half_reset_norm/scores_dimensions.png "fig:"){width="\linewidth"}
 
 [0.47]{} ![Scores according to the number of dimensions with half low
 rewards and half high
-rewards[]{data-label="fig:curves_dimensions_half_reset_norm"}](Study_3/half_reset_norm/total_scores.png "fig:"){width="\linewidth"}
+rewards[]{data-label="fig:curves_dimensions_half_reset_norm"}](report/Study_3/half_reset_norm/total_scores.png "fig:"){width="\linewidth"}
 
 Now the result shown in Figure
 \[fig:curves\_dimensions\_half\_reset\_norm\] is slightly different, we
@@ -1033,11 +1030,11 @@ Parameters for this experiment:
 
 [0.45]{} ![Scores according to the number of dimensions with half low
 rewards and half high
-rewards[]{data-label="fig:curves_dimensions_half_reset_indept"}](Study_3/half_reset_indept/scores_dimensions.png "fig:"){width="\linewidth"}
+rewards[]{data-label="fig:curves_dimensions_half_reset_indept"}](report/Study_3/half_reset_indept/scores_dimensions.png "fig:"){width="\linewidth"}
 
 [0.47]{} ![Scores according to the number of dimensions with half low
 rewards and half high
-rewards[]{data-label="fig:curves_dimensions_half_reset_indept"}](Study_3/half_reset_indept/total_scores.png "fig:"){width="\linewidth"}
+rewards[]{data-label="fig:curves_dimensions_half_reset_indept"}](report/Study_3/half_reset_indept/total_scores.png "fig:"){width="\linewidth"}
 
 In Figure \[fig:curves\_dimensions\_half\_reset\_indept\] we can see
 that the convergence rate seems to increase with the number of
@@ -1065,7 +1062,7 @@ different size on environment we consider that a policy is optimal when
 the agent reach a an average score of $0.8$ rewards per step.
 
 ![Convergence time according to the number of
-dimensions[]{data-label="fig:convergence"}](Study_3/half_convergence_reset_indept/convergences.png){width="0.5\linewidth"}
+dimensions[]{data-label="fig:convergence"}](reprot/Study_3/half_convergence_reset_indept/convergences.png){width="0.5\linewidth"}
 
 Figure \[fig:convergence\] shows that the average timesteps needed to
 reach the optimal policy seems to decrease linearly while the number of
@@ -1106,11 +1103,11 @@ Parameters for this experiment:
 
 [0.45]{} ![Scores according to the number of dimensions with one low
 reward and one high
-reward[]{data-label="fig:curves_dimensions_one"}](Study_3/one_reset_indept/scores_dimensions.png "fig:"){width="\linewidth"}
+reward[]{data-label="fig:curves_dimensions_one"}](report/Study_3/one_reset_indept/scores_dimensions.png "fig:"){width="\linewidth"}
 
 [0.47]{} ![Scores according to the number of dimensions with one low
 reward and one high
-reward[]{data-label="fig:curves_dimensions_one"}](Study_3/one_reset_indept/total_scores.png "fig:"){width="\linewidth"}
+reward[]{data-label="fig:curves_dimensions_one"}](report/Study_3/one_reset_indept/total_scores.png "fig:"){width="\linewidth"}
 
 Figure \[fig:curves\_dimensions\_one\] shows the performances achieved
 during the whole learning process per dimension. As we can see, the
