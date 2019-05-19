@@ -460,7 +460,7 @@ On the contrary to the study with uniform sampling, here there is a significant 
 
 \subsection{Study 2: Filtered replay buffer}
 
-In this study, we analyse the influence of a filtered replay buffer on the performances of DDPG on a 2 dimensional environment in order to test the limits of function approximators  in different environment configurations \cite{schaul_universal_2015}. The filter imposes a circular unexplored region in the environment. The flag $--no_new_exp$ is set for the whole study.
+In this study, we analyse the influence of a filtered replay buffer on the performances of DDPG on a 2 dimensional environment in order to test the limits of function approximators  in different environment configurations \cite{schaul_universal_2015}. The filter imposes a circular unexplored region in the environment. The flag \lstinline|--no_new_exp| is set for the whole study.
 
 Several configurations are studied, where we act on the filter position and size while using different exploration schemes. For each of them the learning timesteps parameter is set to 100k, on a replay buffer that can contain up to 4096 steps.
 
@@ -788,7 +788,7 @@ The same performance drop is clearly present in Figure  \ref{fig:corner_curves_r
  
  In Figure \ref{fig:sample_policies_corner_sequential} the 1.6 radius filter visualizations show again a gap between the Actor and the Critic representation of the observation space. On the 2.0 and 2.2 filter size have their actions directed to the bottom left corner where only the low reward is present which explains the lower score. Those approximations errors might be reduced by using an algorithm reducing the approximations errors such as TD3 \cite{fujimoto_addressing_2018}.
  
-\subsection{Study 3: Number of dimensions of the environement}
+\subsection{Study 3: Number of dimensions in the environment}
 
 In this study we analyze the influence of the number of dimensions in the environment on the overall performances of DDPG.
 
