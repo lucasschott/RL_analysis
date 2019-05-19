@@ -15,7 +15,7 @@ environment with 4096 dimensions.
 
 Parameters for this experiment:
 
--   `--dimensions=` $2^0, 2^2, 2^4, 2^6, 2^8, 2^{10}, 2^{12}, 2^{14}$
+-   `--dimensions=` 2^0, 2^2, 2^4, 2^6, 2^8, 2^10, 2^12, 2^14
 
 -   `--learning_timesteps=5k`
 
@@ -63,7 +63,7 @@ environment.
 
 Parameters for this experiment:
 
--   `--dimensions=` $2^0, 2^2, 2^4, 2^6, 2^8, 2^{10}$
+-   `--dimensions=` 2^0, 2^2, 2^4, 2^6, 2^8, 2^10
 
 -   `--learning_timesteps=5k`
 
@@ -110,7 +110,7 @@ a single dimension, the agent would find the rewards as easily.
 
 Parameters for this experiment:
 
--   `--dimensions=` $2^0, 2^1, 2^2, 2^3, 2^4, 2^5, 2^6, 2^7$
+-   `--dimensions=` 2^0, 2^1, 2^2, 2^3, 2^4, 2^5, 2^6, 2^7
 
 -   `--learning_timesteps=5k`
 
@@ -173,7 +173,7 @@ first dimension makes the learning harder or not.
 
 Parameters for this experiment:
 
--   `--dimensions=` $2^0, 2^1, 2^2, 2^3, 2^4, 2^5, 2^6, 2^7$
+-   `--dimensions=` 2^0, 2^1, 2^2, 2^3, 2^4, 2^5, 2^6, 2^7
 
 -   `--learning_timesteps=5k`
 
