@@ -17,7 +17,7 @@ The environment being 2 dimensional where each dimension $d\in[-1,1]$,
 we can visualize the content of a replay buffer to see the explored
 regions with the different exploration schemes and filter positions.
 
-![Sample filtered replay buffers](../../report/Study_2/visualizations/uniform.png "fig:") | ![Sample filtered replay buffers](report/Study_2/2.1/visualizations/uniform-center.png "fig:") | ![Sample filtered replay buffers](../../report/Study_2/2.3/visualizations/uniform-corner.png "fig:")
+![Sample filtered replay buffers](../../report/Study_2/visualizations/uniform.png "fig:") | ![Sample filtered replay buffers](../../report/Study_2/2.1/visualizations/uniform-center.png "fig:") | ![Sample filtered replay buffers](../../report/Study_2/2.3/visualizations/uniform-corner.png "fig:")
 |----------|-----------|-----------|
 ![Sample filtered replay buffers](../../report/Study_2/visualizations/sequential.png "fig:") | ![Sample filtered replay buffers](../../report/Study_2/2.2/visualizations/sequential-center.png "fig:") | ![Sample filtered replay buffers](../../report/Study_2/2.4/visualizations/sequential-corner.png "fig:")
 
