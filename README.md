@@ -1,6 +1,6 @@
 # Project : Evaluation environment for deep reinforcement learning algorithm analysis
     
-## author:
+## Authors:
 Hector Roussille 
 Sorbonne University 
 Paris, France 
@@ -17,7 +17,7 @@ Sorbonne University
 Paris, France
 Olivier.Sigaud@upmc.fr
     
-## abstract:
+## Abstract:
 We analyze the Deep Deterministic Policy Gradient algorithm (DDPG),
 which is a deep reinforcement learning algorithm (RL) with continuous
 action space control, on a basic evaluation environment to see the
