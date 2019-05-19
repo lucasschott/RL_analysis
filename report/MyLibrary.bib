@@ -1,0 +1,183 @@
+
+@article{lillicrap_continuous_2015,
+	title = {Continuous control with deep reinforcement learning},
+	url = {http://arxiv.org/abs/1509.02971},
+	abstract = {We adapt the ideas underlying the success of Deep Q-Learning to the continuous action domain. We present an actor-critic, model-free algorithm based on the deterministic policy gradient that can operate over continuous action spaces. Using the same learning algorithm, network architecture and hyper-parameters, our algorithm robustly solves more than 20 simulated physics tasks, including classic problems such as cartpole swing-up, dexterous manipulation, legged locomotion and car driving. Our algorithm is able to ﬁnd policies whose performance is competitive with those found by a planning algorithm with full access to the dynamics of the domain and its derivatives. We further demonstrate that for many of the tasks the algorithm can learn policies “end-to-end”: directly from raw pixel inputs.},
+	language = {en},
+	urldate = {2019-03-17},
+	journal = {arXiv:1509.02971 [cs, stat]},
+	author = {Lillicrap, Timothy P. and Hunt, Jonathan J. and Pritzel, Alexander and Heess, Nicolas and Erez, Tom and Tassa, Yuval and Silver, David and Wierstra, Daan},
+	month = sep,
+	year = {2015},
+	keywords = {Computer Science - Machine Learning, Statistics - Machine Learning},
+	annote = {Comment: 10 pages + supplementary},
+	file = {Lillicrap et al. - 2015 - Continuous control with deep reinforcement learnin.pdf:/home/schott97l/Zotero/storage/ZVZKVLWE/Lillicrap et al. - 2015 - Continuous control with deep reinforcement learnin.pdf:application/pdf}
+}
+
+@article{schaul_universal_2015,
+	title = {Universal {Value} {Function} {Approximators}},
+	abstract = {Value functions are a core component of reinforcement learning systems. The main idea is to to construct a single function approximator V (s; θ) that estimates the long-term reward from any state s, using parameters θ. In this paper we introduce universal value function approximators (UVFAs) V (s, g; θ) that generalise not just over states s but also over goals g. We develop an efﬁcient technique for supervised learning of UVFAs, by factoring observed values into separate embedding vectors for state and goal, and then learning a mapping from s and g to these factored embedding vectors. We show how this technique may be incorporated into a reinforcement learning algorithm that updates the UVFA solely from observed rewards. Finally, we demonstrate that a UVFA can successfully generalise to previously unseen goals.},
+	language = {en},
+	author = {Schaul, Tom and Horgan, Dan and Gregor, Karol and Silver, David},
+	month = jul,
+	year = {2015},
+	pages = {9},
+	file = {Schaul et al. - Universal Value Function Approximators.pdf:/home/schott97l/Zotero/storage/I8FYPYF5/Schaul et al. - Universal Value Function Approximators.pdf:application/pdf}
+}
+
+@article{andrychowicz_hindsight_2017,
+	title = {Hindsight {Experience} {Replay}},
+	abstract = {Dealing with sparse rewards is one of the biggest challenges in Reinforcement Learning (RL). We present a novel technique called Hindsight Experience Replay which allows sample-efﬁcient learning from rewards which are sparse and binary and therefore avoid the need for complicated reward engineering. It can be combined with an arbitrary off-policy RL algorithm and may be seen as a form of implicit curriculum. We demonstrate our approach on the task of manipulating objects with a robotic arm. In particular, we run experiments on three different tasks: pushing, sliding, and pick-and-place, in each case using only binary rewards indicating whether or not the task is completed. Our ablation studies show that Hindsight Experience Replay is a crucial ingredient which makes training possible in these challenging environments. We show that our policies trained on a physics simulation can be deployed on a physical robot and successfully complete the task. The video presenting our experiments is available at https://goo.gl/SMrQnI.},
+	language = {en},
+	author = {Andrychowicz, Marcin and Crow, Dwight and Ray, Alex and Schneider, Jonas and Fong, Rachel and Welinder, Peter and McGrew, Bob and Tobin, Josh and Abbeel, OpenAI Pieter and Zaremba, Wojciech},
+	year = {2017},
+	pages = {11},
+	file = {Andrychowicz et al. - Hindsight Experience Replay.pdf:/home/schott97l/Zotero/storage/YHAY3UII/Andrychowicz et al. - Hindsight Experience Replay.pdf:application/pdf}
+}
+
+@article{fujimoto_off-policy_2018,
+	title = {Off-{Policy} {Deep} {Reinforcement} {Learning} without {Exploration}},
+	url = {http://arxiv.org/abs/1812.02900},
+	abstract = {Many practical applications of reinforcement learning constrain agents to learn from a ﬁxed batch of data which has already been gathered, without offering further possibility for data collection. In this paper, we demonstrate that due to errors introduced by extrapolation, standard offpolicy deep reinforcement learning algorithms, such as DQN and DDPG, are incapable of learning with data uncorrelated to the distribution under the current policy, making them ineffective for this ﬁxed batch setting. We introduce a novel class of off-policy algorithms, batch-constrained reinforcement learning, which restricts the action space in order to force the agent towards behaving close to on-policy with respect to a subset of the given data. We present the ﬁrst continuous control deep reinforcement learning algorithm which can learn effectively from arbitrary, ﬁxed batch data, and empirically demonstrate the quality of its behavior in several tasks.},
+	language = {en},
+	urldate = {2019-03-18},
+	journal = {arXiv:1812.02900 [cs, stat]},
+	author = {Fujimoto, Scott and Meger, David and Precup, Doina},
+	month = dec,
+	year = {2018},
+	keywords = {Computer Science - Machine Learning, Statistics - Machine Learning, Computer Science - Artificial Intelligence},
+	file = {Fujimoto et al. - 2018 - Off-Policy Deep Reinforcement Learning without Exp.pdf:/home/schott97l/Zotero/storage/HC6RNIHL/Fujimoto et al. - 2018 - Off-Policy Deep Reinforcement Learning without Exp.pdf:application/pdf}
+}
+
+@article{van_hasselt_deep_2018,
+	title = {Deep {Reinforcement} {Learning} and the {Deadly} {Triad}},
+	url = {http://arxiv.org/abs/1812.02648},
+	abstract = {We know from reinforcement learning theory that temporal difference learning can fail in certain cases. Sutton and Barto (2018) identify a deadly triad of function approximation, bootstrapping, and off-policy learning. When these three properties are combined, learning can diverge with the value estimates becoming unbounded. However, several algorithms successfully combine these three properties, which indicates that there is at least a partial gap in our understanding. In this work, we investigate the impact of the deadly triad in practice, in the context of a family of popular deep reinforcement learning models— deep Q-networks trained with experience replay—analysing how the components of this system play a role in the emergence of the deadly triad, and in the agent’s performance.},
+	language = {en},
+	urldate = {2019-03-18},
+	journal = {arXiv:1812.02648 [cs]},
+	author = {van Hasselt, Hado and Doron, Yotam and Strub, Florian and Hessel, Matteo and Sonnerat, Nicolas and Modayil, Joseph},
+	month = dec,
+	year = {2018},
+	keywords = {Computer Science - Machine Learning, Computer Science - Artificial Intelligence},
+	file = {van Hasselt et al. - 2018 - Deep Reinforcement Learning and the Deadly Triad.pdf:/home/schott97l/Zotero/storage/Z98DAFYQ/van Hasselt et al. - 2018 - Deep Reinforcement Learning and the Deadly Triad.pdf:application/pdf}
+}
+
+@article{fujimoto_addressing_2018,
+	title = {Addressing {Function} {Approximation} {Error} in {Actor}-{Critic} {Methods}},
+	url = {http://arxiv.org/abs/1802.09477},
+	abstract = {In value-based reinforcement learning methods such as deep Q-learning, function approximation errors are known to lead to overestimated value estimates and suboptimal policies. We show that this problem persists in an actor-critic setting and propose novel mechanisms to minimize its effects on both the actor and the critic. Our algorithm builds on Double Q-learning, by taking the minimum value between a pair of critics to limit overestimation. We draw the connection between target networks and overestimation bias, and suggest delaying policy updates to reduce per-update error and further improve performance. We evaluate our method on the suite of OpenAI gym tasks, outperforming the state of the art in every environment tested.},
+	language = {en},
+	urldate = {2019-03-18},
+	journal = {arXiv:1802.09477 [cs, stat]},
+	author = {Fujimoto, Scott and van Hoof, Herke and Meger, David},
+	month = feb,
+	year = {2018},
+	keywords = {Computer Science - Machine Learning, Statistics - Machine Learning, Computer Science - Artificial Intelligence},
+	annote = {Comment: Accepted at ICML 2018},
+	file = {Fujimoto et al. - 2018 - Addressing Function Approximation Error in Actor-C.pdf:/home/schott97l/Zotero/storage/75KA43N7/Fujimoto et al. - 2018 - Addressing Function Approximation Error in Actor-C.pdf:application/pdf}
+}
+
+@article{achiam_towards_2019,
+	title = {Towards {Characterizing} {Divergence} in {Deep} {Q}-{Learning}},
+	url = {http://arxiv.org/abs/1903.08894},
+	abstract = {Deep Q-Learning (DQL), a family of temporal difference algorithms for control, employs three techniques collectively known as the ‘deadly triad’ in reinforcement learning: bootstrapping, off-policy learning, and function approximation. Prior work has demonstrated that together these can lead to divergence in Q-learning algorithms, but the conditions under which divergence occurs are not well-understood. In this note, we give a simple analysis based on a linear approximation to the Q-value updates, which we believe provides insight into divergence under the deadly triad. The central point in our analysis is to consider when the leading order approximation to the deep-Q update is or is not a contraction in the sup norm. Based on this analysis, we develop an algorithm which permits stable deep Q-learning for continuous control without any of the tricks conventionally used (such as target networks, adaptive gradient optimizers, or using multiple Q functions). We demonstrate that our algorithm performs above or near state-of-the-art on standard MuJoCo benchmarks from the OpenAI Gym.},
+	language = {en},
+	urldate = {2019-03-28},
+	journal = {arXiv:1903.08894 [cs]},
+	author = {Achiam, Joshua and Knight, Ethan and Abbeel, Pieter},
+	month = mar,
+	year = {2019},
+	keywords = {Computer Science - Machine Learning, Computer Science - Artificial Intelligence},
+	file = {Achiam et al. - 2019 - Towards Characterizing Divergence in Deep Q-Learni.pdf:/home/schott97l/Zotero/storage/ANVHAT2Q/Achiam et al. - 2019 - Towards Characterizing Divergence in Deep Q-Learni.pdf:application/pdf}
+}
+
+@article{mnih_playing_2013,
+	title = {Playing {Atari} with {Deep} {Reinforcement} {Learning}},
+	url = {http://arxiv.org/abs/1312.5602},
+	abstract = {We present the ﬁrst deep learning model to successfully learn control policies directly from high-dimensional sensory input using reinforcement learning. The model is a convolutional neural network, trained with a variant of Q-learning, whose input is raw pixels and whose output is a value function estimating future rewards. We apply our method to seven Atari 2600 games from the Arcade Learning Environment, with no adjustment of the architecture or learning algorithm. We ﬁnd that it outperforms all previous approaches on six of the games and surpasses a human expert on three of them.},
+	language = {en},
+	urldate = {2019-03-31},
+	journal = {arXiv:1312.5602 [cs]},
+	author = {Mnih, Volodymyr and Kavukcuoglu, Koray and Silver, David and Graves, Alex and Antonoglou, Ioannis and Wierstra, Daan and Riedmiller, Martin},
+	month = dec,
+	year = {2013},
+	keywords = {Computer Science - Machine Learning},
+	annote = {Comment: NIPS Deep Learning Workshop 2013},
+	file = {Mnih et al. - 2013 - Playing Atari with Deep Reinforcement Learning.pdf:/home/schott97l/Zotero/storage/9V32ZMHR/Mnih et al. - 2013 - Playing Atari with Deep Reinforcement Learning.pdf:application/pdf}
+}
+
+@misc{fujimoto_pytorch_2019,
+	title = {{PyTorch} implementation of {TD}3 and {DDPG} for {OpenAI} gym tasks: sfujim/{TD}3},
+	shorttitle = {{PyTorch} implementation of {TD}3 and {DDPG} for {OpenAI} gym tasks},
+	url = {https://github.com/sfujim/TD3},
+	urldate = {2019-04-01},
+	author = {Fujimoto, Scott},
+	month = mar,
+	year = {2019},
+	note = {original-date: 2018-02-22T18:15:37Z}
+}
+
+@misc{noauthor_toolkit_2019,
+	title = {A toolkit for developing and comparing reinforcement learning algorithms.: openai/gym},
+	copyright = {View license},
+	shorttitle = {A toolkit for developing and comparing reinforcement learning algorithms.},
+	url = {https://github.com/openai/gym},
+	urldate = {2019-04-01},
+	publisher = {OpenAI},
+	month = apr,
+	year = {2019},
+	note = {original-date: 2016-04-27T14:59:16Z}
+}
+
+@article{silver_deterministic_nodate,
+	title = {Deterministic {Policy} {Gradient} {Algorithms}},
+	abstract = {In this paper we consider deterministic policy gradient algorithms for reinforcement learning with continuous actions. The deterministic policy gradient has a particularly appealing form: it is the expected gradient of the action-value function. This simple form means that the deterministic policy gradient can be estimated much more efﬁciently than the usual stochastic policy gradient. To ensure adequate exploration, we introduce an off-policy actor-critic algorithm that learns a deterministic target policy from an exploratory behaviour policy. We demonstrate that deterministic policy gradient algorithms can signiﬁcantly outperform their stochastic counterparts in high-dimensional action spaces.},
+	language = {en},
+	author = {Silver, David and Lever, Guy and Heess, Nicolas and Degris, Thomas and Wierstra, Daan and Riedmiller, Martin},
+	pages = {9},
+	file = {Silver et al. - Deterministic Policy Gradient Algorithms.pdf:/home/schott97l/Zotero/storage/RVV5PT5S/Silver et al. - Deterministic Policy Gradient Algorithms.pdf:application/pdf}
+}
+
+@article{hoang_roadmap_2018,
+	title = {A {Roadmap} for {Robust} {End}-to-{End} {Alignment}},
+	url = {http://arxiv.org/abs/1809.01036},
+	abstract = {We analyze the AI alignment problem. This is the problem of aligning an AI’s objective function with human preferences. This problem has been argued to be critical to AI safety, especially in the long run. But it has also been argued that solving it robustly is extremely challenging, especially in highly complex environments like the Internet. It seems crucial to accelerate research in this direction.},
+	language = {en},
+	urldate = {2019-04-10},
+	journal = {arXiv:1809.01036 [cs]},
+	author = {Hoang, Lê Nguyên},
+	month = sep,
+	year = {2018},
+	keywords = {Computer Science - Artificial Intelligence},
+	annote = {Comment: 25 pages, 4 figures},
+	file = {Hoang - 2018 - A Roadmap for Robust End-to-End Alignment.pdf:/home/schott97l/Zotero/storage/T93RVK3M/Hoang - 2018 - A Roadmap for Robust End-to-End Alignment.pdf:application/pdf}
+}
+
+@article{amodei_concrete_2016,
+	title = {Concrete {Problems} in {AI} {Safety}},
+	url = {http://arxiv.org/abs/1606.06565},
+	abstract = {Rapid progress in machine learning and artiﬁcial intelligence (AI) has brought increasing attention to the potential impacts of AI technologies on society. In this paper we discuss one such potential impact: the problem of accidents in machine learning systems, deﬁned as unintended and harmful behavior that may emerge from poor design of real-world AI systems. We present a list of ﬁve practical research problems related to accident risk, categorized according to whether the problem originates from having the wrong objective function (“avoiding side eﬀects” and “avoiding reward hacking”), an objective function that is too expensive to evaluate frequently (“scalable supervision”), or undesirable behavior during the learning process (“safe exploration” and “distributional shift”). We review previous work in these areas as well as suggesting research directions with a focus on relevance to cutting-edge AI systems. Finally, we consider the high-level question of how to think most productively about the safety of forward-looking applications of AI.},
+	language = {en},
+	urldate = {2019-04-10},
+	journal = {arXiv:1606.06565 [cs]},
+	author = {Amodei, Dario and Olah, Chris and Steinhardt, Jacob and Christiano, Paul and Schulman, John and Mané, Dan},
+	month = jun,
+	year = {2016},
+	keywords = {Computer Science - Machine Learning, Computer Science - Artificial Intelligence},
+	annote = {Comment: 29 pages},
+	file = {Amodei et al. - 2016 - Concrete Problems in AI Safety.pdf:/home/schott97l/Zotero/storage/IW3NP2GM/Amodei et al. - 2016 - Concrete Problems in AI Safety.pdf:application/pdf}
+}
+
+@article{bellman_markovian_1957,
+	title = {A {Markovian} {Decision} {Process}},
+	volume = {6},
+	issn = {0022-2518},
+	language = {en},
+	number = {4},
+	journal = {IUMJAB},
+	author = {Bellman, Richard},
+	year = {1957},
+	pages = {679--684},
+	file = {56038(1).pdf:/home/schott97l/Zotero/storage/DX9KAXHY/56038(1).pdf:application/pdf}
+}

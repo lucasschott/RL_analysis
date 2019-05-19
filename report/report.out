@@ -1,0 +1,28 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Specifications}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Evaluation environment}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Algorithms}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Visualizations}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Studies}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Environment}{}% 7
+\BOOKMARK [1][-]{section.4}{Algorithm}{}% 8
+\BOOKMARK [1][-]{section.5}{User documentation}{}% 9
+\BOOKMARK [1][-]{section.6}{Studies}{}% 10
+\BOOKMARK [2][-]{subsection.6.1}{Theoretical modeling}{section.6}% 11
+\BOOKMARK [2][-]{subsection.6.2}{Experimental methodology}{section.6}% 12
+\BOOKMARK [2][-]{subsection.6.3}{Study 1: Score according to the replay buffer size}{section.6}% 13
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Uniform sampled replay buffer}{subsection.6.3}% 14
+\BOOKMARK [3][-]{subsubsection.6.3.2}{Random walk explored replay buffer}{subsection.6.3}% 15
+\BOOKMARK [2][-]{subsection.6.4}{Study 2:}{section.6}% 16
+\BOOKMARK [3][-]{subsubsection.6.4.1}{Uniform exploration and centered filter}{subsection.6.4}% 17
+\BOOKMARK [3][-]{subsubsection.6.4.2}{Random walk exploration and centered filter}{subsection.6.4}% 18
+\BOOKMARK [3][-]{subsubsection.6.4.3}{Uniform exploration and cornered filter}{subsection.6.4}% 19
+\BOOKMARK [3][-]{subsubsection.6.4.4}{Random walk exploration and cornered filter}{subsection.6.4}% 20
+\BOOKMARK [2][-]{subsection.6.5}{Study 3: score according to the number of dimensions}{section.6}% 21
+\BOOKMARK [3][-]{subsubsection.6.5.1}{High and low rewards on each dimension}{subsection.6.5}% 22
+\BOOKMARK [3][-]{subsubsection.6.5.2}{High and low rewards on each dimension with the respawn position centered in the environment}{subsection.6.5}% 23
+\BOOKMARK [3][-]{subsubsection.6.5.3}{High and low rewards on each dimension with the respawn position centered in the environment and independent actions}{subsection.6.5}% 24
+\BOOKMARK [3][-]{subsubsection.6.5.4}{High and low rewards on the first dimension only, with the respawn position centered in the environment and independent actions}{subsection.6.5}% 25
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 26
+\BOOKMARK [2][-]{subsection.7.1}{Results}{section.7}% 27
+\BOOKMARK [2][-]{subsection.7.2}{Future work}{section.7}% 28
