@@ -115,8 +115,8 @@ The agent must also be configurable:
 
     Friction $\mathbbm F(x)$ is then applied on the velocity vector with
     $f$ the friction parameter set to 0.001 :
-
-   ![alt text](https://raw.githubusercontent.com/schott97l/RL_analysis/master/imagesReadme/7.PNG)  
+    
+    ![alt text](https://raw.githubusercontent.com/schott97l/RL_analysis/master/imagesReadme/7.PNG)
 
     Clipping is applied to the velocity vector too with M the velocity
     boundary usually set to $K$:
