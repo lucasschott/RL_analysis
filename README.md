@@ -386,7 +386,7 @@ Study 2: Filtered replay buffer
 -------------------------------
 [README](https://github.com/schott97l/RL_analysis/blob/master/Studies/Study_2/README.md)
 
-Study 3: Number of dimensions in the environment
+Study 3: Number of dimensions of the environment
 -----------------------------
 [README](https://github.com/schott97l/RL_analysis/blob/master/Studies/Study_3/README.md)
 
