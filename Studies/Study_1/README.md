@@ -1,5 +1,5 @@
-Study 1: Score according to the replay buffer size
---------------------------------------------------
+Study 1: Size of the replay buffer
+----------------------------------
 
 According to [@fujimoto_off-policy_2018] a drawback of DDPG is that it
 has trouble learning from a fixed batch of experiences in a replay
