@@ -1195,3 +1195,37 @@ Adding more complexity and configurability to the environment would also
 allow for deeper studies. By introducing a dependence between the
 different dimensions and more reward distribution patterns to further
 investigate the abilities and limits of DDPG.
+
+## References
+
+[1] S. Fujimoto, D. Meger, and D. Precup, “Off-Policy Deep Reinforcement Learning without Exploration,”
+arXiv:1812.02900 [cs, stat], Dec. 2018.
+
+[2] “A toolkit for developing and comparing reinforcement learning algorithms.: openai/gym,” Apr. 2019. original-
+date: 2016-04-27T14:59:16Z.
+
+[3] S. Fujimoto, “PyTorch implementation of TD3 and DDPG for OpenAI gym tasks: sfujim/TD3,” Mar. 2019.
+original-date: 2018-02-22T18:15:37Z.
+
+[4] T. P. Lillicrap, J. J. Hunt, A. Pritzel, N. Heess, T. Erez, Y. Tassa, D. Silver, and D. Wierstra, “Continuous control
+with deep reinforcement learning,” arXiv:1509.02971 [cs, stat], Sept. 2015.
+
+[5] V. Mnih, K. Kavukcuoglu, D. Silver, A. Graves, I. Antonoglou, D. Wierstra, and M. Riedmiller, “Playing Atari
+with Deep Reinforcement Learning,” arXiv:1312.5602 [cs], Dec. 2013.
+
+[6] R. Bellman, “A Markovian Decision Process,” IUMJAB, vol. 6, no. 4, pp. 679–684, 1957.
+
+[7] T. Schaul, D. Horgan, K. Gregor, and D. Silver, “Universal Value Function Approximators,” p. 9, July 2015.
+21M AY 19, 2019
+
+[8] S. Fujimoto, H. van Hoof, and D. Meger, “Addressing Function Approximation Error in Actor-Critic Methods,”
+arXiv:1802.09477 [cs, stat], Feb. 2018.
+
+[9] J. Achiam, E. Knight, and P. Abbeel, “Towards Characterizing Divergence in Deep Q-Learning,” arXiv:1903.08894
+[cs], Mar. 2019.
+
+[10] M. Andrychowicz, D. Crow, A. Ray, J. Schneider, R. Fong, P. Welinder, B. McGrew, J. Tobin, O. P. Abbeel, and
+W. Zaremba, “Hindsight Experience Replay,” p. 11, 2017.
+
+[11] H. van Hasselt, Y. Doron, F. Strub, M. Hessel, N. Sonnerat, and J. Modayil, “Deep Reinforcement Learning and
+the Deadly Triad,” arXiv:1812.02648 [cs], Dec. 2018.
