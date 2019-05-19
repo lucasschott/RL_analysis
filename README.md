@@ -275,8 +275,9 @@ environment:
 parameters:
 
   ---------------------- ----------------------------------------------- ---------------------------------------------------------------------------------------------------------
-  `--algorithm=<str>` | name of the algorithm to use, “TD3” or “DDPG” | default=“DDPG”
+  parameter| description | default
   |-------------|-------------|----------|
+  `--algorithm=<str>` | name of the algorithm to use, “TD3” or “DDPG” | default=“DDPG”
   `--seed=<int>` | seed for the random exploration | default=random
   `--dimensions=<int>` | number of dimensions of the environment | default=2“
   `--eval_freq=<int>` | how often (time steps) we evaluate | default=2e3
@@ -326,6 +327,8 @@ the previous script.
 parameters:
 
   ---------------------------- ----------------------------------------------- -------------------------------------------------------------------------------------------
+  parameter | description | default
+  |-------------|-------------|----------|
   `--algorithm=<str>` | name of the algorithm to use, “TD3” or “DDPG” | default=“DDPG”
   `--policy_directory=<str>` | | default=“results/models”
   `--dimensions=<int>` | number of dimensions of the environment | default=2“
